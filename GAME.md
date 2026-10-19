@@ -730,3 +730,14 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 71 – úvod pre nového hráča + hra na GitHub Pages
 - Nová hra začína krátkym návodom (7 krokov) v drevenom okienku dole: Osadníci → pridaj drevorubača → Stavať → postav chatu drevorubača pri lese → ťukni na hlavnú budovu (vylepšenia) → riadok s míľnikom. Každý krok čaká, kým to naozaj urobíš, a tlačidlo, na ktoré treba ťuknúť, zlato bliká. Dá sa kedykoľvek preskočiť; v Menu je tlačidlo Návod na zopakovanie.
 - Hra žije aj mimo Claude na GitHub Pages: https://offthewallhack.github.io/usage-of-empires/ (repozitár OffTheWallhack/usage-of-empires). Každý nový krok sa nahrá aj tam.
+
+## Krok 72 – hra pre hráčov: deň ×1, vyššie ceny, plynulejší mobil, ikona na plochu
+- Nová hra beží vždy normálnou rýchlosťou ×1. Tlačidlá rýchlosti a preskočenia noci sú len v Dev World (na testovanie).
+- Keďže sa v hre nedá zomrieť, postup je dlhší: v Novej hre stojí všetko oveľa viac.
+  · Budovy ×3 (napr. chata 60 dreva, krčma 90 dreva + 50 kameňa, píla 225 dreva + 100 kameňa + 8 železa), div ×1,5 (450 dreva, 375 kameňa, 90 zlata, 30 železa).
+  · Vylepšenia ×2,5, sklady ×2 (Sklad II 80 dreva + 40 kameňa, Sklad III 160 dreva + 120 kameňa + 10 železa), veky ×2, dekorácie ×2.
+  · Most ×3: Lešenie 60 dreva · Kamenný oblúk 90 kameňa + 30 dreva · Prístav 75 dreva + 45 kameňa + 12 železa.
+  · Chata drevorubača na začiatku potrebuje 24 dreva.
+  · Dev World má staré (lacné) ceny.
+- Mobil: hra sa kreslí najviac v dvojnásobnom rozlíšení (predtým až trojnásobnom) – menej záťaže, plynulejší chod a menej zahrievania, obraz stále ostrý.
+- Ikona na plochu: keď si stránku na GitHub Pages uložíš na plochu telefónu (Safari: Zdieľať → Pridať na plochu, Chrome: ⋮ → Pridať na plochu / Inštalovať), má ikonu s logom hry a názov „Empires“. Na Androide sa otvára na celú obrazovku ako aplikácia.
