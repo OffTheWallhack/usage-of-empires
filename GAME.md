@@ -741,3 +741,11 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
   · Dev World má staré (lacné) ceny.
 - Mobil: hra sa kreslí najviac v dvojnásobnom rozlíšení (predtým až trojnásobnom) – menej záťaže, plynulejší chod a menej zahrievania, obraz stále ostrý.
 - Ikona na plochu: keď si stránku na GitHub Pages uložíš na plochu telefónu (Safari: Zdieľať → Pridať na plochu, Chrome: ⋮ → Pridať na plochu / Inštalovať), má ikonu s logom hry a názov „Empires“. Na Androide sa otvára na celú obrazovku ako aplikácia.
+
+## Krok 73 – oprava okna staveniska + chodníky pod všetkými
+- Oprava: okno rozostavanej budovy (napr. chata drevorubača – staveniško) sa už nenaťahuje cez pol obrazovky. Je malé a stojí nad stavbou so šípkou, ako okná ostatných budov. Rovnako všetky ostatné jednoduché okná (osadník, staveniská…).
+- Hláška pri položení chaty drevorubača ukazuje správnu cenu (24 dreva).
+- Chodníky sa vychodia pod všetkými – osadníci, drevorubači, nosič aj Hrdina. Nosič s fúrikom ušliape len o trochu viac (2×, predtým 3×), takže chodník nevznikne len za fúrikom.
+- Cestička rastie pomaly a postupne (4 štádiá: 6 / 18 / 45 / 100 krokov) a keď tadiaľ nikto nechodí, pomaly zarastie.
+- Ľudia si radšej vyberajú už trochu ušliapanú trávu (aj skôr, než je vidno prvé štádium), takže sa chôdza zbieha do pár prirodzených chodníkov tam, kade naozaj často chodia.
+- Nové farby: tmavšia hnedá hlina, v strede vychodeného chodníka ešte tmavšia, sem-tam kamienok, okraj je suchá olivová tráva (predtým svetlá oranžová hlina a jasne zelený lem).
