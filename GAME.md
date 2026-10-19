@@ -726,3 +726,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Na mobile na šírku: spodný panel zmizne a jeho štyri tlačidlá (Osadníci, Stavať, Úlohy, Menu) sú malé ikony vpravo v hornej lište – ako menu v AoE2. Dole je voľno pre mapu, joystick a útoky. Okná (Osadníci, Stavať…) sa na šírku otvárajú vpravo, mapa ostane vidieť.
 - Ovládanie hrdinu v štýle hry: okrúhle drevené tlačidlá so zlatým lemom (Úder väčší so zlatým, Oheň s ohnivým lemom), bez klávesových skratiek na mobile. Joystick je bronzový kruh s tmavým podkladom.
 - Opravené prepočty výšky lišty pri zmenšenom UI (riadok s míľnikom sa už neschová pod lištu). Počty na tlačidlách dole sú v malom odznaku, neprekrývajú text.
+
+## Krok 71 – úvod pre nového hráča + hra na GitHub Pages
+- Nová hra začína krátkym návodom (7 krokov) v drevenom okienku dole: Osadníci → pridaj drevorubača → Stavať → postav chatu drevorubača pri lese → ťukni na hlavnú budovu (vylepšenia) → riadok s míľnikom. Každý krok čaká, kým to naozaj urobíš, a tlačidlo, na ktoré treba ťuknúť, zlato bliká. Dá sa kedykoľvek preskočiť; v Menu je tlačidlo Návod na zopakovanie.
+- Hra žije aj mimo Claude na GitHub Pages: https://offthewallhack.github.io/usage-of-empires/ (repozitár OffTheWallhack/usage-of-empires). Každý nový krok sa nahrá aj tam.
