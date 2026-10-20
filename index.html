@@ -7453,8 +7453,10 @@ function bkMake() {
   const data = {}; bkKeys().forEach(k => { data[NEW ? k.slice(3) : k] = localStorage.getItem(k); });
   return { app: 'usage-of-empires', v: 1, world: NEW ? 'new' : 'dev', date: new Date().toISOString(), day: scene && scene.clock ? scene.clock.day : 0, data };
 }
+let BK_DL = null; try { if (window.claude && claude.use) claude.use('downloads').then(d => { BK_DL = d; }, () => {}); } catch (e) { /* mimo Claude */ }
 async function bkSave() {
   const b = bkMake(), name = 'usage-of-empires-' + (NEW ? 'svet' : 'dev') + '-den' + b.day + '-' + b.date.slice(0, 10) + '.json', txt = JSON.stringify(b);
+  if (BK_DL) { try { await BK_DL.save({ filename: name, data: txt }); toast('Záloha uložená.'); return; } catch (e) { if (e && (e.code === 'declined' || e.code === 'rate_limited')) return; } }   // v Claude artefakte
   let file = null; try { file = new File([txt], name, { type: 'application/json' }); } catch (e) { /* starý prehliadač */ }
   try { if (file && navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: 'Usage of Empires – záloha sveta' }); toast('Záloha je hotová.'); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
   try { const a = document.createElement('a'); a.href = URL.createObjectURL(file || new Blob([txt], { type: 'application/json' })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 3000); toast('Záloha uložená: ' + name); }
