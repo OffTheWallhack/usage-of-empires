@@ -749,3 +749,15 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Cestička rastie pomaly a postupne (4 štádiá: 6 / 18 / 45 / 100 krokov) a keď tadiaľ nikto nechodí, pomaly zarastie.
 - Ľudia si radšej vyberajú už trochu ušliapanú trávu (aj skôr, než je vidno prvé štádium), takže sa chôdza zbieha do pár prirodzených chodníkov tam, kade naozaj často chodia.
 - Nové farby: tmavšia hnedá hlina, v strede vychodeného chodníka ešte tmavšia, sem-tam kamienok, okraj je suchá olivová tráva (predtým svetlá oranžová hlina a jasne zelený lem).
+
+## Krok 74 – menej pamäte a záťaže (proti zasekávaniu na mobile)
+- Hľadanie príčiny: samotná logika hry (osadníci, cesty, úlohy) zaberie len okolo 1 ms za snímku, takže zasekávanie robí najmä pamäť a grafika. Hra mala v pamäti ~70 MB zvukov a ~80 MB obrázkov mapy, čo je na telefóne veľa.
+- Zvuky: nahrávky sa načítajú po jednej s pauzou (predtým všetky naraz po prvom ťuknutí). Ukladajú sa mono a v nižšej kvalite (zvuky okolia sú aj tak tlmené). Hudba bossa ostáva stereo. Spolu ~14 MB namiesto ~70 MB.
+- Temná atmosféra dungeonu a hudba bossa sa načítajú až pri prvom vstupe pod zem.
+- Slučky, ktoré práve nie je počuť (vietor, rieka, cvrčky, jaskyňa…), sa po chvíli ticha úplne odpoja a telefón ich nepočíta. Keď majú znova hrať, samy sa pripoja.
+- Cestičky: predtým sa pri každej zmene posielal do grafiky obrázok celej mapy (13 MB). Teraz je mapa cestičiek rozdelená na malé dlaždice a posiela sa len tá, ktorá sa zmenila, najviac 2× za sekundu.
+- Trblietanie vody je len vo výreze s riekou, nie cez celú mapu. Mriežka sa vytvorí až keď ju zapneš.
+- Grafika mapy zaberá ~52 MB namiesto ~83 MB.
+- Poistka: ak telefón hre vezme grafiku (obraz by zamrzol) a do 4 s ju nevráti, hra sa sama uloží a znova načíta.
+- Návod: „Ukážem ti v pár krokoch“ (predtým nesprávne „v 5 krokoch“, krokov je 7).
+- Kontrola celej hry: nájazd, obchodná loď, vylepšenia, návod, profesie, dungeon s bossom a truhlou – bez chýb.
