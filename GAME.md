@@ -784,3 +784,12 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Spodný panel na výšku: číselný odznak (počet osadníkov, úloh) sa už nezobrazuje v strede tlačidla cez názov („Osadníci“, „Úlohy“), ale v jeho pravom hornom rohu.
 - Horná lišta na šírku (do šírky 820 px, napr. iPhone SE a menšie Androidy): písmo a tlačidlá sú o niečo menšie a bunka s počtom ľudí je širšia, takže „4/4“ ani „15/15“ sa už neodrezávajú. Skúšané na 667×375 a 740×360 v Novej hre aj v Dev World (aj s trojcifernými surovinami).
 - Prejdené rozlíšenia: 667×375, 740×360, 844×390, 932×430 na šírku a 360×640, 375×667, 390×844, 430×932 na výšku. Inde sa nič neorezáva.
+
+## Krok 78 – Rozcestie pod Prastarým stromom (prvý minisvet mimo dediny)
+- **Východ z dediny:** na západnom okraji lesa je nová lesná cesta s drevenou bránou a lampášom. Vedie od dediny na rozcestie. Hrdina (Keeper) prejde bránou pešo a hra ho prenesie na rozcestie. Späť sa vráti tou istou cestou a postaví sa za bránu v dedine.
+- **Prastarý strom:** obrovský starý strom s dutinou, v ktorej slabo svieti. Jeho koruna vyčnieva nad lesom nad bránou, takže ho vidno aj z dediny. Neskôr z neho môže byť nehybná postava, ktorá pamätá históriu dediny.
+- **Rozcestie:** malá čistina v lese s rozcestníkom v strede, štyri cesty, jazierko a lístie padajúce z koruny. Zodpovedá dennému aj nočnému času: v noci je tma a lampy pri ceste domov svietia.
+- **Tri cesty sú zatiaľ zatarasené:** spadnutý kmeň, balvany a ohrada. Keď sa k nim hrdina priblíži, hra povie, že sa tadiaľ zatiaľ nedá. Na rozcestníku sú obrázky (hora, vlna, veža), ktoré neskôr môžu ukazovať na ďalšie minisvety. Otvorená je len cesta domov, označená domčekom.
+- **Ovládanie:** ako v jaskyni (ťuknutie alebo držanie prsta, šípky, WASD). Hore je tlačidlo „Späť do dediny“.
+- Svet sa tým začína deliť na malé časti: dedina, jaskyňa a rozcestie. Do uloženia hry sa pridalo len počítadlo návštev a poznámka, že hrdina strom už videl.
+- Skúšané: vstup a návrat v Novej hre aj v Dev World, deň aj noc, na výšku aj na šírku, regresné testy a dungeon prešli bez chýb.
