@@ -7158,7 +7158,7 @@ class Cross extends Phaser.Scene {
   constructor() { super('cross'); }
   create() {
     const T = this.textures; ancTex(T);
-    if (!T.exists('xrGround')) { [['xrGround', makeXrGround], ['xrSign', makeXrSign], ['xrLeaf', makeXrLeaf]].forEach(([k, f]) => T.addCanvas(k, f())); }
+    if (!T.exists('xrGround')) { [['xrGround', makeXrGround], ['xrLeaf', makeXrLeaf]].forEach(([k, f]) => T.addCanvas(k, f())); }
     this.cameras.main.setBackgroundColor('#08120a');
     this.add.image(0, 0, 'xrGround').setOrigin(0, 0).setDepth(0);
     const N = XR.N, M = N / 2, night = Math.max(0, Math.min(1, (scene && scene.night) || 0)); this.night = night;
@@ -7184,7 +7184,15 @@ class Cross extends Phaser.Scene {
     this.tweens.add({ targets: this.hollow, alpha: this.hollow.alpha * .6, duration: 1700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
     /* rozcestník a zátarasy */
     const sp = xrPt(M, M); this.add.image(sp.x, sp.y + 2, 'shadowM').setDepth(2);
-    this.add.image(sp.x, Math.round(sp.y + 5), 'xrSign').setOrigin(.5, 70 / 76).setScale(1.25).setDepth(sp.y + 5);
+    /* staré ohnisko pútnikov namiesto rázcestníka – malé, nezakrýva strom */
+    if (T.exists('p_campfire')) {
+      const CF = SPR.p_campfire; this.add.image(Math.round(sp.x), Math.round(sp.y + 6), 'p_campfire').setOrigin(.5, (CF.height - 9) / CF.height).setDepth(sp.y + 6);
+      const fl = this.add.image(Math.round(sp.x), Math.round(sp.y + 6), 'flame0').setOrigin(.5, 1).setScale(.9).setDepth(sp.y + 6.5).setAlpha(.9);
+      this.time.addEvent({ delay: 130, loop: true, callback: () => fl.setTexture('flame' + ((Math.random() * 3) | 0)) });
+      if (T.exists('p_bench')) this.add.image(Math.round(sp.x - 24), Math.round(sp.y + 12), 'p_bench').setOrigin(.5, 1).setDepth(sp.y + 12);
+      if (T.exists('g_d_log')) this.add.image(Math.round(sp.x + 22), Math.round(sp.y + 14), 'g_d_log').setOrigin(.5, 1).setDepth(sp.y + 14);
+      this.fire = { x: sp.x, y: sp.y - 2 };
+    }
     const PILES = {
       log: [['g_d_log', -24, 2], ['g_d_log', -8, 8], ['g_d_log', 8, 4], ['g_d_log', 22, 10], ['g_d_log', -4, -3], ['g_d_log', 14, -4], ['g_d_dry1', -30, 12], ['g_d_dry2', 30, 2], ['g_d_fern1', 2, 12]],
       rocks: [['r_rock3', -22, 8], ['r_rock1', 18, 10], ['r_rock2', -6, 12], ['r_rock2', 8, 1], ['r_rock3', 2, -6], ['r_rock1', -14, -2], ['g_d_rock2', 30, 4], ['g_d_rock1', -32, 3], ['g_d_rock1', 24, -5]],
@@ -7232,6 +7240,7 @@ class Cross extends Phaser.Scene {
       const c = Math.round(255 - night * (255 - 110)), c2 = Math.round(255 - night * (255 - 122)), c3 = Math.round(255 - night * (255 - 186));
       this.add.rectangle(XR.W / 2, XR.H / 2, XR.W + 1200, XR.H + 1200, Phaser.Display.Color.GetColor(c, c2, c3), 1).setBlendMode(Phaser.BlendModes.MULTIPLY).setDepth(50000);
       this.lamps.forEach(l => this.add.image(l.x, l.y + 8, 'lm_torch').setBlendMode(Phaser.BlendModes.ADD).setDepth(50001).setAlpha(.7 * night).setScale(1.1));
+      if (this.fire) this.add.image(this.fire.x, this.fire.y, 'lm_fire').setBlendMode(Phaser.BlendModes.ADD).setDepth(50001).setAlpha(.8 * night).setScale(.9);
     }
     /* padajúce lístie z koruny */
     this.time.addEvent({ delay: 1100, loop: true, callback: () => {
@@ -7273,7 +7282,7 @@ class Cross extends Phaser.Scene {
     XR_BLOCKS.forEach((b, i) => { if (Math.hypot(u - b.u, v - b.v) < 2.2) this.say('b' + i, b.msg); });
     if (Math.hypot(u - XR_TREE[0], v - XR_TREE[1]) < 2.7) this.say('tree', WORLD.treeSeen ? 'Prastarý strom.' : 'Prastarý strom. Stojí tu odvtedy, čo sa pamätá.');
     if (Math.hypot(u - XR_TREE[0], v - XR_TREE[1]) < 2.1) WORLD.treeSeen = true;
-    if (Math.hypot(u - XR.N / 2, v - XR.N / 2) < 1.2) this.say('sign', 'Tri cesty sú zatarasené. Zatiaľ vedie len cesta domov.');
+    if (Math.hypot(u - XR.N / 2, v - XR.N / 2) < 1.2) this.say('sign', 'Staré ohnisko pútnikov. Tri cesty sú zatarasené, zatiaľ vedie len cesta domov.');
   }
 }
 function enterCross() {
