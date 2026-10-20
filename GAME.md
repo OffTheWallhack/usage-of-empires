@@ -795,3 +795,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Rovnaký vzhľad ako dedina:** les na okraji rozcestia je z tých istých stromov (dub, smrek, jeseň) ako vo svete dediny. Kamene, kmene, debny, sudy, kríky, papraď, trstina a fakle sú tiež pôvodné obrázky z dediny. Tráva má rovnakú farbu. Cesty sú prirodzene zarastené a zátarasy sú z vecí, ktoré poznáš z dediny. Čistina je väčšia (13×13 políčok), aby bolo medzi stromami miesto.
 - **Vlastná grafika len pre tri veci:** Prastarý strom, brána a rozcestník sú kreslené kódom v palete dediny. Sú pripravené ako PNG na prípadné prekreslenie cez Gemini.
 - Skúšané: vstup a návrat v Novej hre aj v Dev World, deň aj noc, na výšku aj na šírku, regresné testy a dungeon prešli bez chýb.
+
+- **Prastarý strom z Gemini** – tvoj render som vystrihol a previedol do rovnakého pixelového štýlu ako ostatné sprity (rovnaká paleta, ostrosť). Stojí na rázcestí a jeho korunu vidno aj nad bránou v dedine.
+- **Tunel (vľavo hore)** – tvoj obrázok tunela je tiež v pixelovom štýle a stojí na ľavej hornej ceste. Cesta je zatiaľ zatarasená kmeňmi, takže sa tadiaľ nedá ísť.
