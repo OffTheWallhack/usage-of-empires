@@ -792,4 +792,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Tri cesty sú zatiaľ zatarasené:** spadnutý kmeň, balvany a ohrada. Keď sa k nim hrdina priblíži, hra povie, že sa tadiaľ zatiaľ nedá. Na rozcestníku sú obrázky (hora, vlna, veža), ktoré neskôr môžu ukazovať na ďalšie minisvety. Otvorená je len cesta domov, označená domčekom.
 - **Ovládanie:** ako v jaskyni (ťuknutie alebo držanie prsta, šípky, WASD). Hore je tlačidlo „Späť do dediny“.
 - Svet sa tým začína deliť na malé časti: dedina, jaskyňa a rozcestie. Do uloženia hry sa pridalo len počítadlo návštev a poznámka, že hrdina strom už videl.
+- **Rovnaký vzhľad ako dedina:** les na okraji rozcestia je z tých istých stromov (dub, smrek, jeseň) ako vo svete dediny. Kamene, kmene, debny, sudy, kríky, papraď, trstina a fakle sú tiež pôvodné obrázky z dediny. Tráva má rovnakú farbu. Cesty sú prirodzene zarastené a zátarasy sú z vecí, ktoré poznáš z dediny. Čistina je väčšia (13×13 políčok), aby bolo medzi stromami miesto.
+- **Vlastná grafika len pre tri veci:** Prastarý strom, brána a rozcestník sú kreslené kódom v palete dediny. Sú pripravené ako PNG na prípadné prekreslenie cez Gemini.
 - Skúšané: vstup a návrat v Novej hre aj v Dev World, deň aj noc, na výšku aj na šírku, regresné testy a dungeon prešli bez chýb.

@@ -4424,7 +4424,7 @@ class World extends Phaser.Scene {
     // východ z dediny: drevená brána na lesnej ceste a koruna Prastarého stromu nad lesom
     ancTex(T); T.addCanvas('xgate', makeXGate());
     { const gc = tileCenter(XEXIT.x + 3, XEXIT.y); this.xGate = this.add.image(Math.round(gc.x), Math.round(gc.y + 6), 'xgate').setOrigin(.5, 39 / 56).setDepth(10 + gc.y + 6); this.addLight(gc.x - 1, gc.y - 22, 'lm_torch', .5, .08);
-      const ac = tileCenter(2, 21); this.ancTop = this.add.image(Math.round(ac.x), Math.round(ac.y + 16), 'ancTop').setOrigin(.5, 1).setScale(1.2).setDepth(10 + ac.y - 6).setTint(0x8aa07a); this.tweens.add({ targets: this.ancTop, angle: .5, duration: 4200, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' }); }
+      const ac = tileCenter(2, 21); this.ancTop = this.add.image(Math.round(ac.x), Math.round(ac.y + 16), 'ancTop').setOrigin(.5, 1).setScale(1.2).setDepth(10 + ac.y - 6); this.tweens.add({ targets: this.ancTop, angle: .5, duration: 4200, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' }); }
     // voda sa trblieta
     this.shine = this.add.image(this.shineO[0], this.shineO[1], 'shine0').setOrigin(0, 0).setDepth(1.5);
     let sf = 0; this.time.addEvent({ delay: 420, loop: true, callback: () => { sf = (sf + 1) % 3; this.shine.setTexture('shine' + sf); } });
@@ -7031,15 +7031,15 @@ function uiCave() {
 }
 /* ============ ROZCESTIE POD PRASTARÝM STROMOM (Krok 78) ============
    Malý svet mimo dediny. Hrdina sem príde pešo cez lesnú cestu na západe. Tri cesty sú zatiaľ zatarasené, otvorená je len tá domov. */
-const XR = { N: 11, W: 352, TOP: 150 };
+const XR = { N: 13, W: 416, TOP: 150 };
 XR.H = XR.TOP + XR.N * 16 + 34; XR.CX = XR.W / 2; XR.CY = XR.TOP + XR.N * 8;
 const xrPt = (u, v) => ({ x: XR.CX + (u - v) * 16, y: XR.TOP + (u + v) * 8 });
 const xrUV = (x, y) => { const a = (x - XR.CX) / 16, b = (y - XR.TOP) / 8; return [(a + b) / 2, (b - a) / 2]; };
-const XR_TREE = [3, 3], XR_POND = [1.9, 8.7];
+const XR_TREE = [3.6, 3.6], XR_POND = [2, 10];
 const XR_BLOCKS = [
-  { u: 1.25, v: 5.5, k: 'xrLog', msg: 'Cestu zatarasil spadnutý kmeň. Zatiaľ sa tadiaľ nedá.' },
-  { u: 5.5, v: 1.25, k: 'xrRocks', msg: 'Cestu zavalili balvany. Zatiaľ sa tadiaľ nedá.' },
-  { u: 5.5, v: XR.N - 1.25, k: 'xrFence', msg: 'Cestu zatarasila ohrada. Zatiaľ je zavretá.' },
+  { u: 1.25, v: 5.5, k: 'log', msg: 'Cestu zatarasili spadnuté kmene. Zatiaľ sa tadiaľ nedá.' },
+  { u: 5.5, v: 1.25, k: 'rocks', msg: 'Cestu zavalili balvany. Zatiaľ sa tadiaľ nedá.' },
+  { u: 5.5, v: XR.N - 1.25, k: 'crates', msg: 'Cestu zatarasila zábrana zo starých debien. Zatiaľ je zavretá.' },
 ];
 function xrWalk(x, y) {
   const cx = XR.W / 2;
@@ -7053,14 +7053,12 @@ function xrWalk(x, y) {
 function makeXrGround() {
   const cv = document.createElement('canvas'); cv.width = XR.W; cv.height = XR.H;
   const g = cv.getContext('2d'), im = g.createImageData(XR.W, XR.H), D = im.data, N = XR.N, M = N / 2;
-  const GR = [[104, 156, 66], [96, 148, 60], [112, 164, 72], [88, 138, 56]], DIRT = [[156, 124, 80], [144, 112, 72], [168, 136, 90]], GRV = [[176, 166, 142], [160, 150, 126], [190, 180, 156]], FLOOR = [34, 50, 26];
-  const FL = [[250, 250, 240], [250, 214, 80], [226, 120, 170], [160, 140, 230]];
+  const GR = [[80, 84, 41], [77, 81, 40], [84, 88, 44], [74, 78, 38]], DIRT = [[140, 112, 76], [128, 102, 68], [150, 122, 84]], GRV = [[150, 140, 118], [138, 128, 106], [160, 150, 126]], FLOOR = [40, 42, 22];
   const mx = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t], cl = t => Math.max(0, Math.min(1, t));
   for (let py = 0; py < XR.H; py++) for (let px = 0; px < XR.W; px++) {
     const [u, v] = xrUV(px + .5, py + .5); if (u < 0 || v < 0 || u >= N || v >= N) continue;
     let c = GR[(vnoise(px / 5, py / 3, 201) * 3.99) | 0];
-    if (hash(px, py, 202) < .07) c = mx(c, [150, 196, 96], .5); else if (hash(px, py, 203) < .06) c = mx(c, [60, 100, 40], .5);
-    if (hash(px, py, 207) < .004) c = FL[(hash(px, py, 208) * 4) | 0];
+    if (hash(px, py, 202) < .05) c = [104, 105, 53]; else if (hash(px, py, 203) < .05) c = [57, 60, 30];
     const wob = (vnoise(px / 7, py / 5, 204) - .5) * .5, du = Math.abs(u - M), dv = Math.abs(v - M), onU = dv < du;
     let fade = 1;
     if (onU) { if (u < 2.8) fade = (u - .8) / 2; } else if (v < 2.8) fade = (v - .8) / 2; else if (v > N - 2.8) fade = (N - v - .8) / 2;
@@ -7086,7 +7084,7 @@ function makeXrGround() {
   g.putImageData(im, 0, 0); return cv;
 }
 function makeAncTree() {
-  const p = new Pix(128, 160), bark = ['#b0804a', '#8c5f33', '#6c4526', '#4f301b', '#3a2214'];
+  const p = new Pix(128, 160), bark = ['#8a6c48', '#705436', '#5a422a', '#463320', '#33241a'];
   for (let y = 58; y <= 154; y++) {
     const t = (y - 58) / 96, cx = 64 + Math.sin(y / 17) * 1.6, hw = 9 + t * t * 8 + (y > 138 ? (y - 138) * 1.15 : 0);
     for (let x = Math.floor(cx - hw); x <= Math.ceil(cx + hw); x++) {
@@ -7101,9 +7099,9 @@ function makeAncTree() {
   const bough = (x0, y0, x1, y1, w) => { const n = Math.max(Math.abs(x1 - x0), Math.abs(y1 - y0)); for (let i = 0; i <= n; i++) { const x = x0 + (x1 - x0) * i / n, y = y0 + (y1 - y0) * i / n, ww = w * (1 - i / n * .5); for (let a = -ww; a <= ww; a++) for (let b = -1; b <= 1; b++) p.set(Math.round(x + a), Math.round(y + b), bark[a < -ww * .3 ? 1 : a < ww * .4 ? 2 : 3]); } };
   bough(60, 66, 30, 44, 4); bough(68, 66, 100, 44, 4); bough(64, 62, 64, 24, 4); bough(58, 74, 22, 66, 3); bough(70, 74, 106, 66, 3);
   const cr = new Pix(128, 160);
-  blobs(cr, [[64, 40, 30], [34, 52, 22], [94, 52, 22], [64, 62, 24], [44, 28, 20], [84, 28, 20], [22, 66, 14], [106, 66, 14], [64, 22, 18], [50, 74, 14], [78, 74, 14]], ['#b4e070', '#82c34d', '#5c9c3c', '#41792d', '#2b5a22'], .42, 15);
-  for (let y = 0; y < 160; y++) for (let x = 0; x < 128; x++) { let c = cr.get(x, y); if (!c) continue; if (hash(x, y, 115) < .03) c = hash(x, y, 116) < .5 ? '#e8cf5a' : '#d9b13c'; p.set(x, y, c); }
-  return p.outline('#17301a').canvas();
+  blobs(cr, [[64, 40, 30], [34, 52, 22], [94, 52, 22], [64, 62, 24], [44, 28, 20], [84, 28, 20], [22, 66, 14], [106, 66, 14], [64, 22, 18], [50, 74, 14], [78, 74, 14]], ['#8a9a58', '#6c7e44', '#566a36', '#42542b', '#2f3e22'], .42, 15);
+  for (let y = 0; y < 160; y++) for (let x = 0; x < 128; x++) { let c = cr.get(x, y); if (!c) continue; if (hash(x, y, 115) < .03) c = hash(x, y, 116) < .5 ? '#b0a24c' : '#9a8a3c'; p.set(x, y, c); }
+  return p.outline('#12180c').canvas();
 }
 function ancTex(T) {
   if (T.exists('ancTree')) return;
@@ -7111,7 +7109,7 @@ function ancTex(T) {
   const top = document.createElement('canvas'); top.width = 128; top.height = 104; top.getContext('2d').drawImage(full, 0, 0, 128, 104, 0, 0, 128, 104); T.addCanvas('ancTop', top);
 }
 function makeXGate() {
-  const p = new Pix(56, 56), wd = ['#9a6b3a', '#7a5028', '#5a3a1c'];
+  const p = new Pix(56, 56), wd = ['#7a5c3a', '#5e4428', '#46321c'];
   const post = (cx, base) => {
     for (let y = base - 30; y <= base; y++) for (let x = cx - 2; x <= cx + 1; x++) p.set(x, y, x === cx - 2 ? wd[0] : x === cx + 1 ? wd[2] : wd[1]);
     for (let x = cx - 4; x <= cx + 3; x++) for (let y = base - 3; y <= base; y++) p.set(x, y, y === base - 3 ? '#a8a08a' : (x + y) % 3 ? '#8a8270' : '#6e6858');
@@ -7125,13 +7123,13 @@ function makeXGate() {
   return p.outline('#1c1a14').canvas();
 }
 function makeXrSign() {
-  const p = new Pix(64, 72), wd = ['#9a6b3a', '#7a5028', '#5a3a1c'];
+  const p = new Pix(64, 72), wd = ['#7a5c3a', '#5e4428', '#46321c'];
   for (let y = 12; y <= 66; y++) for (let x = 30; x <= 33; x++) p.set(x, y, x === 30 ? wd[0] : x === 33 ? wd[2] : wd[1]);
   for (let y = 62; y <= 68; y++) for (let x = 24; x <= 39; x++) { const d = Math.abs(x - 31.5) / 8 + Math.abs(y - 65) / 4; if (d <= 1) p.set(x, y, hash(x, y, 141) < .4 ? '#a8a08a' : '#8a8270'); }
   [[31, 9], [32, 9], [30, 10], [31, 10], [32, 10], [33, 10]].forEach(([x, y]) => p.set(x, y, wd[0]));
   const PIC = { mount: ['.....', '..#..', '.###.', '#####', '.....'], wave: ['.....', '.#.#.', '#.#.#', '.....', '.....'], tower: ['#.#.#', '#####', '.###.', '.###.', '.###.'], house: ['..#..', '.###.', '#####', '.#.#.', '.#.#.'] };
   const plank = (y, dir, pic, hot) => {
-    const x0 = dir < 0 ? 5 : 30, x1 = dir < 0 ? 34 : 59, face = hot ? '#e8bf64' : '#b2a07c', edge = hot ? '#9a7430' : '#7a6a4c';
+    const x0 = dir < 0 ? 5 : 30, x1 = dir < 0 ? 34 : 59, face = hot ? '#c8a458' : '#a08c68', edge = hot ? '#7a5c28' : '#665842';
     for (let r = 0; r < 7; r++) for (let x = x0; x <= x1; x++) {
       const tn = Math.min(r, 6 - r); if (dir < 0 ? x < x0 + 3 - tn : x > x1 - 3 + tn) continue;
       p.set(x, y + r, (r === 0 || r === 6) ? edge : face);
@@ -7141,60 +7139,28 @@ function makeXrSign() {
   plank(14, -1, 'mount', false); plank(23, 1, 'wave', false); plank(32, -1, 'tower', false); plank(41, 1, 'house', true);
   return p.outline('#1c1a14').canvas();
 }
-function makeXrLog() {
-  const p = new Pix(72, 38), bark = ['#8a5f33', '#6c4526', '#4f301b', '#3a2214'];
-  for (let x = 8; x <= 60; x++) {
-    const yc = 29 - (x - 8) * .5;
-    for (let b = -4; b <= 4; b++) { let i = b < -2 ? 0 : b < 1 ? 1 : b < 3 ? 2 : 3; if (hash(x, b, 121) < .2) i = Math.min(3, i + 1); p.set(x, Math.round(yc + b), (b === -4 && hash(x, 7, 122) < .5) ? '#6f8f3e' : bark[i]); }
-  }
-  for (let dy = -5; dy <= 5; dy++) for (let dx = -3; dx <= 3; dx++) { const d = Math.hypot(dx / 3, dy / 5); if (d <= 1) p.set(8 + dx, 29 + dy, d > .72 ? '#8a5f33' : (d > .36 && d < .5) ? '#b88a4a' : '#d2a868'); }
-  blobs(p, [[60, 14, 7], [65, 18, 6], [57, 18, 5]], ['#8a6a46', '#7a5a3a', '#6a4a2c', '#5a3d24', '#4a301c'], .3, 123);
-  [[58, 12, 66, 5], [63, 14, 69, 9], [60, 22, 67, 27]].forEach(([x0, y0, x1, y1]) => { for (let i = 0; i <= 8; i++) p.set(Math.round(x0 + (x1 - x0) * i / 8), Math.round(y0 + (y1 - y0) * i / 8), '#4f301b'); });
-  [[24, 3, -3, -6], [40, 3, 3, -7]].forEach(([x, off, dx, dy]) => { const yc = 29 - (x - 8) * .5; for (let i = 0; i <= 6; i++) p.set(Math.round(x + dx * i / 6), Math.round(yc - 4 + dy * i / 6), '#4f301b'); });
-  return p.outline('#1c1a14').canvas();
-}
-function makeXrRocks() {
-  const p = new Pix(56, 38);
-  blobs(p, [[16, 24, 11], [32, 19, 14], [44, 26, 10], [28, 28, 9], [24, 12, 8]], ['#d2ccba', '#aca594', '#888273', '#68645a', '#4b4841'], .3, 131);
-  for (let y = 0; y < 38; y++) for (let x = 0; x < 56; x++) { const c = p.get(x, y); if (c && (c === '#d2ccba' || c === '#aca594') && hash(x, y, 132) < .28) p.set(x, y, '#7a9a4a'); }
-  return p.outline('#1c1a14').canvas();
-}
-function makeXrFence() {
-  const p = new Pix(64, 54), wd = ['#9a6b3a', '#7a5028', '#5a3a1c'], by = x => 26 + (x - 8) * .5;
-  [8, 30, 52].forEach(x => { const b = Math.round(by(x)); for (let y = b - 24; y <= b; y++) for (let k = 0; k < 3; k++) p.set(x + k, y, wd[k]); });
-  [17, 8].forEach(h => { for (let x = 6; x <= 56; x++) for (let t = 0; t < 2; t++) p.set(x, Math.round(by(x) - h) + t, wd[t]); });
-  for (let i = 0; i <= 22; i++) { const x = 9 + i, y = Math.round(by(9) - 20 + i * (by(31) - by(9) + 17) / 22); p.set(x, y, wd[1]); p.set(x, y + 1, wd[2]); }
-  for (let y = 0; y < 7; y++) for (let x = 0; x < 8; x++) { const X = 25 + x, Y = Math.round(by(29)) - 22 + y; p.set(X, Y, '#a83a2a'); if (x === y + 0 || x === 6 - y + 1) p.set(X, Y, '#f2e6d0'); }
-  return p.outline('#1c1a14').canvas();
-}
-function makeXrLamp() {
-  const p = new Pix(10, 38);
-  for (let y = 10; y <= 36; y++) for (let x = 4; x <= 5; x++) p.set(x, y, x === 4 ? '#8a5f33' : '#5a3a1c');
-  for (let y = 3; y <= 9; y++) for (let x = 2; x <= 7; x++) p.set(x, y, (y === 3 || y === 9 || x === 2 || x === 7) ? '#3a2a14' : '#f6d06a');
-  p.set(4, 2, '#3a2a14'); p.set(5, 2, '#3a2a14');
-  return p.outline('#1c1a14').canvas();
-}
 function makeXrLeaf() { const p = new Pix(3, 2); p.set(0, 0, '#e8cf5a'); p.set(1, 0, '#d9b13c'); p.set(1, 1, '#82c34d'); p.set(2, 1, '#5c9c3c'); return p.canvas(); }
 
 class Cross extends Phaser.Scene {
   constructor() { super('cross'); }
   create() {
     const T = this.textures; ancTex(T);
-    if (!T.exists('xrGround')) { [['xrGround', makeXrGround], ['xrSign', makeXrSign], ['xrLog', makeXrLog], ['xrRocks', makeXrRocks], ['xrFence', makeXrFence], ['xrLamp', makeXrLamp], ['xrLeaf', makeXrLeaf]].forEach(([k, f]) => T.addCanvas(k, f())); }
+    if (!T.exists('xrGround')) { [['xrGround', makeXrGround], ['xrSign', makeXrSign], ['xrLeaf', makeXrLeaf]].forEach(([k, f]) => T.addCanvas(k, f())); }
     this.cameras.main.setBackgroundColor('#08120a');
     this.add.image(0, 0, 'xrGround').setOrigin(0, 0).setDepth(0);
     const N = XR.N, M = N / 2, night = Math.max(0, Math.min(1, (scene && scene.night) || 0)); this.night = night;
     /* les na okraji čistiny, tri riadky; cesty ostávajú voľné */
     const rim = (u, v, row) => {
-      const k = ['spruce', 'oak', 'birch', 'spruce', 'oak'][(hash((u * 9) | 0, (v * 9) | 0, 211) * 5) | 0], td = TREES[k], p = xrPt(u, v), jx = (hash((u * 7) | 0, (v * 7) | 0, 212) - .5) * 9, jy = (hash((u * 5) | 0, (v * 5) | 0, 213) - .5) * 5, sh = 1 - row * .2;
-      this.add.image(Math.round(p.x + jx), Math.round(p.y + jy), k + 'A').setOrigin(td.fx / td.w, td.fy / td.h).setDepth(p.y + jy).setTint(Phaser.Display.Color.GetColor(Math.round(255 * sh), Math.round(255 * Math.min(1, sh + .04)), Math.round(255 * sh * .95)));
+      const h = hash((u * 9) | 0, (v * 9) | 0, 211), L = TREE_V[h < .5 ? 'spruce' : h < .8 ? 'oak' : 'birch'], key = L[(hash((u * 9) | 0, (v * 9) | 0, 63) * L.length) | 0], M = TVM[key], p = xrPt(u, v);
+      const jx = (hash((u * 7) | 0, (v * 7) | 0, 212) - .5) * 9, jy = (hash((u * 5) | 0, (v * 5) | 0, 213) - .5) * 5, sh = 1 - row * .17;
+      this.add.image(Math.round(p.x + jx), Math.round(p.y + jy), key + 'A').setOrigin(M.fx / M.w, M.fy / M.h).setDepth(p.y + jy).setTint(Phaser.Display.Color.GetColor(Math.round(255 * sh), Math.round(255 * sh), Math.round(255 * sh * .94)));
     };
     for (let row = 0; row < 3; row++) for (let t = -.4; t <= N + .4; t += .7) {
       const gap = Math.abs(t - M) < (row === 0 ? 1.5 : 1.2), o = row * .9;
-      if (!gap) { rim(-o, t, row); rim(t, -o, row); }
-      if (!gap) { rim(N + o + .35, t, row); rim(t, N + o + .35, row); }
+      if (!gap) { rim(-o - .3, t, row); rim(t, -o - .3, row); }
+      if (!gap) { rim(N + o + .9, t, row); rim(t, N + o + .9, row); }
     }
-    for (let row = 1; row < 3; row++) for (let t = -.4; t <= N + .4; t += .7) { if (Math.abs(t - M) < 1.2) { rim(-row * .9, t + .05, row); rim(t + .05, -row * .9, row); rim(t + .05, N + row * .9 + .35, row); } }
+    for (let row = 1; row < 3; row++) for (let t = -.4; t <= N + .4; t += .7) { if (Math.abs(t - M) < 1.2) { rim(-row * .9 - .3, t + .05, row); rim(t + .05, -row * .9 - .3, row); rim(t + .05, N + row * .9 + .9, row); } }
     /* Prastarý strom */
     const tp = xrPt(XR_TREE[0], XR_TREE[1]); this.treeP = tp;
     this.add.image(tp.x, tp.y + 2, 'shadowL').setScale(4.2, 2.6).setDepth(1).setAlpha(.8);
@@ -7206,10 +7172,23 @@ class Cross extends Phaser.Scene {
     /* rozcestník a zátarasy */
     const sp = xrPt(M, M); this.add.image(sp.x, sp.y + 2, 'shadowM').setDepth(2);
     this.add.image(sp.x, Math.round(sp.y + 5), 'xrSign').setOrigin(.5, 66 / 72).setDepth(sp.y + 5);
-    XR_BLOCKS.forEach(b => { const p = xrPt(b.u, b.v); this.add.image(p.x, p.y + 2, 'shadowM').setDepth(2); this.add.image(Math.round(p.x), Math.round(p.y + 8), b.k).setOrigin(.5, .88).setDepth(p.y + 8); });
-    /* lampy pri ceste domov */
+    const PILES = {
+      log: [['g_d_log', -15, 6], ['g_d_log', 13, 9], ['g_d_log', -2, -1], ['g_d_log', -14, -6], ['g_d_log', 12, -8], ['g_d_dry1', -30, 8], ['g_d_dry2', 28, 4]],
+      rocks: [['r_cliff', 0, 6], ['r_rock3', -24, 8], ['r_rock1', 22, 10], ['r_rock2', -10, 10], ['g_d_rock2', 27, 3], ['g_d_rock1', -29, 2]],
+      crates: [['p_crates', -10, 6], ['p_wood', 14, 10], ['p_barrels', -27, 10], ['p_barrels', 27, 6], ['p_crates', 3, -10], ['p_hay', -2, 14]],
+    };
+    XR_BLOCKS.forEach(bl => { const p = xrPt(bl.u, bl.v); this.add.image(p.x, p.y + 4, 'shadowM').setScale(1.5, 1).setDepth(2); PILES[bl.k].forEach(([k, dx, dy]) => { if (T.exists(k)) this.add.image(Math.round(p.x + dx), Math.round(p.y + dy), k).setOrigin(.5, 1).setDepth(p.y + dy); }); });
+    /* kríky, tráva a papraď z dediny rozhodené po čistine */
+    { const TF = ['g_d_bush1', 'g_d_bush2', 'g_d_grass1', 'g_d_grass2', 'g_d_fern1', 'g_d_fern2', 'g_d_dry1', 'g_d_weed', 'g_d_patch', 'g_d_fern3']; let n = 0;
+      for (let i = 0; i < 400 && n < 34; i++) {
+        const u = 1 + hash(i, 1, 221) * (N - 2), v = 1 + hash(i, 2, 221) * (N - 2), e = Math.min(u, v, N - u, N - v);
+        if (e < 1.3 || Math.min(Math.abs(u - M), Math.abs(v - M)) < 1.5 || Math.hypot(u - M, v - M) < 2.5 || Math.hypot(u - XR_POND[0], v - XR_POND[1]) < 2.1 || Math.hypot(u - XR_TREE[0], v - XR_TREE[1]) < 2.4) continue;
+        const k = TF[(hash(i, 3, 221) * TF.length) | 0], q = xrPt(u, v); if (!T.exists(k)) continue; this.add.image(Math.round(q.x), Math.round(q.y + 4), k).setOrigin(.5, 1).setDepth(q.y); n++;
+      } }
+    if (T.exists('r_reed')) [[-1.1, .2], [-.3, -1.3], [1.2, -.8], [1.3, .9], [.4, 1.35]].forEach(([a, b]) => { const q = xrPt(XR_POND[0] + a, XR_POND[1] + b); this.add.image(Math.round(q.x), Math.round(q.y), 'r_reed').setOrigin(.5, 1).setDepth(q.y); });
+    /* fakle pri ceste domov (rovnaké ako v dedine) */
     this.lamps = [];
-    [-1.5, 1.5].forEach(d => { const p = xrPt(N - 1.3, M + d); this.add.image(Math.round(p.x), Math.round(p.y + 6), 'xrLamp').setOrigin(.5, 36 / 38).setDepth(p.y + 6); this.lamps.push({ x: p.x, y: p.y - 28 }); });
+    [-1.5, 1.5].forEach(d => { const q = xrPt(N - 1.3, M + d); this.add.image(Math.round(q.x), Math.round(q.y + 6), 'p_torch').setOrigin(.5, 1).setDepth(q.y + 6); this.lamps.push({ x: q.x, y: q.y - 24 }); });
     /* hrdina */
     const sp0 = xrPt(N - 1.8, M); this.p = { x: sp0.x, y: sp0.y, face: 1, dir: 0, tx: null, ty: null, mv: false };
     this.kee = this.add.image(this.p.x, this.p.y, 'rF_idle0').setOrigin(.5, .925);
