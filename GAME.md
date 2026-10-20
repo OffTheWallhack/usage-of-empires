@@ -761,3 +761,14 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Poistka: ak telefón hre vezme grafiku (obraz by zamrzol) a do 4 s ju nevráti, hra sa sama uloží a znova načíta.
 - Návod: „Ukážem ti v pár krokoch“ (predtým nesprávne „v 5 krokoch“, krokov je 7).
 - Kontrola celej hry: nájazd, obchodná loď, vylepšenia, návod, profesie, dungeon s bossom a truhlou – bez chýb.
+
+## Krok 75 – oprava zamŕzania, záloha sveta, hra bez internetu, hudba, nový most
+- **Oprava zamŕzania:** hra po pár sekundách zamrzla kvôli chybe z Kroku 73. Hľadanie cesty pri chodníkoch počítalo s desatinnými číslami, ktoré sa pri ukladaní nepatrne zaokrúhľovali. Osadník potom skúšal tú istú cestu stále dookola (až 1,9 milióna krokov namiesto pár tisíc). Teraz sa počíta len s celými číslami. Test: 16 herných dní bez jediného zaseknutia.
+- **Záloha sveta** (Menu → Záloha sveta):
+  · „Uložiť zálohu“ vytvorí súbor (napr. `usage-of-empires-svet-den5-2026-10-20.json`). Na telefóne sa otvorí ponuka zdieľania – dá sa uložiť do Súborov alebo poslať kamarátovi. Na počítači sa stiahne.
+  · „Nahrať zálohu“ – vyberieš súbor, hra ukáže, z ktorého dňa je, a po ťuknutí na „Naozaj nahrať“ ním nahradí terajší svet.
+  · Záloha z Novej hry sa dá nahrať aj do Dev World a naopak.
+- **Hra z plochy aj bez internetu** (GitHub Pages): po prvom otvorení sa hra uloží do telefónu. Potom sa otvorí aj bez internetu. Keď internet je, vždy sa načíta najnovšia verzia.
+- **Hudba, ktorá prekvapí** (ako v Minecrafte): prvá pesnička príde po 3–6 minútach hrania, ďalšie zriedka, raz za 10–20 minút. Cez deň hrá dedinská pesnička, v noci jedna z dvoch nočných. Po porazení bossa zahrá víťazná pieseň. V jaskyni dedinská hudba jemne stíchne. V Menu je tlačidlo Hudba / Bez hudby. Hudba sa sťahuje až keď má hrať, takže nespomaľuje načítanie. V Claude artefakte hrať nemusí, na GitHub stránke áno.
+- **Nový most z Gemini** (hotová verzia, od opravy oblúka ďalej): kamenný most s tromi oblúkmi, schodmi na oboch brehoch, zábradlím a brečtanom. Rozpadnutý most a most s lešením zatiaľ zostávajú staré, kým nepošleš nové.
+- **Vyváženie začiatku:** voľní osadníci v Novej hre teraz zbierajú, kým nie je sklad skoro plný (predtým prestali pri ~100 dreve a ~50 kameni, čo pri nových cenách nestačilo). Simulácia so 4 osadníkmi bez zásahu hráča: ~16 dreva a ~15 kameňa za herný deň (6 minút). Lešenie na moste je tak reálne okolo 2. dňa, kamenný oblúk okolo 5. dňa, s chatou drevorubača a viac ľuďmi skôr.
