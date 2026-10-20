@@ -779,3 +779,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Nahlásiť chybu** (Menu): pripraví text s verziou hry, svetom, dňom v hre, telefónom, rozlíšením, plynulosťou a poslednými chybami, ktoré hra zachytila. Na telefóne sa otvorí ponuka zdieľania (správa, mail, IG…), inde sa text skopíruje alebo ukáže na skopírovanie.
 - **Hlavné menu → „Hra na mobile · beta“:** krátky návod, ako hru pridať na plochu (iPhone aj Android), že ide aj bez internetu, ako si zálohovať svet a ako nahlásiť chybu.
 - README na GitHube prepísané pre hráčov (ako hrať na mobile, beta, záloha, chyby).
+
+## Krok 77 – oprava horného a spodného panelu na malých telefónoch
+- Spodný panel na výšku: číselný odznak (počet osadníkov, úloh) sa už nezobrazuje v strede tlačidla cez názov („Osadníci“, „Úlohy“), ale v jeho pravom hornom rohu.
+- Horná lišta na šírku (do šírky 820 px, napr. iPhone SE a menšie Androidy): písmo a tlačidlá sú o niečo menšie a bunka s počtom ľudí je širšia, takže „4/4“ ani „15/15“ sa už neodrezávajú. Skúšané na 667×375 a 740×360 v Novej hre aj v Dev World (aj s trojcifernými surovinami).
+- Prejdené rozlíšenia: 667×375, 740×360, 844×390, 932×430 na šírku a 360×640, 375×667, 390×844, 430×932 na výšku. Inde sa nič neorezáva.
