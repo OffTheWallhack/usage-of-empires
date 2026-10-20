@@ -800,3 +800,5 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Tunel (vľavo hore)** – tvoj obrázok tunela je tiež v pixelovom štýle a stojí na ľavej hornej ceste. Cesta je zatiaľ zatarasená kmeňmi, takže sa tadiaľ nedá ísť.
 - **Jaskyňa (vpravo hore)** – tvoj obrázok jaskyne je v pixelovom štýle na pravej hornej ceste rázcestia (oproti tunelu). Cesta k nej je zatiaľ zavalená balvanmi.
 - **Zmena mapy rázcestia** – cesta do dediny teraz vedie vľavo dole (obyčajná poľná cesta). Vpravo dole je jazero (neskôr oceán) so skleneným tunelom do mesta pod vodou. Tunel je rozbitý a plný vody, treba k nemu neskôr sací stroj. Ukazovateľ na rázcestí je prehodený podľa toho.
+- **Rázcestie je väčšie a vzdušnejšie** – mapa 16×16 (pôvodne 13×13), strom je ďalej od rohu, jaskyňa a tunel sú zasunuté hlbšie do steny, jazero je ďalej od rázcestníka. Viac kríkov a tráv.
+- **Vodný tunel nakreslený od nuly** – vlastný pixel-art (sklenená trubica s kamennými oblúkmi, riasy vo vnútri, jeden oblúk a kus skla rozbité, odpadnuté kamene a pena). Ide z brehu do jazera.
