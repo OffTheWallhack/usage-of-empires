@@ -798,3 +798,4 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 - **Prastarý strom z Gemini** – tvoj render som vystrihol a previedol do rovnakého pixelového štýlu ako ostatné sprity (rovnaká paleta, ostrosť). Stojí na rázcestí a jeho korunu vidno aj nad bránou v dedine.
 - **Tunel (vľavo hore)** – tvoj obrázok tunela je tiež v pixelovom štýle a stojí na ľavej hornej ceste. Cesta je zatiaľ zatarasená kmeňmi, takže sa tadiaľ nedá ísť.
+- **Jaskyňa (vpravo hore)** – tvoj obrázok jaskyne je v pixelovom štýle na pravej hornej ceste rázcestia (oproti tunelu). Cesta k nej je zatiaľ zavalená balvanmi.
