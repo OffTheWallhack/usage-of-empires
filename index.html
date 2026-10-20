@@ -725,6 +725,7 @@ body.incellar .tb,body.incellar .qstrip,body.incellar #topbar{display:none!impor
 @media (orientation:landscape) and (max-height:520px){.coach{bottom:auto;top:calc(var(--tbh) + 34px);left:auto;right:64px;transform:none}}
 body.incellar .coach,body.cine .coach{display:none!important}
 .celui{z-index:7}
+body.incellar.incross #joy{display:block!important}
 body.incross .toasts,body.incross.touchui.mode-hero .toasts,body.incross.touchui.mode-city .toasts{top:calc(62px + env(safe-area-inset-top,0px))!important}
 </style>
 
@@ -7201,9 +7202,21 @@ class Cross extends Phaser.Scene {
     this.kee = this.add.image(this.p.x, this.p.y, 'rF_idle0').setOrigin(.5, .925);
     this.shd = this.add.image(this.p.x, this.p.y, 'shadowM').setScale(.8, .8).setDepth(this.p.y - 1);
     this.keys = this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT');
-    this.input.on('pointerdown', q => { const w = this.cameras.main.getWorldPoint(q.x, q.y); this.p.tx = w.x; this.p.ty = w.y; });
-    this.input.on('pointermove', q => { if (q.isDown) { const w = this.cameras.main.getWorldPoint(q.x, q.y); this.p.tx = w.x; this.p.ty = w.y; } });
-    this.input.on('pointerup', () => { this.p.tx = null; });
+    this.joy = null;
+    this.input.on('pointerdown', q => {
+      if (q.wasTouch) { if (!this.joy) { this.joy = { id: q.id, ox: q.x, oy: q.y, vx: 0, vy: 0 }; joyShow(q.x / DPR, q.y / DPR); } return; }
+      const w = this.cameras.main.getWorldPoint(q.x, q.y); this.p.tx = w.x; this.p.ty = w.y;
+    });
+    this.input.on('pointermove', q => {
+      if (this.joy) {
+        if (q.id !== this.joy.id) return;
+        const j = this.joy, dx = (q.x - j.ox) / DPR, dy = (q.y - j.oy) / DPR, len = Math.hypot(dx, dy), R = joyR(), m = Math.min(1, len / R);
+        j.vx = len > 10 ? dx / len * m : 0; j.vy = len > 10 ? dy / len * m : 0;
+        joyKnob(len > 0 ? dx / len * Math.min(len, R) : 0, len > 0 ? dy / len * Math.min(len, R) : 0); return;
+      }
+      if (q.isDown && !q.wasTouch) { const w = this.cameras.main.getWorldPoint(q.x, q.y); this.p.tx = w.x; this.p.ty = w.y; }
+    });
+    this.input.on('pointerup', q => { if (this.joy && q.id === this.joy.id) { this.joy = null; joyHide(); } this.p.tx = null; });
     /* noc: tma a teplé svetlo lámp */
     if (night > .02) {
       const c = Math.round(255 - night * (255 - 110)), c2 = Math.round(255 - night * (255 - 122)), c3 = Math.round(255 - night * (255 - 186));
@@ -7228,6 +7241,7 @@ class Cross extends Phaser.Scene {
   update(time, dtm) {
     const dt = Math.min(dtm / 1000, .05), P = this.p, K = this.keys; if (this.leaving) return;
     let vx = (K.D.isDown || K.RIGHT.isDown ? 1 : 0) - (K.A.isDown || K.LEFT.isDown ? 1 : 0), vy = (K.S.isDown || K.DOWN.isDown ? 1 : 0) - (K.W.isDown || K.UP.isDown ? 1 : 0);
+    if (!vx && !vy && this.joy && (this.joy.vx || this.joy.vy)) { vx = this.joy.vx; vy = this.joy.vy; }
     if (!vx && !vy && P.tx != null) { const dx = P.tx - P.x, dy = P.ty - P.y; if (Math.hypot(dx, dy) > 3) { vx = dx; vy = dy; } }
     const l = Math.hypot(vx, vy), moving = l > 0;
     if (moving) {
@@ -7254,7 +7268,7 @@ function enterCross() {
   scene.scene.pause(); scene.scene.setVisible(false); game.scene.start('cross');
 }
 function leaveCross(msg) {
-  game.scene.stop('cross'); scene.scene.setVisible(true); scene.scene.resume(); document.body.classList.remove('incellar', 'incross'); $('crossUI').hidden = true;
+  joyHide(); game.scene.stop('cross'); scene.scene.setVisible(true); scene.scene.resume(); document.body.classList.remove('incellar', 'incross'); $('crossUI').hidden = true;
   const o = scene.npcs.find(q => q.npc.cfg.key === 'keeper');
   if (o) { const n = o.npc; n.x = XEXIT.x + 3.9; n.y = XEXIT.y; n.path = []; if (n.inp) { n.inp.x = 0; n.inp.y = 0; } }
   scene.xgCd = 2; scene.followOn = true; if (msg) toast(msg);

@@ -803,3 +803,4 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Rázcestie je väčšie a vzdušnejšie** – mapa 16×16 (pôvodne 13×13), strom je ďalej od rohu, jaskyňa a tunel sú zasunuté hlbšie do steny, jazero je ďalej od rázcestníka. Viac kríkov a tráv.
 - **Vodný tunel nakreslený od nuly** – vlastný pixel-art (sklenená trubica s kamennými oblúkmi, riasy vo vnútri, jeden oblúk a kus skla rozbité, odpadnuté kamene a pena). Ide z brehu do jazera.
 - **Vodný tunel kontrastnejší** – tmavý obrys, ostrejšie tiene a svetlé odlesky na skle, hrubšia textúra kameňa, sýtejšie riasy, aby ladil s ostatnými spritmi.
+- **Oprava: joystick na rázcestí** – na dotykovom zariadení hra brala dotyk ako „choď k miestu dotyku“, preto hrdina vždy šiel späť k ceste domov (palec je dole vľavo). Teraz je tam rovnaký joystick ako v dedine. Myš funguje ďalej klikom.
