@@ -3626,6 +3626,7 @@ const KEEPER_CFG = {
   CONFIG.zoomLevels = lv;
 })();
 if (NEW) ['field', 'wheat', 'chickens', 'sheep'].forEach(k => delete SETTLER_CFG.acts[k]);   // v Novej hre ešte nie sú
+let UZOOM = 0;   // zoom, ktorý si hráč nastavil – platí aj na rázcestí
 const snapZoom = z => CONFIG.zoomLevels.reduce((b, l) => Math.abs(Math.log(l / z)) < Math.abs(Math.log(b / z)) ? l : b, CONFIG.zoomLevels[0]);
 const blockedTile = (x, y) => !inMap(x, y) || (!WORLD.bridge && bridgeGap(x, y)) || isField(x, y) || objectTiles.has(x + ',' + y) || kindAt(x, y) === 'water' || kindAt(x, y) === 'forest';
 // medzi políčkami sa dá chodiť, ak sa líšia najviac o jednu úroveň (svah); väčší rozdiel je útes
@@ -5967,7 +5968,7 @@ class World extends Phaser.Scene {
     cam.setZoom(z);
     cam.scrollX = w.x - cam.width / 2 - (sx - cam.width / 2) / z;
     cam.scrollY = w.y - cam.height / 2 - (sy - cam.height / 2) / z;
-    this.clampCam();
+    UZOOM = z; this.clampCam();
   }
   stepZoom(dir, sx, sy) {
     const cam = this.cameras.main, lv = CONFIG.zoomLevels;
@@ -7202,7 +7203,9 @@ class Cross extends Phaser.Scene {
     this.kee = this.add.image(this.p.x, this.p.y, 'rF_idle0').setOrigin(.5, .925);
     this.shd = this.add.image(this.p.x, this.p.y, 'shadowM').setScale(.8, .8).setDepth(this.p.y - 1);
     this.keys = this.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT');
-    this.joy = null;
+    this.joy = null; this.pinchD = 0;
+    this.input.on('wheel', (q, o, dx, dy) => this.stepZ(dy > 0 ? -1 : 1));
+    this.input.keyboard.on('keydown', e => { if (e.key === '+' || e.key === '=') this.stepZ(1); else if (e.key === '-') this.stepZ(-1); });
     this.input.on('pointerdown', q => {
       if (q.wasTouch) { if (!this.joy) { this.joy = { id: q.id, ox: q.x, oy: q.y, vx: 0, vy: 0 }; joyShow(q.x / DPR, q.y / DPR); } return; }
       const w = this.cameras.main.getWorldPoint(q.x, q.y); this.p.tx = w.x; this.p.ty = w.y;
@@ -7232,15 +7235,20 @@ class Cross extends Phaser.Scene {
     this.anim = 0; this.said = {}; this.sayCd = 0; this.leaving = false;
     toast('Rozcestie pod Prastarým stromom');
   }
-  fit() {
-    const cam = this.cameras.main, z = Math.max(1, Math.floor(Math.min(cam.width / (XR.W * .8), cam.height / (XR.H * .85))));
+  fit(z0) {
+    const cam = this.cameras.main, lv = CONFIG.zoomLevels, fz = Math.max(1, Math.floor(Math.min(cam.width / (XR.W * .8), cam.height / (XR.H * .85))));
+    const z = Math.max(lv[0], Math.min(lv[lv.length - 1], z0 || UZOOM || (scene && scene.cameras.main.zoom) || fz));
     cam.setZoom(z); const vw = cam.width / z, vh = cam.height / z, bw = Math.max(XR.W + 80, vw), bh = Math.max(XR.H + 40, vh);
     cam.setBounds(XR.W / 2 - bw / 2, XR.H / 2 - bh / 2, bw, bh); cam.startFollow(this.kee, true, .12, .12);
   }
+  stepZ(dir) { const lv = CONFIG.zoomLevels, cz = this.cameras.main.zoom; let i = lv.findIndex(l => l >= cz - .01); if (i < 0) i = lv.length - 1; if (dir < 0 && lv[i] > cz + .01) i--; const n = lv[Math.max(0, Math.min(lv.length - 1, i + dir))]; UZOOM = n; this.fit(n); }
   say(key, msg) { if (this.said[key] && this.time.now - this.said[key] < 9000) return; this.said[key] = this.time.now; toast(msg); }
   update(time, dtm) {
     const dt = Math.min(dtm / 1000, .05), P = this.p, K = this.keys; if (this.leaving) return;
     let vx = (K.D.isDown || K.RIGHT.isDown ? 1 : 0) - (K.A.isDown || K.LEFT.isDown ? 1 : 0), vy = (K.S.isDown || K.DOWN.isDown ? 1 : 0) - (K.W.isDown || K.UP.isDown ? 1 : 0);
+    { const a = this.input.pointer1, b = this.input.pointer2;
+      if (a && b && a.isDown && b.isDown) { const d = Math.hypot(a.x - b.x, a.y - b.y); if (this.pinchD) { this.pinchZ = (this.pinchZ || this.cameras.main.zoom) * d / this.pinchD; const sz = snapZoom(this.pinchZ); if (sz !== this.cameras.main.zoom) { UZOOM = sz; this.fit(sz); } } this.pinchD = d; if (this.joy) { this.joy.vx = 0; this.joy.vy = 0; } }
+      else { this.pinchD = 0; this.pinchZ = 0; } }
     if (!vx && !vy && this.joy && (this.joy.vx || this.joy.vy)) { vx = this.joy.vx; vy = this.joy.vy; }
     if (!vx && !vy && P.tx != null) { const dx = P.tx - P.x, dy = P.ty - P.y; if (Math.hypot(dx, dy) > 3) { vx = dx; vy = dy; } }
     const l = Math.hypot(vx, vy), moving = l > 0;
@@ -7268,7 +7276,7 @@ function enterCross() {
   scene.scene.pause(); scene.scene.setVisible(false); game.scene.start('cross');
 }
 function leaveCross(msg) {
-  joyHide(); game.scene.stop('cross'); scene.scene.setVisible(true); scene.scene.resume(); document.body.classList.remove('incellar', 'incross'); $('crossUI').hidden = true;
+  joyHide(); game.scene.stop('cross'); scene.scene.setVisible(true); scene.scene.resume(); if (UZOOM && scene.cameras.main.zoom !== UZOOM) { scene.cameras.main.setZoom(UZOOM); scene.clampCam(); } document.body.classList.remove('incellar', 'incross'); $('crossUI').hidden = true;
   const o = scene.npcs.find(q => q.npc.cfg.key === 'keeper');
   if (o) { const n = o.npc; n.x = XEXIT.x + 3.9; n.y = XEXIT.y; n.path = []; if (n.inp) { n.inp.x = 0; n.inp.y = 0; } }
   scene.xgCd = 2; scene.followOn = true; if (msg) toast(msg);
