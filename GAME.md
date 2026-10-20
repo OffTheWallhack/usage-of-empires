@@ -772,3 +772,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Hudba, ktorá prekvapí** (ako v Minecrafte): prvá pesnička príde po 3–6 minútach hrania, ďalšie zriedka, raz za 10–20 minút. Cez deň hrá dedinská pesnička, v noci jedna z dvoch nočných. Po porazení bossa zahrá víťazná pieseň. V jaskyni dedinská hudba jemne stíchne. V Menu je tlačidlo Hudba / Bez hudby. Hudba sa sťahuje až keď má hrať, takže nespomaľuje načítanie. V Claude artefakte hrať nemusí, na GitHub stránke áno.
 - **Nový most z Gemini** (hotová verzia, od opravy oblúka ďalej): kamenný most s tromi oblúkmi, schodmi na oboch brehoch, zábradlím a brečtanom. Rozpadnutý most a most s lešením zatiaľ zostávajú staré, kým nepošleš nové.
 - **Vyváženie začiatku:** voľní osadníci v Novej hre teraz zbierajú, kým nie je sklad skoro plný (predtým prestali pri ~100 dreve a ~50 kameni, čo pri nových cenách nestačilo). Simulácia so 4 osadníkmi bez zásahu hráča: ~16 dreva a ~15 kameňa za herný deň (6 minút). Lešenie na moste je tak reálne okolo 2. dňa, kamenný oblúk okolo 5. dňa, s chatou drevorubača a viac ľuďmi skôr.
+
+## Krok 76 – hra pripravená na betu + všetky štádiá nového mosta
+- **Most:** rozpadnutý most a most s lešením sú teraz z tej istej grafiky ako nový hotový most z Gemini. Pri rozpadnutom chýba stred s oblúkom a v rieke ležia kamene. Pri lešení je cez dieru drevená lávka na stĺpoch so zábradlím. Všetky tri štádiá na seba sedia.
+- **Čo je nové:** po aktualizácii hry sa hráčovi, ktorý už hral, raz ukáže okno so zmenami z posledných verzií. Nový hráč ho nevidí, začína návodom. V Menu je tlačidlo „Čo je nové“ na zopakovanie.
+- **Nahlásiť chybu** (Menu): pripraví text s verziou hry, svetom, dňom v hre, telefónom, rozlíšením, plynulosťou a poslednými chybami, ktoré hra zachytila. Na telefóne sa otvorí ponuka zdieľania (správa, mail, IG…), inde sa text skopíruje alebo ukáže na skopírovanie.
+- **Hlavné menu → „Hra na mobile · beta“:** krátky návod, ako hru pridať na plochu (iPhone aj Android), že ide aj bez internetu, ako si zálohovať svet a ako nahlásiť chybu.
+- README na GitHube prepísané pre hráčov (ako hrať na mobile, beta, záloha, chyby).
