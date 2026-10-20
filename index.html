@@ -7130,20 +7130,26 @@ function makeXGate() {
   return p.outline('#1c1a14').canvas();
 }
 function makeXrSign() {
-  const p = new Pix(64, 72), wd = ['#7a5c3a', '#5e4428', '#46321c'];
-  for (let y = 12; y <= 66; y++) for (let x = 30; x <= 33; x++) p.set(x, y, x === 30 ? wd[0] : x === 33 ? wd[2] : wd[1]);
-  for (let y = 62; y <= 68; y++) for (let x = 24; x <= 39; x++) { const d = Math.abs(x - 31.5) / 8 + Math.abs(y - 65) / 4; if (d <= 1) p.set(x, y, hash(x, y, 141) < .4 ? '#a8a08a' : '#8a8270'); }
-  [[31, 9], [32, 9], [30, 10], [31, 10], [32, 10], [33, 10]].forEach(([x, y]) => p.set(x, y, wd[0]));
-  const PIC = { mount: ['.....', '..#..', '.###.', '#####', '.....'], wave: ['.....', '.#.#.', '#.#.#', '.....', '.....'], tower: ['#.#.#', '#####', '.###.', '.###.', '.###.'], house: ['..#..', '.###.', '#####', '.#.#.', '.#.#.'] };
-  const plank = (y, dir, pic, hot) => {
-    const x0 = dir < 0 ? 5 : 30, x1 = dir < 0 ? 34 : 59, face = hot ? '#c8a458' : '#a08c68', edge = hot ? '#7a5c28' : '#665842';
-    for (let r = 0; r < 7; r++) for (let x = x0; x <= x1; x++) {
-      const tn = Math.min(r, 6 - r); if (dir < 0 ? x < x0 + 3 - tn : x > x1 - 3 + tn) continue;
-      p.set(x, y + r, (r === 0 || r === 6) ? edge : face);
+  /* štyri tabule v izometrii – každá smeruje presne k svojmu východu (−u vľavo hore, −v vpravo hore, +u vpravo dole, +v vľavo dole) */
+  const p = new Pix(72, 76), wd = ['#7a5c3a', '#5e4428', '#46321c'], PX = 35.5;
+  for (let y = 10; y <= 70; y++) for (let x = 34; x <= 37; x++) p.set(x, y, x === 34 ? wd[0] : x === 37 ? wd[2] : wd[1]);
+  for (let y = 66; y <= 72; y++) for (let x = 28; x <= 43; x++) { const d = Math.abs(x - PX) / 8 + Math.abs(y - 69) / 4; if (d <= 1) p.set(x, y, hash(x, y, 141) < .4 ? '#a8a08a' : '#8a8270'); }
+  [[35, 7], [36, 7], [34, 8], [35, 8], [36, 8], [37, 8]].forEach(([x, y]) => p.set(x, y, wd[0]));
+  const PIC = { mount: ['.....', '..#..', '.###.', '#####', '.....'], wave: ['.....', '.#.#.', '#.#.#', '.....', '.....'], cave: ['.###.', '#...#', '#.#.#', '#.#.#', '#.#.#'], house: ['..#..', '.###.', '#####', '.#.#.', '.#.#.'] };
+  const plank = (y0, dx, dy, pic, hot) => {
+    const face = hot ? '#c8a458' : '#a08c68', edge = hot ? '#7a5c28' : '#665842', side = hot ? '#9a7a38' : '#7a6a4e', L = 25, n = Math.hypot(dx, dy);
+    const cells = [];
+    for (let t = 3; t <= L; t++) {
+      const x = Math.round(PX + dx / n * t), y = Math.round(y0 + dy / n * t), tip = L - t, h = tip < 3 ? 1 + tip : 3;   // špička na konci
+      for (let k = -h; k <= h; k++) { const c = Math.abs(k) === h ? edge : (k === h - 1 && h === 3 ? side : face); p.set(x, y + k, c); cells.push([x, y + k]); }
     }
-    const px0 = dir < 0 ? 16 : 40; PIC[pic].forEach((row, j) => [...row].forEach((ch, i) => { if (ch === '#') p.set(px0 + i, y + 1 + j, '#3a2a14'); }));
+    const mx = Math.round(PX + dx / n * 14), my = Math.round(y0 + dy / n * 14);
+    PIC[pic].forEach((row, j) => [...row].forEach((ch, i) => { if (ch === '#') p.set(mx - 2 + i, my - 2 + j, '#3a2a14'); }));
   };
-  plank(14, 1, 'mount', false); plank(23, -1, 'tower', false); plank(32, 1, 'wave', false); plank(41, -1, 'house', true);
+  plank(21, -2, -1, 'mount', false);   // tunel – vľavo hore
+  plank(31, 2, -1, 'cave', false);     // jaskyňa – vpravo hore
+  plank(41, 2, 1, 'wave', false);      // voda – vpravo dole
+  plank(51, -2, 1, 'house', true);     // domov – vľavo dole
   return p.outline('#1c1a14').canvas();
 }
 function makeXrLeaf() { const p = new Pix(3, 2); p.set(0, 0, '#e8cf5a'); p.set(1, 0, '#d9b13c'); p.set(1, 1, '#82c34d'); p.set(2, 1, '#5c9c3c'); return p.canvas(); }
@@ -7178,7 +7184,7 @@ class Cross extends Phaser.Scene {
     this.tweens.add({ targets: this.hollow, alpha: this.hollow.alpha * .6, duration: 1700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
     /* rozcestník a zátarasy */
     const sp = xrPt(M, M); this.add.image(sp.x, sp.y + 2, 'shadowM').setDepth(2);
-    this.add.image(sp.x, Math.round(sp.y + 5), 'xrSign').setOrigin(.5, 66 / 72).setScale(1.25).setDepth(sp.y + 5);
+    this.add.image(sp.x, Math.round(sp.y + 5), 'xrSign').setOrigin(.5, 70 / 76).setScale(1.25).setDepth(sp.y + 5);
     const PILES = {
       log: [['g_d_log', -24, 2], ['g_d_log', -8, 8], ['g_d_log', 8, 4], ['g_d_log', 22, 10], ['g_d_log', -4, -3], ['g_d_log', 14, -4], ['g_d_dry1', -30, 12], ['g_d_dry2', 30, 2], ['g_d_fern1', 2, 12]],
       rocks: [['r_rock3', -22, 8], ['r_rock1', 18, 10], ['r_rock2', -6, 12], ['r_rock2', 8, 1], ['r_rock3', 2, -6], ['r_rock1', -14, -2], ['g_d_rock2', 30, 4], ['g_d_rock1', -32, 3], ['g_d_rock1', 24, -5]],
