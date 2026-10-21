@@ -92,7 +92,7 @@ html.lowfx .vignette{display:none}
 .card .x:focus-visible{outline:2px solid var(--gold)}
 .catalog{
   position:fixed;left:max(16px, env(safe-area-inset-left,0px));top:calc(84px + env(safe-area-inset-top,0px));
-  width:min(270px, calc(100vw - 96px));max-height:calc(100% - 190px);overflow:auto;
+  width:min(270px, calc(calc(100vw / var(--ui)) - 96px));max-height:calc(100% - 190px);overflow:auto;
   background:var(--panel);border:1px solid var(--panel-line);border-radius:4px;padding:10px 10px 12px;
   display:flex;flex-direction:column;gap:10px;box-shadow:0 3px 0 rgba(0,0,0,.4);
 }
@@ -141,7 +141,7 @@ html.lowfx .vignette{display:none}
 .dock button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold)}
 .dock button:disabled{opacity:.45;cursor:default}
 .dock .n{position:absolute;top:3px;right:5px;font:700 12px var(--font-display);color:var(--gold)}
-.sheet{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:380px;max-width:calc(100vw - 16px);max-height:50vh;overflow:auto;
+.sheet{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:380px;max-width:calc(calc(100vw / var(--ui)) - 16px);max-height:calc(50vh / var(--ui));overflow:auto;
   background:var(--panel);border:1px solid var(--panel-line);border-radius:4px;padding:12px 14px;box-shadow:0 3px 0 rgba(0,0,0,.4);box-sizing:border-box}
 .prow{display:flex;align-items:center;gap:10px;padding:8px;border-radius:4px;border:1px solid transparent;cursor:pointer;background:none;color:var(--ink);width:100%;text-align:left;font:14px var(--font-body)}
 .prow:hover{background:var(--btn-hi)}
@@ -254,9 +254,9 @@ body.touchui .pbtn kbd{display:none}
 .joy{position:fixed;transform:translate(-50%,-50%);border-radius:50%;border:3px solid rgba(239,232,212,.28);background:rgba(18,25,21,.25);pointer-events:none;z-index:4;transition:opacity .2s;opacity:.55}
 .joy.on{opacity:1;border-color:rgba(242,193,78,.7)}
 .joy i{position:absolute;left:50%;top:50%;width:46%;height:46%;border-radius:50%;background:rgba(242,193,78,.55);border:2px solid rgba(255,224,138,.8);transform:translate(-50%,-50%)}
-.cfgp{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:calc(max(16px, env(safe-area-inset-right,0px)) + 64px);width:270px;max-width:calc(100vw - 24px);box-sizing:border-box;background:var(--panel);border:1px solid var(--panel-line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 3px 0 rgba(0,0,0,.4);z-index:6}
-.cfgp{max-height:min(62vh,520px);overflow:auto}
-body.touchui .cfgp{top:auto;right:auto;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));width:min(360px,calc(100vw - 24px))}
+.cfgp{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:calc(max(16px, env(safe-area-inset-right,0px)) + 64px);width:270px;max-width:calc(calc(100vw / var(--ui)) - 24px);box-sizing:border-box;background:var(--panel);border:1px solid var(--panel-line);border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 3px 0 rgba(0,0,0,.4);z-index:6}
+.cfgp{max-height:min(calc(62vh / var(--ui)),520px);overflow:auto}
+body.touchui .cfgp{top:auto;right:auto;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));width:min(360px,calc(calc(100vw / var(--ui)) - 24px))}
 .cfgp .cfgx{position:absolute;top:8px;right:8px;height:30px;width:30px;padding:0;font-size:18px}
 .cfgp h3{margin:0;font:700 15px var(--font-display);color:var(--gold)}
 .cfgrow{display:flex;flex-direction:column;gap:6px;font-size:13px}
@@ -291,7 +291,7 @@ body.nodev #grid,body.nodev #names,body.nodev #cat{display:none}
   .controls{top:calc(60px + env(safe-area-inset-top,0px));right:max(8px, env(safe-area-inset-right,0px));flex-direction:row;gap:6px}
   .controls button{width:40px;height:40px}
   .card{left:max(8px, env(safe-area-inset-left,0px));right:auto;bottom:auto;top:calc(58px + env(safe-area-inset-top,0px));width:260px;max-width:260px}
-  .sheet{left:50%;right:auto;transform:translateX(-50%);width:380px;max-width:calc(100vw - 16px);bottom:auto;top:calc(58px + env(safe-area-inset-top,0px));max-height:calc(100% - 70px)}
+  .sheet{left:50%;right:auto;transform:translateX(-50%);width:380px;max-width:calc(calc(100vw / var(--ui)) - 16px);bottom:auto;top:calc(58px + env(safe-area-inset-top,0px));max-height:calc(100% - 70px)}
   .toasts{top:calc(56px + env(safe-area-inset-top,0px))}
   .cfgp{top:calc(108px + env(safe-area-inset-top,0px));right:max(8px, env(safe-area-inset-right,0px))}
   .catalog{top:calc(58px + env(safe-area-inset-top,0px));max-height:calc(100% - 70px)}
@@ -350,7 +350,7 @@ body.touchui.mode-hero .pad{right:max(10px, env(safe-area-inset-right,0px));bott
 body.touchui.mode-hero .pad .cluster{zoom:.84}
 body.touchui.cardOpen .qcard{display:none}
 body.touchui #center{width:auto;padding:0 8px}
-.toolbar{position:fixed;left:50%;transform:translateX(-50%);top:calc(56px + env(safe-area-inset-top,0px));display:flex;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--gold);border-radius:6px;padding:6px 6px 6px 12px;font-size:13px;max-width:calc(100vw - 16px);box-sizing:border-box;z-index:6;zoom:var(--ui)}
+.toolbar{position:fixed;left:50%;transform:translateX(-50%);top:calc(56px + env(safe-area-inset-top,0px));display:flex;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--gold);border-radius:6px;padding:6px 6px 6px 12px;font-size:13px;max-width:calc(calc(100vw / var(--ui)) - 16px);box-sizing:border-box;z-index:6;zoom:var(--ui)}
 .toolbar span{min-width:0}
 .toolbar button{height:38px;padding:0 14px;border-radius:4px;border:1px solid var(--panel-line);background:var(--btn);color:var(--ink);font:700 13px var(--font-body);cursor:pointer;flex:none}
 .toolbar #toolPlace{background:var(--gold);color:#1b1608;border-color:#ffe08a}
@@ -432,10 +432,10 @@ body.incellar .hud,body.incellar .res,body.incellar .dock,body.incellar .card,bo
 .celui{position:fixed;inset:0;pointer-events:none;z-index:8;zoom:var(--ui)}
 .celui[hidden]{display:none}
 .celui > *{pointer-events:auto}
-.celup.xrdo{top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:linear-gradient(#7a5a28,#54401c);border:2px solid #f2c14e;max-width:92vw}
+.celup.xrdo{top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:linear-gradient(#7a5a28,#54401c);border:2px solid #f2c14e;max-width:calc(92vw / var(--ui))}
 .celup[hidden]{display:none}
 .celup{position:absolute;left:max(12px, env(safe-area-inset-left,0px));top:calc(12px + env(safe-area-inset-top,0px));min-height:40px;padding:0 14px;border-radius:6px;border:1px solid var(--panel-line);background:var(--panel);color:var(--ink);font:700 14px var(--font-body);cursor:pointer}
-.celbox{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));width:min(520px, calc(100vw - 24px));background:var(--panel);border:1px solid #8a6a3a;border-radius:6px;padding:10px 12px;box-shadow:0 3px 0 rgba(0,0,0,.5)}
+.celbox{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));width:min(520px, calc(calc(100vw / var(--ui)) - 24px));background:var(--panel);border:1px solid #8a6a3a;border-radius:6px;padding:10px 12px;box-shadow:0 3px 0 rgba(0,0,0,.5)}
 .celbox p{margin:0 0 8px;font-size:14px;line-height:1.4}
 .celrow{display:flex;gap:6px}
 .celrow button{flex:1;min-height:40px;border-radius:6px;border:1px solid var(--panel-line);background:var(--btn);color:var(--ink);font:700 14px var(--font-body);cursor:pointer}
@@ -697,7 +697,7 @@ body.touchui.mode-city .dock .n{top:50%;transform:translateY(-50%);right:10px}
 body.touchui.mode-city .dock .n{position:static;transform:none;font-size:11px;margin-left:-4px}
 @media (orientation: portrait){
   body.touchui.mode-hero .res{left:8px;right:8px;justify-content:space-between}
-  body.touchui.mode-hero .hud.top{top:calc(48px + env(safe-area-inset-top,0px));flex-direction:column;gap:6px;max-width:calc(100vw - 72px)}
+  body.touchui.mode-hero .hud.top{top:calc(48px + env(safe-area-inset-top,0px));flex-direction:column;gap:6px;max-width:calc(calc(100vw / var(--ui)) - 72px)}
   body.touchui.mode-hero .qcard{width:220px}
   body.touchui.mode-hero .controls{top:calc(48px + env(safe-area-inset-top,0px));right:8px;flex-direction:column;gap:6px}
   body.touchui.mode-hero .dock{top:calc(190px + env(safe-area-inset-top,0px));right:8px;left:auto;flex-direction:column;padding:0;gap:6px;background:none;border:0;box-shadow:none}
@@ -730,7 +730,7 @@ body.touchui.mode-city .dock .n{position:static;transform:none;font-size:11px;ma
 
 /* Krok 57: dungeon */
 .cvfloor{position:absolute;left:50%;transform:translateX(-50%);top:calc(32px + env(safe-area-inset-top,0px));font:700 12px var(--font-display);color:#cdbf9f;text-shadow:0 1px 0 #000;pointer-events:none;white-space:nowrap}
-.cvboss{position:absolute;left:50%;transform:translateX(-50%);top:calc(54px + env(safe-area-inset-top,0px));width:min(320px,70vw);text-align:center;pointer-events:none;font:700 12px var(--font-display);color:#ffb07a;text-shadow:0 1px 0 #000}
+.cvboss{position:absolute;left:50%;transform:translateX(-50%);top:calc(54px + env(safe-area-inset-top,0px));width:min(320px,calc(70vw / var(--ui)));text-align:center;pointer-events:none;font:700 12px var(--font-display);color:#ffb07a;text-shadow:0 1px 0 #000}
 .cvboss i{display:block;height:8px;margin-top:3px;background:#2a1010;border:1px solid #000;border-radius:2px;overflow:hidden}
 .cvboss u{display:block;height:100%;width:100%;background:linear-gradient(90deg,#c8402a,#ff8a3a);transition:width .15s}
 .cvboss.stun u{background:linear-gradient(90deg,#4a8ad0,#9ad0ff)}
@@ -785,18 +785,18 @@ body.touchui #zin,body.touchui #zout{display:none!important}
 .dock .n{position:absolute!important;transform:none!important;top:2px!important;right:4px!important;margin:0!important;font:400 13px/1 'VT323',var(--font-display),monospace!important;color:#f2c14e!important;background:#2a1c0e;border:1px solid #8a6a3a;border-radius:6px;padding:1px 4px}
 .dock #cfg{flex:0 0 auto!important;padding:0 10px!important}
 @media (min-width:700px){.dock{justify-content:center}.dock button{flex:0 1 170px!important}}
-.sheet,body.touchui.mode-city .sheet,body.touchui.mode-hero .sheet{left:6px!important;right:6px!important;width:auto!important;max-width:none!important;transform:none!important;top:auto!important;bottom:calc(var(--dkh) + 6px)!important;max-height:calc(100vh - var(--tbh) - var(--dkh) - 48px)!important;border:2px solid var(--fr)!important;border-radius:2px!important;background:var(--wood)!important;box-shadow:inset 0 0 0 1px #24160a,inset 0 1px 0 rgba(255,226,150,.2),0 4px 14px rgba(0,0,0,.6)!important}
+.sheet,body.touchui.mode-city .sheet,body.touchui.mode-hero .sheet{left:6px!important;right:6px!important;width:auto!important;max-width:none!important;transform:none!important;top:auto!important;bottom:calc(var(--dkh) + 6px)!important;max-height:calc(calc(100vh / var(--ui)) - var(--tbh) - var(--dkh) - 48px)!important;border:2px solid var(--fr)!important;border-radius:2px!important;background:var(--wood)!important;box-shadow:inset 0 0 0 1px #24160a,inset 0 1px 0 rgba(255,226,150,.2),0 4px 14px rgba(0,0,0,.6)!important}
 @media (min-width:700px){.sheet,body.touchui.mode-city .sheet,body.touchui.mode-hero .sheet{left:50%!important;right:auto!important;width:420px!important;transform:translateX(-50%)!important}}
 .sheet h3{font:400 24px/1 'VT323',var(--font-display),monospace!important;color:#f2d79a!important;text-shadow:0 2px 0 #000}
 .sheet h3 small{font:400 14px var(--font-body)!important}
-.card:not(.cmd):not(.mini){bottom:auto!important;max-height:calc(100vh - var(--tbh) - var(--dkh) - 24px);overflow:auto}
+.card:not(.cmd):not(.mini){bottom:auto!important;max-height:calc(calc(100vh / var(--ui)) - var(--tbh) - var(--dkh) - 24px);overflow:auto}
 .toasts,body.touchui.mode-city .toasts,body.touchui.mode-hero .toasts{top:calc(var(--tbh) + 40px)!important}
 .toast{border:2px solid var(--fr)!important;border-radius:2px!important;background:var(--wood)!important;font:400 17px/1.2 'VT323',var(--font-display),monospace!important;box-shadow:inset 0 0 0 1px #24160a,0 3px 8px rgba(0,0,0,.5)!important}
 .toolbar,body.touchui.mode-city .toolbar{top:calc(var(--tbh) + 40px)!important;bottom:auto!important;height:auto!important;max-height:none!important;left:8px!important;right:8px!important;width:auto!important;transform:none!important;z-index:7;border:2px solid var(--fr)!important;border-radius:2px!important;background:#2e2014!important;box-shadow:inset 0 0 0 1px #24160a,0 4px 10px rgba(0,0,0,.6)!important;padding:6px 6px 6px 12px!important;font-size:14px!important}
 @media (min-width:700px){.toolbar,body.touchui.mode-city .toolbar{left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:max-content!important;max-width:600px}}
 .toolbar button{border:2px solid!important;border-color:#b08a50 #2a1c0e #2a1c0e #b08a50!important;border-radius:2px!important;background:linear-gradient(#5a4428,#3e2e1a)!important;color:#f2e4c2!important}
 .toolbar #toolPlace{background:linear-gradient(#7a5a28,#54401c)!important;border-color:#f2c14e #3a2810 #3a2810 #f2c14e!important}
-.cfgp,body.touchui .cfgp{top:calc(var(--tbh) + 8px)!important;max-height:calc(100vh - var(--tbh) - var(--dkh) - 24px)!important;border:2px solid var(--fr)!important;border-radius:2px!important;background:var(--wood)!important;box-shadow:inset 0 0 0 1px #24160a,0 6px 18px rgba(0,0,0,.6)!important}
+.cfgp,body.touchui .cfgp{top:calc(var(--tbh) + 8px)!important;max-height:calc(calc(100vh / var(--ui)) - var(--tbh) - var(--dkh) - 24px)!important;border:2px solid var(--fr)!important;border-radius:2px!important;background:var(--wood)!important;box-shadow:inset 0 0 0 1px #24160a,0 6px 18px rgba(0,0,0,.6)!important}
 .catalog{top:calc(var(--tbh) + 40px)!important}
 .full .fhead{background:var(--stone);border-bottom:3px solid var(--fr)}
 .full .fhead h3{font:400 31px/1 'VT323',var(--font-display),monospace;color:#f2d79a;text-shadow:0 2px 0 #000}
@@ -807,7 +807,7 @@ body.mode-hero .dock button svg{width:22px!important;height:22px!important}
 body.mode-hero .dock .n{position:absolute!important;top:1px;right:3px;font-size:13px!important;margin:0!important}
 body.mode-hero .dock #cfg{padding:0!important}
 body.mode-hero .hud.controls{right:4px!important}
-body.mode-hero .sheet{bottom:auto!important;top:calc(var(--tbh) + 36px)!important;max-height:calc(100vh - var(--tbh) - 200px)!important}
+body.mode-hero .sheet{bottom:auto!important;top:calc(var(--tbh) + 36px)!important;max-height:calc(calc(100vh / var(--ui)) - var(--tbh) - 200px)!important}
 body.mode-hero .card:not(.cmd):not(.mini){bottom:auto!important}
 body.mode-hero .pad{bottom:calc(10px + env(safe-area-inset-bottom,0px))!important}
 body.incellar .tb,body.incellar .qstrip,body.incellar #topbar{display:none!important}
@@ -817,7 +817,7 @@ body.incellar .tb,body.incellar .qstrip,body.incellar #topbar{display:none!impor
 .cfgp .cfgq button,.cfgp button{background:linear-gradient(#5a4428,#3e2e1a)!important;border:2px solid!important;border-color:#b08a50 #2a1c0e #2a1c0e #b08a50!important;border-radius:2px!important;color:#f2e4c2!important}
 .cfgp .cfgx{width:36px!important;height:36px!important}
 .cfgp .cfglink{background:none!important;border:0!important}
-.toasts,body.touchui.mode-city .toasts,body.touchui.mode-hero .toasts{left:8px!important;right:auto!important;transform:none!important;top:calc(var(--tbh) + 34px)!important;align-items:flex-start!important;gap:4px!important;max-width:min(320px,62vw);z-index:9!important}
+.toasts,body.touchui.mode-city .toasts,body.touchui.mode-hero .toasts{left:8px!important;right:auto!important;transform:none!important;top:calc(var(--tbh) + 34px)!important;align-items:flex-start!important;gap:4px!important;max-width:min(320px,calc(62vw / var(--ui)));z-index:9!important}
 .toast{font:400 14px/1.15 'VT323',var(--font-display),monospace!important;padding:4px 8px!important;border-width:1px!important;background:rgba(30,20,10,.94)!important;color:#f2e4c2!important;text-shadow:0 1px 0 #000;animation:tIn .25s ease-out;transition:opacity .4s,transform .4s}
 .toast.out{opacity:0;transform:translateX(-12px)}
 @keyframes tIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
@@ -838,10 +838,10 @@ body.incellar .tb,body.incellar .qstrip,body.incellar #topbar{display:none!impor
   .dock .n,body.mode-hero .dock .n{position:absolute!important;top:0!important;right:2px!important;font-size:12px!important}
   .dock #cfg{padding:0!important}
   .card:not(.cmd):not(.mini){bottom:auto!important}
-  .sheet,body.touchui.mode-city .sheet,body.touchui.mode-hero .sheet{top:calc(var(--tbh) + 34px)!important;bottom:8px!important;max-height:none!important;left:auto!important;right:8px!important;width:min(420px,60vw)!important;transform:none!important}
+  .sheet,body.touchui.mode-city .sheet,body.touchui.mode-hero .sheet{top:calc(var(--tbh) + 34px)!important;bottom:8px!important;max-height:none!important;left:auto!important;right:8px!important;width:min(420px,calc(60vw / var(--ui)))!important;transform:none!important}
   .hud.controls{top:calc(var(--tbh) + 34px)!important}
 }
-.coach{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--dkh) + 14px);width:min(360px,calc(100vw - 24px));z-index:10;background:linear-gradient(180deg,#3e2a18,#1e130a);border:2px solid #f2c14e;border-radius:3px;box-shadow:inset 0 0 0 1px #24160a,0 6px 18px rgba(0,0,0,.7);padding:8px 10px 10px;zoom:var(--ui);animation:tIn .3s ease-out}
+.coach{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--dkh) + 14px);width:min(360px,calc(calc(100vw / var(--ui)) - 24px));z-index:10;background:linear-gradient(180deg,#3e2a18,#1e130a);border:2px solid #f2c14e;border-radius:3px;box-shadow:inset 0 0 0 1px #24160a,0 6px 18px rgba(0,0,0,.7);padding:8px 10px 10px;zoom:var(--ui);animation:tIn .3s ease-out}
 .coach .ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
 .coach .ch b{font:400 16px/1 'VT323',var(--font-display),monospace;color:#f2c14e}
 .coach .ch button{background:none;border:0;color:var(--muted);font:12px var(--font-body);text-decoration:underline;cursor:pointer;padding:4px}
@@ -854,7 +854,7 @@ body.incellar .coach,body.cine .coach{display:none!important}
 .celui{z-index:7}
 body.incellar #joy{display:block!important}
 /* ---- Krok 79: počítač (myš + široká obrazovka) ---- */
-html.desk .full{inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:min(780px,92vw);max-height:86vh;border:3px solid var(--fr,#6a4a2a);border-radius:10px;box-shadow:0 0 0 100vmax rgba(0,0,0,.55),0 20px 60px #000;padding-top:0}
+html.desk .full{inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);width:min(780px,calc(92vw / var(--ui)));max-height:calc(86vh / var(--ui));border:3px solid var(--fr,#6a4a2a);border-radius:10px;box-shadow:0 0 0 100vmax rgba(0,0,0,.55),0 20px 60px #000;padding-top:0}
 html.desk .full .fbody{flex:1 1 auto;min-height:0;zoom:1.12}
 html.desk .qstrip,html.desk body.cardOpen .qstrip{display:none!important}
 html.desk .qtrack{position:fixed;left:8px;top:calc(var(--tbh) + 8px);z-index:5;width:250px;padding:6px 10px 8px;background:linear-gradient(180deg,rgba(30,23,14,.9),rgba(18,12,6,.9));border:1px solid var(--fr2,#5a4020);border-radius:6px;color:#f2d79a;font:400 18px/1.15 'VT323',var(--font-display),monospace;cursor:pointer;zoom:var(--ui)}
@@ -877,6 +877,58 @@ html.desk .pad .cluster .pbtn{position:static;width:62px;height:62px;border-radi
 html.desk .pad .cluster .pbtn.big{width:62px;height:62px;font-size:11px}
 html.desk .pad .cluster .pbtn kbd{display:block;opacity:.85;font-size:11px}
 body.incross .toasts,body.incross.touchui.mode-hero .toasts,body.incross.touchui.mode-city .toasts{top:calc(62px + env(safe-area-inset-top,0px))!important}
+/* ---- Krok 83: nový layout ovládania ----
+   dock vždy dole (hrdina ho nemení), na šírku malý v strede; horná lišta na šírku užšia v strede;
+   úlohy vľavo hore ako malý zoznam; suroviny bez prázdneho miesta; bez tlačidla stredu kamery */
+html{background:#0d0806}
+#game canvas{width:100%!important;height:100%!important}
+body::after{content:'';position:fixed;left:0;right:0;bottom:0;height:env(safe-area-inset-bottom,0px);background:#140c06;z-index:5;pointer-events:none}
+.tb .res{justify-content:center!important;gap:2px!important}
+.tb .res .r{flex:0 1 auto!important;padding:3px 5px!important}
+.tb .res .r:last-child{flex:0 0 auto!important;padding:3px 5px!important}
+.tb .res .r b{min-width:2ch!important}
+html .qstrip,html.desk .qtrack{position:fixed!important;left:max(8px,env(safe-area-inset-left,0px))!important;right:auto!important;top:calc(var(--tbh) + 8px)!important;width:190px!important;max-width:190px!important;height:auto!important;min-width:0!important;box-sizing:border-box!important;padding:3px 7px 4px!important;border-radius:4px!important;display:block!important;align-items:initial!important;gap:0!important;background:rgba(24,16,8,.84)!important;border:1px solid var(--fr2)!important;box-shadow:0 2px 6px rgba(0,0,0,.45)!important;color:#e6d6ae!important;font:400 13px/1.12 'VT323',var(--font-display),monospace!important;text-align:left!important;overflow:hidden!important;cursor:pointer;z-index:5}
+html .qstrip::before{display:none!important}
+html .qstrip .qg,html.desk .qtrack .qg{display:block;flex:none;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:1px}
+html .qstrip .qi,html.desk .qtrack .qi{display:flex;justify-content:space-between;gap:6px;white-space:nowrap;color:#e6d6ae}
+html .qstrip .qi span,html.desk .qtrack .qi span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+html .qstrip .qi b,html.desk .qtrack .qi b{font-weight:400;color:var(--muted);flex:none}
+html .qstrip .qi.more,html.desk .qtrack .qi.more{color:var(--muted)}
+html.desk .qstrip{display:none!important}
+html.desk .qtrack{width:230px!important;max-width:230px!important;font-size:15px!important}
+html.desk .hud.top{left:250px!important}
+body.cardOpen .qstrip{display:none!important}
+.hud.controls{top:calc(var(--tbh) + 8px)!important;right:max(8px,env(safe-area-inset-right,0px))!important}
+.hud.controls button{width:46px!important;height:46px!important}
+.hud.controls #modeBtn{width:62px!important;height:54px!important}
+.hud.controls #modeBtn span{font-size:12px}
+.hud.controls button.small{width:auto!important;padding:0 8px!important;font-size:14px!important}
+.toasts,body.touchui.mode-city .toasts,body.touchui.mode-hero .toasts{top:calc(var(--tbh) + 84px)!important}
+/* hrdina: lišta dole ostáva, joystick a údery idú nad ňu */
+html body.mode-hero .dock{left:0!important;right:0!important;top:auto!important;bottom:0!important;width:auto!important;flex-direction:row!important;padding:5px 6px calc(5px + env(safe-area-inset-bottom,0px))!important;gap:6px!important;background:var(--wood)!important;border:0!important;border-top:3px solid var(--fr)!important;border-radius:0!important;box-shadow:inset 0 1px 0 var(--fr2),inset 0 2px 0 rgba(255,226,150,.18),0 -4px 10px rgba(0,0,0,.5)!important}
+html body.mode-hero .dock button{width:auto!important;height:52px!important;flex:1 1 0!important;font-size:15px!important;gap:2px!important;padding:0 4px!important}
+html body.mode-hero .dock button svg{width:22px!important;height:22px!important}
+html body.mode-hero .dock .n{font-size:13px!important}
+html body.mode-hero .dock #cfg{flex:0 0 auto!important;padding:0 10px!important}
+@media (min-width:700px){html body.mode-hero .dock{justify-content:center!important}html body.mode-hero .dock button{flex:0 1 170px!important}}
+html body .pad,html body.mode-hero .pad,html body.touchui.mode-hero .pad{bottom:calc(var(--dkh) + 8px)!important}
+html body.mode-hero .sheet,html body.touchui.mode-hero .sheet{top:auto!important;bottom:calc(var(--dkh) + 6px)!important;max-height:calc(calc(100vh / var(--ui)) - var(--tbh) - var(--dkh) - 48px)!important}
+/* na šírku (mobil): horná lišta užšia v strede, spodná malá v strede */
+@media (orientation:landscape) and (max-height:520px){
+  .tb{left:50%!important;right:auto!important;transform:translateX(-50%);width:max-content!important;padding:calc(3px + env(safe-area-inset-top,0px)) 10px 3px!important;border-left:3px solid var(--fr);border-right:3px solid var(--fr);border-radius:0 0 10px 10px;gap:0 8px!important}
+  .tb .res .r,.tb .res .r:last-child{padding:2px 5px!important}
+  .tb .res .r b{font-size:15px!important}
+  .tbr #clock{font-size:15px!important}
+  html .dock,html body.mode-hero .dock{left:50%!important;right:auto!important;top:auto!important;bottom:0!important;width:max-content!important;transform:translateX(-50%)!important;flex-direction:row!important;padding:3px 8px calc(3px + env(safe-area-inset-bottom,0px))!important;gap:4px!important;background:var(--wood)!important;border:3px solid var(--fr)!important;border-bottom:0!important;border-radius:8px 8px 0 0!important;box-shadow:inset 0 1px 0 rgba(255,226,150,.18),0 -3px 8px rgba(0,0,0,.5)!important}
+  html .dock button,html body.mode-hero .dock button{width:48px!important;height:36px!important;flex:none!important;font-size:0!important;gap:0!important;padding:0!important}
+  html .dock #cfg,html body.mode-hero .dock #cfg{flex:none!important;padding:0!important}
+  html .dock button svg,html body.mode-hero .dock button svg{width:22px!important;height:22px!important}
+  html .dock .n,html body.mode-hero .dock .n{top:-2px!important;right:0!important;font-size:12px!important}
+  html body .pad,html body.mode-hero .pad,html body.touchui.mode-hero .pad{bottom:calc(8px + env(safe-area-inset-bottom,0px))!important}
+  html .qstrip{left:max(12px,env(safe-area-inset-left,0px))!important}
+  .hud.controls{right:max(12px,env(safe-area-inset-right,0px))!important}
+  .sheet,body.touchui.mode-city .sheet,body.touchui.mode-hero .sheet,html body.mode-hero .sheet{top:auto!important;bottom:calc(var(--dkh) + 6px)!important;left:50%!important;right:auto!important;width:min(420px,calc(60vw / var(--ui)))!important;transform:translateX(-50%)!important;max-height:calc(calc(100vh / var(--ui)) - var(--tbh) - var(--dkh) - 20px)!important}
+}
 </style>
 
 <div id="title" hidden>
@@ -955,7 +1007,6 @@ body.incross .toasts,body.incross.touchui.mode-hero .toasts,body.incross.touchui
 </div>
 
 <div class="hud controls">
-  <button id="center" aria-label="Kamera na postavu alebo osadu" title="Kamera späť" class="ico"></button>
   <button id="modeBtn" aria-label="Prepnúť režim mesto / hrdina" class="mode"></button>
   <button id="zin" aria-label="Priblížiť">+</button>
   <button id="zout" aria-label="Oddialiť">−</button>
@@ -1523,6 +1574,9 @@ BLD_DEF.smithy.cost.plank = 8; BLD_DEF.quarry.cost.plank = 8;
 { const ST = { farm: 1, stable: 1, granary: 1, smithy: 1, tower: 1, tavern: 2, mill: 1, quarry: 2 }; Object.keys(ST).forEach(k => { BLD_DEF[k].staff = ST[k]; }); }
 /* nové budovy: zatiaľ farebné boxy s písmenami (placeholdery), grafika príde neskôr */
 Object.assign(BLD_DEF, {
+  minerhut: { name: 'Baníkova chata', w: 2, d: 2, z: 30, ph: ['#7d8494', 'BA'], cost: { wood: 20, stone: 10 }, duch: 1, stat: 'baník sám ťaží železo a zlato', info: 'Placeholder: šedomodrý box „BA". Po dostavaní sem nastúpi nový osadník Baník a sám ťaží železo a zlato.', later: 'Baník nosí suroviny do skladu aj keď nehráš.' },
+  stonehut: { name: 'Kamenárska chata', w: 2, d: 2, z: 30, ph: ['#a89f8c', 'KA'], cost: { wood: 16, stone: 6 }, duch: 1, stat: 'kamenár sám láme kameň', info: 'Placeholder: svetlý box „KA". Po dostavaní sem nastúpi nový osadník Kamenár a sám láme kameň.', later: 'Kameň do skladu aj keď nehráš.' },
+  gatherhut: { name: 'Zberačova chata', w: 2, d: 2, z: 30, ph: ['#5f9b4c', 'ZB'], cost: { wood: 14 }, duch: 1, stat: 'zberač sám zbiera bobule a jablká', info: 'Placeholder: zelený box „ZB". Po dostavaní sem nastúpi nový osadník Zberač a sám zbiera bobule a jablká.', later: 'Jedlo aj keď nehráš.' },
   fishery:  { name: 'Rybárska chata', w: 2, d: 2, z: 30, ph: ['#3a86c8', 'RY'], cost: { wood: 18, stone: 4 }, duch: 2, staff: 1, prod: { res: 'food', n: 1, every: 30 }, stat: 'chytá ryby', info: 'Placeholder: modrý box „RY". Rybár chytá ryby a nosič ich vozí do skladu.', later: 'Jedlo, aj keď nehráš.' },
   bakery:   { name: 'Pekáreň', w: 3, d: 2, z: 34, ph: ['#e0933a', 'PE'], cost: { wood: 24, stone: 12 }, duch: 3, staff: 1, prod: { res: 'food', n: 2, every: 50 }, stat: 'pečie chlieb', info: 'Placeholder: oranžový box „PE". Pečie chlieb z obilia.', later: 'Veľa jedla naraz.' },
   sawmill:  { name: 'Pílnica', w: 3, d: 3, z: 36, ph: ['#8a6a3e', 'PI'], cost: { wood: 30, stone: 10 }, duch: 2, staff: 2, prod: { res: 'plank', n: 1, every: 30, need: { wood: 2 } }, stat: 'z 2 dreva reže dosku', info: 'Placeholder: hnedý box „PI". Reže kmene na dosky. Berie drevo zo skladu.', later: 'Dosky potrebuješ na veľké stavby, vylepšenia a Div sveta.' },
@@ -4331,7 +4385,8 @@ const AGES = [
   { name: 'Doba kamenná', desc: 'Polia, sýpky, mlyny a stajne. Osada sa usadí.', req: { pop: 6, huts: 2 }, cost: { wood: 80, food: 40 } },
   { name: 'Doba železná', desc: 'Kováčne, lomy a strážne veže.', req: { pop: 10, farms: 2 }, cost: { wood: 150, stone: 100, food: 80, plank: 20 } },
 ];
-const BLD_AGE = { weaver: 1, brewery: 1, observatory: 2, fishery: 1, bakery: 1, sawmill: 1, market: 1, barracks: 2, ironmine: 2, shrine: 2, library: 2, wonder: 2, hut: 0, well: 0, farm: 1, granary: 1, stable: 1, mill: 1, tavern: 1, quarry: 2, smithy: 2, tower: 2 };
+const HIRE = { farm: 'post', minerhut: 'ore', stonehut: 'stone', gatherhut: 'food' };   // budova → práca nového osadníka
+const BLD_AGE = { minerhut: 1, stonehut: 1, gatherhut: 1, weaver: 1, brewery: 1, observatory: 2, fishery: 1, bakery: 1, sawmill: 1, market: 1, barracks: 2, ironmine: 2, shrine: 2, library: 2, wonder: 2, hut: 0, well: 0, farm: 1, granary: 1, stable: 1, mill: 1, tavern: 1, quarry: 2, smithy: 2, tower: 2 };
 const ageOf = k => BLD_AGE[k] || 0;
 if (NEW) Object.assign(STOCK, { wood: 40, stone: 10, food: 12 });   // štart Novej hry   // postavené budovy a cesty
 const QUESTS = [
@@ -5498,13 +5553,21 @@ class World extends Phaser.Scene {
   }
   /* ============ POPULÁCIA A JEDLO ============ */
   popN() { return this.npcs.filter(o => o.npc && o.npc.cfg.key !== 'keeper').length; }
-  bedN() { return (NEW ? 3 : 3 + RES_CFGS.length) + this.npcs.filter(o => o.npc && o.npc.cfg.role).length + 3 * this.bl.filter(b => b.r.k === 'hut' && b.r.st === 'done').length; }
+  bedN() { return (NEW ? 3 : 3 + RES_CFGS.length) + this.npcs.filter(o => o.npc && o.npc.cfg.role).length + 3 * this.bl.filter(b => b.r.k === 'hut' && b.r.st === 'done').length + this.bl.filter(b => b.r.hire && b.r.st === 'done').length; }
   meal() {   // večer o 20:00 zje každý osadník 1 jedlo
     const pop = this.popN(), eat = Math.min(pop, STOCK.food); STOCK.food -= eat; HUNGRY = eat < pop;
     if (HUNGRY) { WORLD.grow = 0; toast(`Večera: chýba jedlo (${eat}/${pop}). Ľudia sú hladní a chodia pomalšie.`); }
     else if (pop < this.bedN() && STOCK.food >= 2) { WORLD.grow = (WORLD.grow || 0) + 1; if (WORLD.grow >= 2) { WORLD.grow = 0; this.newSettler(); } else toast(`Večera: −${eat} jedla. Je miesto aj jedlo, čoskoro príde nový osadník.`); }
     else toast(`Večera pri ohni: −${eat} jedla.` + (pop >= this.bedN() ? ' Na nových ľudí treba chalupu.' : ''));
     uiRes('food'); saveGame();
+  }
+  hireFor(bi) {   // budova s pracovníkom: farma / chata baníka, kamenára, zberača → príde nový osadník s touto prácou
+    const r = bi.r, H = HIRE[r.k]; if (!H || r.hire || r.st !== 'done') return false;
+    const e = { n: WORLD.pop.length, x: r.x, y: r.y, hire: 1 }; WORLD.pop.push(e); this.newSettler(e); r.hire = 'pop' + e.n;
+    const o = this.npcs.find(q => q.npc.key === r.hire); if (!o) return false;
+    if (H === 'post') this.assignPost(o.npc, bi, true); else setProf(o.npc, H);
+    saveBld(); saveGame(); toast(`${o.npc.cfg.name} nastúpil: ${H === 'post' ? 'farmár' : PROF_BY[H].one.toLowerCase()} (${bi.def.name})`); SFX('pop'); buzz([20, 40, 20]); uiRes();
+    return true;
   }
   newSettler(e) {   // nový osadník býva v chalupe s voľnou posteľou
     const born = !e;
@@ -5568,7 +5631,7 @@ class World extends Phaser.Scene {
   }
   bldDone(j) {
     const bi = j.node.bld, r = bi.r; this.finishJob(j); bi.job = null;
-    r.st = 'done'; r.acc = 0; r.buf = 0; this.bldFinish(bi);
+    r.st = 'done'; r.acc = 0; r.buf = 0; this.bldFinish(bi); this.hireFor(bi);
     gotAdd('bldgs', 1); recalcDuch(); saveBld(); saveGame(); buzz([15, 25, 15]);
     toast('Hotovo: ' + bi.def.name); const c = tileTop(r.x + bi.def.w / 2, r.y + bi.def.d / 2); this.floatText(c.x, c.y - bi.def.z, 'Hotovo!');
     if (r.k === 'wonder' && !WORLD.won) { WORLD.won = this.clock.day; gotAdd('wonder', 1); saveGame(); toast('Plameň predkov horí nad dedinou. Tvoja osada sa zapísala do legiend – a žije ďalej.'); SFX('age'); }
@@ -5583,6 +5646,7 @@ class World extends Phaser.Scene {
     this.lights = this.lights.filter(l => !bi.lg.includes(l));
     this.bl.forEach(q => { if (q.claimC && q.claimC.task && q.claimC.task.bi === bi) q.claimC = null; });
     this.npcs.forEach(o => { const n = o.npc; if (n.task && n.task.bi === bi) { n.task = null; n.carry = null; n.path = []; n.phase = 'think'; n.timer = .3; n.pose = 'idle'; } });
+    if (r.hire) { const ho = this.npcs.find(q => q.npc.key === r.hire); if (ho) { this.releasePost(ho.npc); if (WORLD.prof && WORLD.prof[r.hire]) setProf(ho.npc, 'free'); } }
     const ix = this.bl.indexOf(bi); this.bl.splice(ix, 1); BLDG.splice(BLDG.indexOf(r), 1);
     this.bl.forEach((q, k) => { q.img.objKey = 'bld:' + k; });
     this.select(null); saveBld(); saveGame(); recalcDuch(); buzz(20); toast('Zbúrané · vrátené: ' + back.join(', '));
@@ -6427,6 +6491,7 @@ class World extends Phaser.Scene {
   autoStaff() {
     const workers = this.npcs.map(o => o.npc).filter(n => isWorker(n) && !n.ctrl), staffed = new Set();
     this.bl.forEach(bi => (bi.r.crew || []).forEach(k => staffed.add(k)));
+    { const hb = this.bl.find(b => b.r.st === 'done' && HIRE[b.r.k] && !b.r.hire && b.ent); if (hb && !WORLD.demo) this.hireFor(hb); }
     if (staffed.size >= Math.ceil(workers.length * .6)) return;
     const free = workers.filter(n => !staffed.has(n.key) && profOf(n) === 'free' && !n.job && n.act !== 'order'); if (!free.length) return;
     const open = this.bl.filter(bi => bi.r.st === 'done' && bi.ent && bi.def.staff && !bi.r.noAuto && (bi.r.crew || []).length < bi.def.staff).sort((a, b) => (b.def.prod ? 1 : 0) - (a.def.prod ? 1 : 0)); const bi = open[0]; if (!bi) return;
@@ -6787,7 +6852,6 @@ let scene;
 function toggleGrid() { const on = !scene.grid.visible; scene.grid.setVisible(on); $('grid').setAttribute('aria-pressed', String(on)); }
 $('zin').onclick = () => scene.stepZoom(1);
 $('zout').onclick = () => scene.stepZoom(-1);
-$('center').onclick = () => { if (scene.ctrlNpc()) { scene.followOn = true; scene.snapCam = true; } else scene.fitCamera(); };
 $('grid').onclick = toggleGrid;
 $('cardx').onclick = () => scene.select(null);
 $('cdesc').onclick = () => $('cdesc').classList.toggle('open');
@@ -6875,10 +6939,11 @@ function uiQuests() {
   const row = q => { const v = Math.min(q.n, GOT[q.key] || 0), d = QDONE.has(q.id); return `<div class="qrow${d ? ' done' : ''}"><div class="t"><span>${d ? '✓ ' : ''}${q.text}</span><span>${v}/${q.n}</span></div><div class="bar"><i style="width:${v / q.n * 100}%"></i></div></div>`; };
   const ng = GOALS.find(g => !g.ok());
   const qt = (ng ? '▸ ' + ng.t + (ng.sub ? ' (' + ng.sub + ')' : '') : 'Najhlbšie poschodie ' + (WORLD.deep || 0)) + (active.length ? '\n' + active.slice(0, 5).map(q => '• ' + q.text + ' ' + Math.min(q.n, GOT[q.key] || 0) + '/' + q.n).join('\n') : '');
-  $('qCard').innerHTML = `<span class="qq">?</span>` + (active.length ? `<span class="qdot">${active.length}</span>` : ''); $('qCard').title = qt;
+  const mini = `<div class="qg">▸ ${ng ? ng.t : 'Najhlbšie poschodie ' + (WORLD.deep || 0)}</div>` + active.slice(0, 3).map(q => `<div class="qi"><span>• ${q.text}</span><b>${Math.min(q.n, GOT[q.key] || 0)}/${q.n}</b></div>`).join('') + (active.length > 3 ? `<div class="qi more">+ ${active.length - 3} ďalších</div>` : '');
+  $('qCard').innerHTML = mini; $('qCard').title = qt;
   if (false) $('qCard').innerHTML = (active.length ? active.slice(0, 2).map(row).join('') : '<div class="qrow">Všetky úlohy splnené. Ďalšie pribudnú v ďalšom kroku.</div>');
   $('qList').innerHTML = QUESTS.map(row).join(''); $('qCount').textContent = `${doneN} z ${QUESTS.length}`;
-  { const tr = $('qTrack'); if (tr) { tr.innerHTML = `<span class="qq">?</span>` + (active.length ? `<span class="qdot">${active.length}</span>` : ''); tr.title = qt; } }
+  { const tr = $('qTrack'); if (tr) { tr.innerHTML = mini; tr.title = qt; } }
   const bd = $('qBadge'); if (bd) bd.textContent = active.length || '';
 }
 let ACH_TAB = 'Všetko';
@@ -7221,9 +7286,9 @@ function uiBld() {   // jedno okno Stavať: budovy aj dekorácie, čo nemáš z 
 }
 function initGameUI() {
   $('dkPpl').innerHTML = icon('man', 26) + 'Osadníci<span class="n">14</span>';
-  $('dkQ').innerHTML = icon('scroll', 26) + 'Úlohy<span class="n" id="qBadge"></span>'; $('dkBuild').innerHTML = icon('hut', 26) + 'Stavať'; $('cfg').innerHTML = icon('menu', 26) + 'Menu'; $('center').innerHTML = icon('target', 22);
+  $('dkQ').innerHTML = icon('scroll', 26) + 'Úlohy<span class="n" id="qBadge"></span>'; $('dkBuild').innerHTML = icon('hut', 26) + 'Stavať'; $('cfg').innerHTML = icon('menu', 26) + 'Menu';
   $('qCard').onclick = () => openFull('achv'); $('qTrack').onclick = () => openFull('achv');
-  { const fit = () => { const tb = $('topbar').getBoundingClientRect().height, dkr = $('dock').getBoundingClientRect(), u = UIS.s / 100, side = dkr.top < 10; document.documentElement.style.setProperty('--tbh', Math.round(tb / u) + 'px'); document.documentElement.style.setProperty('--dkh', (side ? 0 : Math.round(dkr.height / u)) + 'px'); }; fit(); addEventListener('resize', () => setTimeout(fit, 50)); new ResizeObserver(fit).observe($('topbar')); new ResizeObserver(fit).observe($('dock')); }
+  { const fit = () => { const tb = $('topbar').getBoundingClientRect().height, dkr = $('dock').getBoundingClientRect(), u = UIS.s / 100, side = dkr.top < 10; document.documentElement.style.setProperty('--tbh', Math.round(tb / u) + 'px'); document.documentElement.style.setProperty('--dkh', (side ? 0 : Math.round(dkr.height / u)) + 'px'); joyHome(); }; fit(); addEventListener('resize', () => setTimeout(fit, 50)); new ResizeObserver(fit).observe($('topbar')); new ResizeObserver(fit).observe($('dock')); }
   $('toolOk').onclick = () => scene.setTool(null); $('toolPlace').onclick = () => scene.placeHut();
   ICON.flag = '<rect x="3" y="1" width="1" height="10" fill="#8a5c34"/><rect x="4" y="2" width="6" height="4" fill="#a8452f"/><rect x="6" y="3" width="2" height="2" fill="#f5cc3a"/><rect x="2" y="10" width="3" height="1" fill="#8d8778"/>';
   ICON.lock = '<rect x="3" y="5" width="6" height="5" fill="#f2c14e"/><rect x="4" y="2" width="1" height="3" fill="#efe8d4"/><rect x="7" y="2" width="1" height="3" fill="#efe8d4"/><rect x="4" y="1" width="4" height="1" fill="#efe8d4"/><rect x="5" y="7" width="2" height="1" fill="#5a4310"/>';
@@ -7272,7 +7337,8 @@ function refreshCtl() {
 const joyR = () => Math.round(56 * UIS.s / 100);
 function joyHome() {
   const j = $('joy'), R = joyR(); if (!j) return;
-  j.style.width = j.style.height = (R * 2) + 'px'; j.style.left = (R + 30) + 'px'; j.style.top = (innerHeight - R - 34) + 'px';
+  const dk = $('dock'), dr = dk ? dk.getBoundingClientRect() : null, off = dr && dr.width > innerWidth * .9 ? dr.height : 0;   // nad spodnou lištou (na výšku); na šírku je lišta malá v strede
+  j.style.width = j.style.height = (R * 2) + 'px'; j.style.left = (R + 30) + 'px'; j.style.top = (innerHeight - R - 34 - off) + 'px';
 }
 function joyShow(x, y) { const j = $('joy'); j.hidden = false; j.style.left = x + 'px'; j.style.top = y + 'px'; j.classList.add('on'); document.body.classList.add('touchui'); }
 function joyKnob(dx, dy) { $('joyK').style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`; }
@@ -7304,7 +7370,7 @@ $('modeBtn').onclick = () => { MODE = isCity() ? 'hero' : 'city'; try { localSto
 function initPlayUI() {
   let saved = null; try { saved = JSON.parse(localStorage.getItem('devworld-ui') || 'null'); } catch (e) { /* nič */ }
   if (saved && !saved.v && !COARSE && saved.s === 100 && innerWidth >= 900) saved.s = 150;   // desktop: ovládanie o 50 % väčšie (raz)
-  if (saved) Object.assign(UIS, saved, { v: 2 }); else if (!COARSE && innerWidth >= 900) UIS.s = 150; else if (!COARSE) UIS.s = 100; else { UIS.dev = false; UIS.s = innerHeight < 560 ? 85 : 100; }
+  if (saved) Object.assign(UIS, saved, { v: 2 }); else if (!COARSE && innerWidth >= 900) UIS.s = 150; else if (!COARSE) UIS.s = 100; else { UIS.dev = false; UIS.s = innerHeight < 560 ? 100 : 120; }
   if (COARSE) { document.body.classList.add('touchui'); $('joy').hidden = false; $('hint').textContent = 'Ľavý palec = chôdza · vpravo Úder, Oheň a Zbierať · ťuk na vec = jej menu · dva prsty = zoom'; }
   $('aIco').innerHTML = icon('pick', 22); $('aHitIco').innerHTML = icon('staff', 30); $('aFireIco').innerHTML = icon('fire', 24);
   applyUI(); recalcDuch();
