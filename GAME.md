@@ -876,3 +876,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Veľkosti sú len 16 px (malé) a 32 px (nadpisy), prepočítané podľa zväčšenia ovládania, aby bol text ostrý pri každom nastavení. Rovnaké písmo majú aj nápisy v pivnici a čísla škody.
 - Meno autora je v Menu dole (podmienka licencie). Písmo je uložené aj na Google Drive (priečinok Fonty).
 
+
+## Krok 86 – angličtina
+- **Jazyk SK / EN** – v Menu (a na úvodnej obrazovke) je tlačidlo „English“ / „Slovenčina“. Hra sa po prepnutí načíta znova, svet ostáva.
+- Prvýkrát sa jazyk vyberie podľa prehliadača (slovenčina a čeština = SK, ostatné = EN). Voľba sa pamätá.
+- Preklad beží za behu: slovník asi 1 800 textov + vzory pre vety s číslami a menami. Slovenčina ostáva pôvodná, kód hry sa nemenil.
+- Udalosti v events.json môžu mať aj `title_en` a `text_en`. Pri premenovaní vecí (Excel s názvami) treba doplniť aj anglický názov do slovníka (i18n/en.json).

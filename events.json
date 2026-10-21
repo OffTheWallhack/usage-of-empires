@@ -1,3 +1,3 @@
 [
-  { "id": "e1", "title": "Jesenný zber", "text": "Zozbieraj 60 jedla a dostaneš odmenu od obchodníkov.", "from": "2026-10-21", "to": "2026-11-04", "goal": { "key": "food", "n": 60 }, "reward": { "gold": 20, "crystal": 1 } }
+  { "id": "e1", "title": "Jesenný zber", "text": "Zozbieraj 60 jedla a dostaneš odmenu od obchodníkov.", "title_en": "Autumn Harvest", "text_en": "Gather 60 food and the traders will reward you.", "from": "2026-10-21", "to": "2026-11-04", "goal": { "key": "food", "n": 60 }, "reward": { "gold": 20, "crystal": 1 } }
 ]
