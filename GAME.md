@@ -822,3 +822,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Skrýša pod halou je väčšia a honosnejšia** – 9×9 (predtým 6×6), kamenná dlažba, veľký karmínový koberec so zlatým lemom, piliere, zástavy, luster so sviečkami, 4 fakle, truhlice, sudy a debny. **Schody vľavo dole vedú von** – stačí k nim prísť (tlačidlo Hore ostáva). Chodí sa klikom, klávesmi WASD/šípkami aj joystickom.
 - Nepodarilo sa mi zopakovať: osadníci sa po zmene profesie v noci „objavia pri ohnisku“ – v teste ostali v posteliach. Ak sa to stane znova, napíš, o koľkej (hodina v hre) a či spali.
 - **Úsporný režim pre slabý počítač** – prepínač je na úvodnej obrazovke aj v Menu (obnoví stránku). Hra sa kreslí v nižšom rozlíšení (1×), bez celoobrazovkového shadera (ostré textúry, zrno, farba dňa), bez vinety, bez padajúceho lístia, svetlá v noci sa prekresľujú zriedkavejšie a prehliadač dostane pokyn použiť výkonnú grafiku. V Menu pri verzii hry je vidno aktuálne fps.
+
+## Krok 80 – väčšie ovládanie na počítači a čitateľné ceny stavieb
+- Na počítači (okno širšie ako 900 px) je ovládanie predvolene o 50 % väčšie: horná lišta so surovinami, ikonky, tlačidlá aj okná. Kto mal staré predvolené nastavenie 100 %, dostane 150 % raz; potom si to vie zmeniť v Menu → Nastavenia (posuvník ide teraz do 200 %).
+- Cena stavby je pri budove čitateľná: tlačidlo v okne budovy sa rozšírilo a cena je väčším písmom (napr. „Kamenný oblúk – 30 kameňa · 10 dreva“). Platí aj na mobile.
+- Na počítači sa pri otvorenej karte budovy už pod zoznamom úloh neukazuje duplicitný pás s úlohou.
+- Posuvník „Veľkosť ovládania“ ide teraz 50–200 %. Prejdené: 1440×800 a 1280×720, režim Hrdina aj Mesto, obnova mosta (etapa 1 aj 2), mobil na šírku sa nezmenil.
