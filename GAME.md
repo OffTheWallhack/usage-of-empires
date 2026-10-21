@@ -841,3 +841,14 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Pracovníci v budovách** – každá výrobná budova má 1–2 miesta. Voľní osadníci sa sami priradia (najviac 60 % ľudí) a cez deň (8:30–17:00) pracujú pri vchode budovy. Bez pracovníka vyrába budova len 60 %. V karte budovy „Pracovník +“ / „Uvoľniť“, alebo vyber osadníka a pravý klik na budovu. Zmena povolania pracovníka z budovy uvoľní.
 - **8 nových budov (placeholdery – farebné boxy s písmenami, grafika neskôr)** – Rybárska chata, Pekáreň, Pílnica, Trhovisko (Doba kamenná); Kasárne, Železná baňa, Svätyňa, Knižnica (Doba železná). Každá má cenu, výrobu alebo bonus a 1–2 vylepšenia (11 nových vylepšení).
 - **Viac kam míňať suroviny** – sklad ide až na úroveň V (800 a 1200 miesta), nové vylepšenia (aj „Počítanie zásob“ v hale), 10 nových dekorácií (placeholdery 1×1), strop ducha od dekorácií 30 a od budov 40.
+
+## Krok 82 – ekonomika bez slepých uličiek, nové reťazce, Údolie, objednávky a udalosti
+- **Kontrola logiky dediny** – opravené: voľní osadníci predtým nikdy neťažili železo ani zlato (teraz si vyberú, čo chýba, a ak sa nedá, skúsia inú surovinu); železa bolo pred mostom málo (+2 náleziská, 30 % šanca zo bohatého kameňa); zlato bolo len za mostom, ale Trhovisko ho stálo (Pivovar teraz mení jedlo na zlato); offline dobiehanie produkcie prepísané podľa nových reťazcov; ceny výbavy ×2 v Novej hre; zlý text pri povolaní.
+- **Nové suroviny** (4): dosky, náradie, látka, kryštál. Reťazce: Pílnica (2 drevo → 1 doska), Kováčska dielňa (železo + doska → náradie), Tkáčovňa (2 jedlo → látka), Pivovar (4 jedlo → zlato). Kryštál je z Údolia.
+- **11 nových budov** (placeholdery): Rybárska chata, Pekáreň, Pílnica, Trhovisko, Tkáčovňa, Pivovar (Doba kamenná); Kasárne, Železná baňa, Svätyňa, Knižnica, Observatórium (Doba železná).
+- **15+ nových technológií**, nové obchody, úlohy q9–q12, odznaky (objednávky, dosky, náradie, látka, kryštál, údolie).
+- **Výroba sa zastaví, keď chýba vstup** – budova ukáže „čaká na surovinu“, nič sa nestráca.
+- **Údolie** – nový svet (wireframe 22×22: kryštalická lúka, ľanové polia, zrúcaniny, jazero). Odomyká sa na rázcestí v Dobe železnej: 40 dosiek, 4 náradie, 100 dreva. Kryštály, ľan a truhlice sa po čase obnovia.
+- **Objednávky** (Hala → Objednávky, od Doby kamennej): vždy 4 otvorené, obchodníci chcú tovar za zlato (niekedy kryštál), množstvo je vždy menšie ako sklad. Hra sa tak dá hrať aj po dohraní.
+- **Udalosti** – čítajú sa zo súboru `events.json` na GitHub Pages (raz za 2 týždne pridám nový záznam: názov, text, od–do, cieľ, odmena), hráči nemusia nič aktualizovať.
+- Testované: regresia OK, dungeon OK, panel Objednávky (PC aj mobil), pás nových surovín.
