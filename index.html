@@ -50,6 +50,7 @@ body.touchui .timebar{flex-wrap:wrap}
 body.touchui #clock{flex-basis:100%}
 body.smooth #game canvas{filter:saturate(.86) sepia(.14) contrast(1.07) brightness(1.03)}
 body.smooth .vignette{box-shadow:inset 0 0 160px 40px rgba(40,22,8,.45)}
+html.lowfx .vignette{display:none}
 .vignette{position:fixed;inset:0;pointer-events:none;
   background:radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,.35) 100%)}
 .hud{position:fixed;pointer-events:none;display:flex;flex-direction:column;gap:8px}
@@ -248,6 +249,7 @@ body.touchui .cfgp{top:auto;right:auto;left:50%;transform:translateX(-50%);botto
 .cfgrow span{display:flex;justify-content:space-between}
 .cfgrow input{width:100%;accent-color:#f2c14e;height:28px;margin:0}
 .cfgchk{display:flex;gap:8px;align-items:center;font-size:13px}
+.cfgchk small{color:var(--muted);font-size:11px}
 .cfgchk input{width:20px;height:20px;accent-color:#f2c14e}
 .cfgp button{height:40px;border-radius:4px;border:1px solid var(--panel-line);background:var(--btn);color:var(--ink);font:700 13px var(--font-body);cursor:pointer}
 .cfgp button:hover{background:var(--btn-hi)}
@@ -771,7 +773,7 @@ body.incross .toasts,body.incross.touchui.mode-hero .toasts,body.incross.touchui
     <details class="vlog" id="vlogT"><summary>Verzie a zmeny</summary><div class="vlist"></div></details>
     <div class="set" id="tSetP" hidden>
       <label><input type="checkbox" id="tSmooth"> AoE štýl (maľovaný terén, hladké kresby, UI ako v AoE2)</label>
-      <label><input type="checkbox" id="tLow"> Slabý počítač (menšie rozlíšenie, plynulejšie)</label>
+      <label><input type="checkbox" id="tLow"> Úsporný režim pre slabý počítač (nižšie rozlíšenie, bez efektov – plynulých 60 fps)</label>
       <button type="button" id="tReset">Zmazať Novú hru a začať odznova</button>
     </div>
   </div>
@@ -879,6 +881,7 @@ body.incross .toasts,body.incross.touchui.mode-hero .toasts,body.incross.touchui
   <label class="cfgrow"><span>Veľkosť ovládania <b id="uiVal">100 %</b></span><input type="range" id="uiScale" min="50" max="140" step="5"></label>
   <label class="cfgchk"><input type="checkbox" id="cfgQ"> Riadok s míľnikom hore</label>
   <label class="cfgchk"><input type="checkbox" id="cfgDev"> Vývojárske tlačidlá (GRID, MENÁ, VECI)</label>
+  <label class="cfgchk"><input type="checkbox" id="cfgLow"> Úsporný režim pre slabý počítač <small>(nižšie rozlíšenie, bez efektov · obnoví stránku)</small></label>
   <details class="cfgd"><summary>Grafika a efekty</summary><div id="gfxList"></div></details>
   <button id="cfgReset" type="button" class="cfglink">Vrátiť pôvodné nastavenia</button>
   <div class="cfgver" id="cfgVer"></div>
@@ -948,6 +951,7 @@ var TOUCHN = 0;   /* skutočný počet prstov na obrazovke (zachytené ešte pre
 const WID = (location.hash.match(/w=(dev|new)/) || [])[1] || '';   // '' = úvodná obrazovka
 const NEW = WID === 'new';                                          // Nová hra = samostatný svet
 const LOWFX = (() => { try { return localStorage.getItem('dw-low') === '1'; } catch (e) { return false; } })();
+if (LOWFX) document.documentElement.classList.add('lowfx');   // úsporný režim: nižšie rozlíšenie, bez shaderov a efektov
 const SMOOTH = (() => { try { return localStorage.getItem('dw-smooth') === '1'; } catch (e) { return false; } })();   // hladký štýl (viac ako AoE)
 const SK = k => NEW ? 'nw-' + k : k;                                // každý svet má vlastné uloženie
 var NOSAVE = false;   // počas nahrávania zálohy sa nič neukladá
@@ -5239,7 +5243,7 @@ class World extends Phaser.Scene {
   }
   applyGfx() {
     const cam = this.cameras.main, wgl = this.sys.game.renderer.type === Phaser.WEBGL;
-    if (wgl) { if (!cam.getPostPipeline('GfxFX') || (Array.isArray(cam.getPostPipeline('GfxFX')) && !cam.getPostPipeline('GfxFX').length)) cam.setPostPipeline('GfxFX');
+    if (wgl && !LOWFX) { if (!cam.getPostPipeline('GfxFX') || (Array.isArray(cam.getPostPipeline('GfxFX')) && !cam.getPostPipeline('GfxFX').length)) cam.setPostPipeline('GfxFX');
       if (cam.postFX) { const want = GFX.bloom && this.night > .35; if (want && !this.bloomFx) this.bloomFx = cam.postFX.addBloom(0xffe0a0, 1, 1, 1, .9, 3); if (!want && this.bloomFx) { cam.postFX.remove(this.bloomFx); this.bloomFx = null; } } }
     this.gClouds.forEach(c => c.im.setVisible(GFX.clouds)); this.mists.forEach(m => m.im.setVisible(GFX.mist));
   }
@@ -6121,7 +6125,7 @@ class World extends Phaser.Scene {
       if (rt.width !== rw || rt.height !== rh) rt.resize(rw, rh);
       const vx = cam.scrollX + cw / 2 - cw / (2 * z) - cw / z * M, vy = cam.scrollY + ch / 2 - ch / (2 * z) - ch / z * M;   // okraj navyše, aby pri rýchlom pohybe nebol vidno deň
       const camK = vx.toFixed(1) + ',' + vy.toFixed(1) + ',' + z;   // svetlá sa prekresľujú len každý 3. snímok (alebo keď sa hýbe kamera) – šetrí výkon
-      if (camK === this.lCamK && this.lfr % 3 && rt.visible) { /* nič */ } else {
+      if (camK === this.lCamK && this.lfr % (LOWFX ? 6 : 3) && rt.visible) { /* nič */ } else {
       this.lCamK = camK;
       rt.setPosition(vx, vy).setScale(1 / zq).setVisible(true).fill(darkColor(n));
       const lp = Math.min(1, n * 1.25), mx = 120, my = 70;
@@ -6618,6 +6622,8 @@ function initPlayUI() {
   $('volR').oninput = e => { auVol(+e.target.value / 100); $('volVal').textContent = e.target.value + ' %'; try { localStorage.setItem('dw-vol', e.target.value); } catch (x) { /* nič */ } };
   $('cfgQ').onchange = e => { UIS.q = e.target.checked; applyUI(); };
   $('cfgDev').onchange = e => { UIS.dev = e.target.checked; applyUI(); };
+  $('cfgLow').checked = LOWFX; $('cfgLow').onchange = e => { try { localStorage.setItem('dw-low', e.target.checked ? '1' : '0'); } catch (x) { /* nič */ } try { saveGame(); } catch (x) { /* nič */ } location.reload(); };
+  setInterval(() => { if (!$('cfgPanel').hidden && window.game && game.loop) $('cfgVer').textContent = $('stepTxt').textContent + ' · mapa 80 × 80 · ' + Math.round(game.loop.actualFps) + ' fps' + (LOWFX ? ' · úsporný režim' : ''); }, 1000);
   $('cfgReset').onclick = () => { UIS.s = 100; UIS.q = true; UIS.dev = !COARSE; applyUI(); };
   if (document.fullscreenEnabled) $('cfgFs').onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); }; else $('cfgFs').hidden = true;
   $('cfg').onclick = () => { const on = $('cfgPanel').hidden; closeAllPop(); $('cfgPanel').hidden = !on; $('cfg').setAttribute('aria-pressed', String(on)); };
@@ -7337,7 +7343,7 @@ class Cross extends Phaser.Scene {
       if (this.fire) this.add.image(this.fire.x, this.fire.y, 'lm_fire').setBlendMode(Phaser.BlendModes.ADD).setDepth(50001).setAlpha(.8 * night).setScale(.9);
     }
     /* padajúce lístie z koruny */
-    this.time.addEvent({ delay: 1100, loop: true, callback: () => {
+    if (!LOWFX) this.time.addEvent({ delay: 1100, loop: true, callback: () => {
       const x = tp.x + (Math.random() - .5) * 110, y = tp.y - 70 - Math.random() * 40, lf = this.add.image(x, y, 'xrLeaf').setDepth(40000).setAlpha(.95);
       this.tweens.add({ targets: lf, y: y + 70 + Math.random() * 40, x: x + (Math.random() - .5) * 40, angle: 200, alpha: 0, duration: 3500 + Math.random() * 1800, ease: 'Sine.easeIn', onComplete: () => lf.destroy() });
     } });
@@ -7959,7 +7965,7 @@ addEventListener('touchstart', e => { TOUCHN = e.touches.length; if (TOUCHN === 
 addEventListener('blur', () => { TOUCHN = 0; resetTouchPtrs(); });
 game = new Phaser.Game({
   type: Phaser.AUTO, parent: 'game', transparent: true,
-  pixelArt: !SMOOTH, antialias: SMOOTH, roundPixels: !SMOOTH,
+  pixelArt: !SMOOTH || LOWFX, antialias: SMOOTH && !LOWFX, roundPixels: !SMOOTH || LOWFX, powerPreference: LOWFX ? 'high-performance' : 'default',
   scale: { mode: Phaser.Scale.NONE, width: Math.round(innerWidth * DPR), height: Math.round(innerHeight * DPR), zoom: 1 / DPR },
   scene: [World, Cellar, Cave, Cross],
   pipeline: { GfxFX },
