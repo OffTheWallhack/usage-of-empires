@@ -870,3 +870,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Odomykanie budov** – Pole, Zberačova chata, Kamenárska a Baníkova chata, Lom, Pila, Tkáč, Rybárska chata, Mlyn, Studňa a Sýpka sa dajú stavať už v Praveku. Obmedzuje ich len cena (napr. Lom chce železo a dosky, ktoré sa musia najprv vyťažiť a vyrobiť).
 - **Doba kamenná** odomyká Krčmu, Trh, Pekáreň, Pivovar, Stajňu, Kováčňu a Železnú baňu; **Doba železná** Strážnu vežu, Kasárne, Knižnicu, Svätyňu, Observatórium a Div sveta.
 - Pri hlade pri večeri hra radí postaviť Pole alebo Zberačovu chatu.
+
+## Krok 85 – nové pixelové písmo
+- **BoldPixels** (YukiPixels, CC BY-SA 4.0) nahradilo rozmazané digitálne písmo (VT323 a „UoE Digits“). Je vložené priamo v hre (4 KB, slovenské znaky), nič sa nesťahuje.
+- Veľkosti sú len 16 px (malé) a 32 px (nadpisy), prepočítané podľa zväčšenia ovládania, aby bol text ostrý pri každom nastavení. Rovnaké písmo majú aj nápisy v pivnici a čísla škody.
+- Meno autora je v Menu dole (podmienka licencie). Písmo je uložené aj na Google Drive (priečinok Fonty).
+
