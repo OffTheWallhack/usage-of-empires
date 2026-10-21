@@ -865,3 +865,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Úlohy vľavo hore** – malý zoznam (ďalší cieľ + 3 úlohy, drobné písmo), ťuk otvorí všetky úlohy; vpravo dole ostáva tlačidlo Úlohy. Preč je kruh s bodkou (stred kamery).
 - **Drobnosti UI** – veľkosť ovládania na mobile predvolene 120 % (na šírku 100 %), tlačidlá vpravo väčšie, suroviny bez prázdneho miesta, šírky panelov pri zväčšení opravené (pivnica), tenká čiara dole zakrytá.
 - Stav: nepublikované ani nepushnuté (hráč testuje Krok 82).
+
+## Krok 84 – základné suroviny hneď od začiatku
+- **Odomykanie budov** – Pole, Zberačova chata, Kamenárska a Baníkova chata, Lom, Pila, Tkáč, Rybárska chata, Mlyn, Studňa a Sýpka sa dajú stavať už v Praveku. Obmedzuje ich len cena (napr. Lom chce železo a dosky, ktoré sa musia najprv vyťažiť a vyrobiť).
+- **Doba kamenná** odomyká Krčmu, Trh, Pekáreň, Pivovar, Stajňu, Kováčňu a Železnú baňu; **Doba železná** Strážnu vežu, Kasárne, Knižnicu, Svätyňu, Observatórium a Div sveta.
+- Pri hlade pri večeri hra radí postaviť Pole alebo Zberačovu chatu.
