@@ -7787,33 +7787,42 @@ $('cfgX').onclick = () => { $('cfgPanel').hidden = true; $('cfg').setAttribute('
 $('sndBtn').onclick = () => { SOUND = !SOUND; try { localStorage.setItem('dw-snd', SOUND ? '1' : '0'); } catch (e) { /* nič */ } $('sndBtn').lastChild.textContent = SOUND ? 'Zvuk' : 'Ticho'; $('sndBtn').classList.toggle('off', !SOUND); if (SOUND) { acx(); SFX('ui'); } auVol(VOL); };
 $('sndBtn').lastChild.textContent = SOUND ? 'Zvuk' : 'Ticho'; $('sndBtn').classList.toggle('off', !SOUND);
 /* ---- hudba: hrá len zriedka a prekvapí (ako v Minecrafte); cez deň dedina, v noci nočné, po porazení bossa víťazná ---- */
-const MUS = { on: (() => { try { return localStorage.getItem('dw-mus') !== '0'; } catch (e) { return true; } })(), el: null, g: null, cur: null, last: null, t: 0, next: 180 + Math.random() * 180, win: false };
-const MUS_SET = { day: ['day'], night: ['night1', 'night2'], win: ['win'] };
+const MUS = { intro: false, on: (() => { try { return localStorage.getItem('dw-mus') !== '0'; } catch (e) { return true; } })(), el: null, g: null, cur: null, last: null, t: 0, next: 180 + Math.random() * 180, win: false };
+const MUS_SET = { intro: ['moonlight'], day: ['day'], night: ['night1', 'night2', 'nothing'], win: ['win'], cave: ['paranoid', 'thunder', 'killing'] };
+const MUS_FADE = { intro: 20, day: 6, night: 25, win: 2, cave: 8 };   // sekundy: pesnička začne potichu a pomaly zosilnie
 const musUrl = n => (/github\.io$/.test(location.hostname) ? '' : 'https://offthewallhack.github.io/usage-of-empires/') + 'music/' + n + '.mp3';
 function musStop(fade = 3) {
   const el = MUS.el, g = MUS.g; if (!el) return; MUS.el = null; MUS.g = null; MUS.cur = null;
   try { g.gain.setTargetAtTime(0, AC.currentTime, fade / 4); } catch (e) { /* nič */ }
   setTimeout(() => { try { el.pause(); el.removeAttribute('src'); el.load(); } catch (e) { /* nič */ } }, fade * 1000 + 200);
 }
-function musPlay(kind) {
-  if (!AC || !AU.ok) return;
+function musPlay(kind, fade) {
+  if (!AC || !AU.ok) return; fade = fade || MUS_FADE[kind] || 4;
   const all = MUS_SET[kind], list = all.length > 1 ? all.filter(n => n !== MUS.last) : all, n = list[Math.floor(Math.random() * list.length)];
   try {
     const el = new Audio(); el.crossOrigin = 'anonymous'; el.preload = 'auto'; el.src = musUrl(n);
     const src = AC.createMediaElementSource(el), g = AC.createGain(); g.gain.value = 0; src.connect(g); g.connect(AU.master);
     MUS.el = el; MUS.g = g; MUS.cur = kind; MUS.last = n;
     const done = wait => { if (MUS.el === el) { MUS.el = null; MUS.g = null; MUS.cur = null; } MUS.t = 0; MUS.next = wait; };
-    el.onended = () => done(600 + Math.random() * 600);   // ďalšia pesnička o 10–20 minút
+    el.onended = () => { done(kind === 'cave' ? MUS.next : 600 + Math.random() * 600); if (kind === 'cave') { MUS.ct = 0; MUS.cnext = 60 + Math.random() * 90; } };   // ďalšia dedinská pesnička o 10–20 minút, jaskynná o 1–2,5 min
     el.onerror = () => done(900);
     const p = el.play(); if (p && p.catch) p.catch(() => done(120));
-    g.gain.setTargetAtTime(kind === 'win' ? .5 : .42, AC.currentTime + .1, 1.5);
+    g.gain.setTargetAtTime(kind === 'win' ? .5 : kind === 'cave' ? .4 : .42, AC.currentTime + .1, fade / 3);
   } catch (e) { MUS.t = 0; MUS.next = 900; }
 }
 function musTick() {   // raz za sekundu
   if (!MUS.on || !SOUND || !AC || !AU.ok) { if (MUS.el) musStop(1.5); return; }
   if (document.hidden) return;
-  if (document.body.classList.contains('incave')) { if (MUS.el && MUS.cur !== 'win') musStop(3); return; }   // v jaskyni hrá jaskyňa a boss
+  if (document.body.classList.contains('incave')) {   // v jaskyni: bardcore (Paranoid, Thunderstruck, Killing in the Name); pri bossovi hrá jeho hudba
+    const cv = game && game.scene.getScene('cave'), bossOn = cv && cv.boss && cv.boss.hp > 0;
+    if (MUS.el && (MUS.cur !== 'cave' && MUS.cur !== 'win' || bossOn)) { musStop(3); MUS.ct = 0; MUS.cnext = 4; return; }
+    if (MUS.el || bossOn) return;
+    if ((MUS.ct = (MUS.ct || 0) + 1) < (MUS.cnext || 3)) return;
+    musPlay('cave'); MUS.ct = 0; MUS.cnext = 60 + Math.random() * 90; return;
+  }
+  if (MUS.el && MUS.cur === 'cave') { musStop(3); MUS.ct = 0; MUS.cnext = 3; return; }   // von z jaskyne pesnička dohrá do ticha
   if (MUS.el) return;
+  if (!MUS.intro) { MUS.intro = true; musPlay('intro'); return; }   // pri otvorení hry: Dancing in the Moonlight, potichu a pomaly
   if (MUS.win) { MUS.win = false; musPlay('win'); return; }
   if ((MUS.t += 1) < MUS.next) return;
   musPlay(scene && scene.night > .5 ? 'night' : 'day');
