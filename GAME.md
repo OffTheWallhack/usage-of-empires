@@ -894,3 +894,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Hudba: pri rozlúčke skočí 2 takty pred drop (nábeh), drop sedí na strih do záberov; prvá osmička dohrá a stíchne.
 - **Kamera vždy k duchu:** keď príde duch, kamera sa presunie k ohňu aj v režime Hrdina a aj v Kino režime (hra ti hrdinu nevezme, len ho kamera chvíľu nesleduje). Po scénke sa vráti k hrdinovi. V pivnici a jaskyni dedina stojí, duch počká, kým sa vrátiš.
 - **Tajné tlačidlo 👻** vedľa Dev Worldu na úvodnej obrazovke: Dev World, kde scénka s duchom príde sama – 5 s po štarte a potom vždy 25 s po skončení (adresa `#w=dev&duch`).
+
+## Krok 89 – finále Ducha dediny prerobené
+- **Strih riadi hudba:** pesnička sa po rozlúčke zasekne ako páska, kamera pomaly nabieha na hrdinu (2 takty), na drop idú zábery presne na doby a po 4 taktoch prd.
+- **Zábery sú nové a hýbu sa:** švih a rozprsknutie slizu, kostra sa rozsype, boss, cval so súmrakom, tvár hrdinu, titulok s menom hrdinu. Všetko ostré pixely.
+- **Prd:** zelený oblak v tvare ducha, hudba na 1 takt stíchne a naskočí späť presne na takt. Smiech, kamera sa odťahuje a všetci utekajú.
+- Drop nastavený presne (88,15 s). Ak hudba nehrá alebo sa zasekne, scénka ide ďalej podľa hodín hry.
