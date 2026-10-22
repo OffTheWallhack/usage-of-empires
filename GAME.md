@@ -912,3 +912,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Cieľové úlohy „čo robiť ďalej“:** 21 míľnikov od prvého drevorubača po Div sveta s návodom, cenou a tým, čo chýba, plus 15 nových úloh. Nový cieľ hra oznámi.
 - **Oprava: hra zamrzla, keď príšera z nájazdu došla k skladu.** Nová poistka: chyba v scéne už hru nezastaví. Otáznik ukazuje aj na sklad.
 - **Výroba šetrí suroviny:** pílnica, kováčňa, tkáčovňa… sama oddychujú, keď je v sklade dosť tovaru, a majú tlačidlo Pozastaviť výrobu.
+
+## Krok 92 – Duch dediny príde iba raz, titulky, rýchlosť sa odomyká prdom
+- **Duch príde len raz**, prvú noc novej hry. Počas scénky beží čas vždy ×1 a osadníci ostanú pri ohni.
+- **Titulky vo finále:** temné hlášky, „Ready?“, prečo duch prišiel, čo si zjedol, prd a „Fúúj! Smrdí to!“.
+- **Smrad smrti 💨 odomkne ×5 a ×20:** v Novej hre je tlačidlo rýchlosti skryté, kým scénka s prdom neskončí. Staré uloženia sú odomknuté.
