@@ -894,3 +894,4 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Hudba: pri rozlúčke skočí 2 takty pred drop (nábeh), drop sedí na strih do záberov; prvá osmička dohrá a stíchne.
 - **Kamera vždy k duchu:** keď príde duch, kamera sa presunie k ohňu aj v režime Hrdina a aj v Kino režime (hra ti hrdinu nevezme, len ho kamera chvíľu nesleduje). Po scénke sa vráti k hrdinovi. V pivnici a jaskyni dedina stojí, duch počká, kým sa vrátiš.
 - Počas finále je ovládanie skryté (ako v kine), zvuky: prd, smiech, vibrácie na drop.
+- **Tajné tlačidlo 👻** vedľa Dev Worldu na úvodnej obrazovke: Dev World, kde scénka s duchom príde sama – 5 s po štarte a potom vždy 25 s po skončení (adresa `#w=dev&duch`).
