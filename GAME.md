@@ -882,3 +882,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Prvýkrát sa jazyk vyberie podľa prehliadača (slovenčina a čeština = SK, ostatné = EN). Voľba sa pamätá.
 - Preklad beží za behu: slovník asi 1 800 textov + vzory pre vety s číslami a menami. Slovenčina ostáva pôvodná, kód hry sa nemenil.
 - Udalosti v events.json môžu mať aj `title_en` a `text_en`. Pri premenovaní vecí (Excel s názvami) treba doplniť aj anglický názov do slovníka (i18n/en.json).
+
+## Krok 87 – výber postavy
+- **4 postavy** namiesto jedného Keepera: **Starec / The Elder** (červené rúcho, ohnivá palica, čierny kôň), **Rytier / The Knight** (brnenie, meč a štít, biely bojový kôň), **Lovec / The Hunter** (zelený plášť, luk, sivý vlk) a **Barbar / The Barbarian** (rohatá prilba, sekera, hnedý medveď).
+- Výber sa ukáže pri začatí Novej hry. Neskôr ho zmeníš v Menu → Postava (hra sa načíta znova, svet ostáva). Hra ostáva rovnaká, líši sa vzhľad a dopravný miláčik.
+- Meno Keepera sa v textoch mení na meno vybranej postavy (aj v skloňovaní, napr. „Ovládaš Starca“).
+- Postava je nakreslená dvakrát: na zvieraťati (dedina, rázcestie, údolie) aj pešo (pivnica, jaskyňa).
