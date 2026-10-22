@@ -900,3 +900,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Zábery sú nové a hýbu sa:** švih a rozprsknutie slizu, kostra sa rozsype, boss, cval so súmrakom, tvár hrdinu, titulok s menom hrdinu. Všetko ostré pixely.
 - **Prd:** zelený oblak v tvare ducha, hudba na 1 takt stíchne a naskočí späť presne na takt. Smiech, kamera sa odťahuje a všetci utekajú.
 - Drop nastavený presne (88,15 s). Ak hudba nehrá alebo sa zasekne, scénka ide ďalej podľa hodín hry.
+
+## Krok 90 – popup, joystick v jaskyni, nový vstup do dungeonu
+- **Popup okno pri budove:** stála šírka (pri posune sa už nezužuje, len sa posunie, aby ostalo na obrazovke), pri bežnom priblížení je menšie a príjemné.
+- Popup sa pri priblížení ešte zmenší, pri oddialení ostáva malé a nerastie.
+- **Jaskyňa na mobile:** plávajúci joystick (ťukni kdekoľvek, palec sa stane joystickom), už ťa nič netiahne späť k východu. Myš ostáva: klik = choď tam.
+- **Honosný vstup do dungeonu:** kamenný portál s oblúkom, lebkou, zástavami, schodmi a dvoma ohnivými pilierami; vnútro oblúka je výrez z jaskyne (JPEG).
