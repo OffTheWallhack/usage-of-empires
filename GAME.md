@@ -890,8 +890,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Postava je nakreslená dvakrát: na zvieraťati (dedina, rázcestie, údolie) aj pešo (pivnica, jaskyňa).
 
 ## Krok 88 – finále Ducha dediny
-- **Scénka po rozlúčke ducha:** duch sa rozplynie, ľudia pri ohni sa obzerajú s „?“. Strih na hrdinu zblízka (kdekoľvek je), na drop pesničky idú rýchle zábery na celú obrazovku (boj v jaskyni, cval na zvierati, tvár hrdinu), blesk – a hrdina si prdne: zelený oblak ako duch. Kamera odzoomuje, všetci sa smejú („ha“) a utekajú od smradu, hrdina sa tvári nevinne.
+- **Scénka po rozlúčke ducha:** duch sa rozplynie, ľudia pri ohni sa obzerajú s „?“. Strih na hrdinu zblízka (kdekoľvek je), na drop pesničky idú rýchle zábery na celú obrazovku (boj v jaskyni, cval na zvierati, tvár hrdinu), blesk – a hrdina si prdne: zelený oblak ako duch. Kamera odzoomuje, všetci sa smejú („ha“) a utekajú od smradu, hrdina sa tvári nevinne. Počas finále je ovládanie skryté (ako v kine); zvuky: prd, smiech, vibrácie na drop.
 - Hudba: pri rozlúčke skočí 2 takty pred drop (nábeh), drop sedí na strih do záberov; prvá osmička dohrá a stíchne.
 - **Kamera vždy k duchu:** keď príde duch, kamera sa presunie k ohňu aj v režime Hrdina a aj v Kino režime (hra ti hrdinu nevezme, len ho kamera chvíľu nesleduje). Po scénke sa vráti k hrdinovi. V pivnici a jaskyni dedina stojí, duch počká, kým sa vrátiš.
-- Počas finále je ovládanie skryté (ako v kine), zvuky: prd, smiech, vibrácie na drop.
 - **Tajné tlačidlo 👻** vedľa Dev Worldu na úvodnej obrazovke: Dev World, kde scénka s duchom príde sama – 5 s po štarte a potom vždy 25 s po skončení (adresa `#w=dev&duch`).
