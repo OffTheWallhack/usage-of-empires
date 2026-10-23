@@ -940,3 +940,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Osada rastie sama:** po založení vznikne Skladisko a presťahujú sa 2 ľudia. Každých 10 h reálneho času (aj keď nehráš) pribudne budova: chalupy, dielňa podľa okolia (ruda, kameň, kríky, ryby, les), studňa, pole. Až 8 stavieb, 3 osady.
 - **Ľudia medzi osadami:** obyvatelia pracujú v okolí a nosia tovar do dediny, dedinčania chodia na návštevy. Kade chodia, vyšliape sa cesta. V chalupách osady sa rodia noví ľudia.
 - **Voľný cieľ „Založ novú osadu“, odznak Zakladateľ.** Ťuk na Skladisko ukáže osadu, počet stavieb, ľudí a kedy pribudne ďalšia budova.
+
+## Krok 97 – dungeon: zóny, výklenky, oltáre, skratka
+- **Zóny po 5 poschodiach:** Slizové jaskyne, Kostnica (viac kostlivcov), Žeravé hlbiny (rýchlejšie príšery), Ľadová priepasť (pomalšie, tvrdšie), Prázdnota (šamani). Každá má vlastnú farbu siene aj príšer.
+- **Tvary poschodí:** sieň, sieň s výklenkom, sieň s komorou, rozvetvená. Vo výklenku býva svietiaci Oltár predkov (+4 životy, raz), v komore občas truhla navyše. Bossovia majú čistú arénu.
+- **Skratka:** po porazení bossa sa pri vchode do jaskyne objaví tlačidlo Skratka – začneš od ďalšej zóny (6., 11., 16. poschodie…).
+- **Trofeje:** každý prvý porazený boss zdvihne Ducha osady o 3 ✦ (do 15). Odznak Požehnaný za oltáre. Správy v jaskyni už neprekrývajú tlačidlo Von.
