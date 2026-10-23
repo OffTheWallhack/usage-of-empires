@@ -928,3 +928,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Doby:** hlavná budova ukazuje ďalšiu dobu s riadkami podmienok a lištami. Zvitok má rovnaké riadky. Hore je tlačidlo doby, svieti keď je zvitok pripravený.
 - **Telefón:** keď odídeš z hry, pozastaví sa; po návrate sa zobudí (dlhšie preč: Pokračovať). Stavanie len veľkým tlačidlom, dvojklik nezoomuje ani nezbúra.
 - **Hra:** píla nezje všetko drevo (rezerva), hudba je tichšia a hrá od hlavnej budovy, 46 úloh a ikony pri úspechoch, horná lišta v jednom riadku.
+
+## Krok 95 – Hlavná cesta: 5 kapitol
+- **Hlavná cesta:** ciele sú zoradené do 5 kapitol (Prvá iskra, Dedina ožíva, Cez rozbitý most, Kov a hradby, Plameň predkov). Karta úloh ukazuje kapitolu a cieľ s ★.
+- **Kapitola hotová:** príde karta s odmenou (suroviny) a čo je ďalej. Odznak Pútnik za kapitoly. Nové ciele: prvý boss (5. poschodie) a Strážna veža.
+- **Voľné ciele:** objednávky, bossovia, poschodia, ďalšie budovy a Duch osady sú v Úlohách zvlášť. Nevedú hráča, ale dajú sa plniť kedykoľvek.
+- **Pripomienka:** keď sa 5 minút nič nepohne na Hlavnej ceste, hra potichu pripomenie aktuálny cieľ.
