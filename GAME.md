@@ -946,3 +946,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Tvary poschodí:** sieň, sieň s výklenkom, sieň s komorou, rozvetvená. Vo výklenku býva svietiaci Oltár predkov (+4 životy, raz), v komore občas truhla navyše. Bossovia majú čistú arénu.
 - **Skratka:** po porazení bossa sa pri vchode do jaskyne objaví tlačidlo Skratka – začneš od ďalšej zóny (6., 11., 16. poschodie…).
 - **Trofeje:** každý prvý porazený boss zdvihne Ducha osady o 3 ✦ (do 15). Odznak Požehnaný za oltáre. Správy v jaskyni už neprekrývajú tlačidlo Von.
+
+## Krok 98 – Krypta predkov: tajný dungeon pod Divom sveta
+- **Vstup:** keď dostaviaš Plameň predkov, pod ním sa otvoria schody. Ťuk na Div sveta → Krypta predkov (a po bossovi Skratka od 6. poschodia).
+- **Plameň a ohniská:** nesieš plameň, ktorý pomaly dohára (lišta vpravo hore). Kým horí, duchovia ti neublížia a dostávajú dvojnásobok. Dotyk ohniska ho zapáli a plameň doplní. Schody sa otvoria, až keď horia všetky ohniská a komora je prázdna.
+- **Nepriatelia:** duchovia (rýchli, priesvitní, púšťajú kryštály), kamenní strážcovia (pomalí, tvrdí), na 5. poschodí Prastarý strážca (ďalej Kráľ predkov, Zabudnutý). Modro-zlatý vzhľad.
+- **Odmeny:** z truhly po bossovi Amulet predkov (život +2, plameň horí dlhšie) a Palica strážcu krypty (úder +1, modrá guľa proti duchom). Ciele a odznaky Nosič plameňa, Duchobijca.
