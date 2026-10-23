@@ -934,3 +934,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Kapitola hotová:** príde karta s odmenou (suroviny) a čo je ďalej. Odznak Pútnik za kapitoly. Nové ciele: prvý boss (5. poschodie) a Strážna veža.
 - **Voľné ciele:** objednávky, bossovia, poschodia, ďalšie budovy a Duch osady sú v Úlohách zvlášť. Nevedú hráča, ale dajú sa plniť kedykoľvek.
 - **Pripomienka:** keď sa 5 minút nič nepohne na Hlavnej ceste, hra potichu pripomenie aktuálny cieľ.
+
+## Krok 96 – nové osady: osadníci sa sami rozrastajú
+- **Prieskumník:** keď má dedina dobu kamennú a 7 ľudí, jeden sa vyberie ďaleko a nájde rovnú lúku pri surovinách. Zabodne vlajku, ty ťukneš a rozhodneš: Založiť (60 dreva, 30 jedla), Neskôr, Zahodiť.
+- **Osada rastie sama:** po založení vznikne Skladisko a presťahujú sa 2 ľudia. Každých 10 h reálneho času (aj keď nehráš) pribudne budova: chalupy, dielňa podľa okolia (ruda, kameň, kríky, ryby, les), studňa, pole. Až 8 stavieb, 3 osady.
+- **Ľudia medzi osadami:** obyvatelia pracujú v okolí a nosia tovar do dediny, dedinčania chodia na návštevy. Kade chodia, vyšliape sa cesta. V chalupách osady sa rodia noví ľudia.
+- **Voľný cieľ „Založ novú osadu“, odznak Zakladateľ.** Ťuk na Skladisko ukáže osadu, počet stavieb, ľudí a kedy pribudne ďalšia budova.
