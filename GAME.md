@@ -952,3 +952,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Plameň a ohniská:** nesieš plameň, ktorý pomaly dohára (lišta vpravo hore). Kým horí, duchovia ti neublížia a dostávajú dvojnásobok. Dotyk ohniska ho zapáli a plameň doplní. Schody sa otvoria, až keď horia všetky ohniská a komora je prázdna.
 - **Nepriatelia:** duchovia (rýchli, priesvitní, púšťajú kryštály), kamenní strážcovia (pomalí, tvrdí), na 5. poschodí Prastarý strážca (ďalej Kráľ predkov, Zabudnutý). Modro-zlatý vzhľad.
 - **Odmeny:** z truhly po bossovi Amulet predkov (život +2, plameň horí dlhšie) a Palica strážcu krypty (úder +1, modrá guľa proti duchom). Ciele a odznaky Nosič plameňa, Duchobijca.
+
+## Krok 99 – mená osád, dláždené cesty
+- **Mená osád:** v okne hlavnej budovy je sekcia Osady – každú osadu premenuješ (meno sa ukáže v Skladisku aj v správach).
+- **Dláždené cesty:** keď ľudia prejdú po políčku 260-krát, vydláždia ho kameňom. Dlažba nezarastá a chodí sa po nej rýchlejšie – medzi dedinou a osadami tak časom vzniknú veľké cesty.
