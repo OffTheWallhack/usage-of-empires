@@ -917,3 +917,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Duch príde len raz**, prvú noc novej hry. Počas scénky beží čas vždy ×1 a osadníci ostanú pri ohni.
 - **Titulky vo finále:** temné hlášky, „Ready?“, prečo duch prišiel, čo si zjedol, prd a „Fúúj! Smrdí to!“.
 - **Smrad smrti 💨 odomkne ×5 a ×20:** v Novej hre je tlačidlo rýchlosti skryté, kým scénka s prdom neskončí. Staré uloženia sú odomknuté.
+
+## Krok 93 – okno budovy pred stavaním, kompaktná horná lišta
+- **Okno budovy:** ťuk na budovu v Stavať otvorí detail: obrázok, popis, čo robí, cena s „máš / treba“ a čo chýba. Stavať až tam.
+- **Postup stavania:** Stavať v okne → vyber miesto na mape → potvrď. Zamknuté budovy sa dajú tiež prečítať (s dôvodom zámku).
+- **Horná lišta:** dosky, náradie, látka a kryštály majú vlastný kompaktný riadok v lište (už neplávajú cez hru) a veľké čísla sa zmenšia.
