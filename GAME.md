@@ -957,6 +957,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Mená osád:** v okne hlavnej budovy je sekcia Osady – každú osadu premenuješ (meno sa ukáže v Skladisku aj v správach).
 - **Dláždené cesty:** keď ľudia prejdú po políčku 260-krát, vydláždia ho kameňom. Dlažba nezarastá a chodí sa po nej rýchlejšie – medzi dedinou a osadami tak časom vzniknú veľké cesty.
 
-## Krok 100 – prirodzenejšie cesty, most
+## Krok 101 – cesty, most, výber poschodia
 - **Cesty:** najvyššie štádium už nie je pravidelná dlažba. Cesta zostáva ušliapaná hlina a len sem-tam v nej leží plochý kamienok, zriedka väčší kameň. Diery medzi dvoma vyšliapanými políčkami sa zahoja, takže cesta je súvislá.
 - **Most:** hrdina a osadníci už na moste nelevitujú. Most sedí presne na políčkach, po ktorých sa chodí, postava je vždy pred mostom a joystick ťa po moste vedie po jeho osi a drží v strede, takže sa nelepíš na zábradlie.
+- **Výber poschodia:** pri vstupe do jaskyne (aj do Krypty predkov) vyskočí okno s poschodiami 1, 10, 20, 30, 40, 50, 100, 500, 1000. Odomknuté sú tie, ku ktorým si sa už prebojoval bossmi (skratka), ostatné sú zamknuté. Poschodia 100+ sú zatiaľ „koniec". Na 50. poschodí (v krypte na 15.) nie sú schody dole, ale okno „Koniec – počkaj na update". Ďalších bossov budeme pridávať postupne.
