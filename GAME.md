@@ -926,5 +926,5 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 94 – nové okno budov, tlačidlo doby, drobné opravy
 - **Okno budov:** všetky budovy majú jedno prehľadné okno dole: popis, akcie, vylepšenia s cenami (máš / treba), zbúrať až nakoniec. Mapa sa posunie nad okno.
 - **Doby:** hlavná budova ukazuje ďalšiu dobu s riadkami podmienok a lištami. Zvitok má rovnaké riadky. Hore je tlačidlo doby, svieti keď je zvitok pripravený.
-- **Telefón:** stavanie len cez veľké tlačidlo Postaviť, tieň posúvaš prstom, dvojklik už nezoomuje a nezbúra. Správy sú malé biele vľavo hore.
+- **Telefón:** keď odídeš z hry, pozastaví sa; po návrate sa zobudí (dlhšie preč: Pokračovať). Stavanie len veľkým tlačidlom, dvojklik nezoomuje ani nezbúra.
 - **Hra:** píla nezje všetko drevo (rezerva), hudba je tichšia a hrá od hlavnej budovy, 46 úloh a ikony pri úspechoch, horná lišta v jednom riadku.
