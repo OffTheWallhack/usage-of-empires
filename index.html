@@ -9255,13 +9255,13 @@ class Cave extends Phaser.Scene {
       if (p.isDown && !p.wasTouch) { const w = this.cameras.main.getWorldPoint(p.x, p.y); this.p.tx = w.x; this.p.ty = w.y; }
     });
     this.input.on('pointerup', p => { if (this.joy && p.id === this.joy.id) { this.joy = null; joyHide(); } this.p.tx = null; });
-    this.fit(); this.scale.on('resize', () => this.fit());
+    this.fit(); if (!this._rz) { this._rz = true; this.scale.on('resize', () => { if (this.sys.isActive() && this.kee && this.kee.active) this.fit(); }); }
     this.gone = false; this.hold = false; this.exitArmed = false; this.done = false; this.anim = 0;
     { const ey = CV.OY + CV.N * 8 + 8, g = this.add.graphics().setDepth(1); this.exitPt = { x: 40, y: CV.OY + CV.N * 8 + 4 }; g.fillStyle(0xf2e4c2, .16); g.fillEllipse(40, ey, 34, 18); g.lineStyle(1, 0xf2e4c2, .6); g.strokeEllipse(40, ey, 34, 18); g.fillStyle(0xf2e4c2, .7); g.fillTriangle(28, ey, 36, ey - 5, 36, ey + 5); this.tweens.add({ targets: g, alpha: .45, duration: 800, yoyo: true, repeat: -1 }); } if (this.crypt) { if (this.floor === 1) gotAdd('crypt', 1); WORLD.cryptDeep = Math.max(WORLD.cryptDeep || 0, this.floor); } else { if (this.floor === 1) gotAdd('caves', 1); WORLD.deep = Math.max(WORLD.deep || 0, this.floor); } uiCave();
     if (this.crypt && this.floor === 1) toast('Ohnivé ruiny predkov · vyhýbaj sa láve, poraz ohnivých škriatkov a nájdi schody. Na 5. poschodí čaká Večný ohnivý golem.');
     else if (this.floor > 1) toast(this.boss ? `Poschodie ${this.floor} · ${this.boss.name.toUpperCase()}! ${this.cyc >= 2 ? 'Je strašne silný – možno ho dnes neporazíš.' : 'Sleduj, čo chystá, a uhni.'}` : ((this.floor - 1) % 5 === 0 ? `Poschodie ${this.floor} · ${this.zone.name}: ${this.zone.desc}` : `Poschodie ${this.floor}` + (this.altar ? ' · vo výklenku svieti oltár' : ''))); else toast('Jaskyňa · Úder: ťuk = kombo, podrž = drvivý úder · Oheň: ťuk = guľa, podrž = ohnivý dopad · Úhyb');
   }
-  fit() { const cam = this.cameras.main, z = Math.max(1, Math.floor(Math.min(cam.width / (CV.W * .8), cam.height / (CV.H * .9)))) + (this.crypt ? 1 : 0); cam.setZoom(z); const vw = cam.width / z, vh = cam.height / z, bw = Math.max(CV.W + 80, vw), bh = Math.max(CV.H + 40, vh); cam.setBounds(CV.W / 2 - bw / 2, CV.H / 2 - bh / 2, bw, bh); cam.startFollow(this.kee, true, .12, .12); }
+  fit() { const cam = this.cameras.main, z = Math.max(1, Math.floor(Math.min(cam.width / (CV.W * .8), cam.height / (CV.H * .9)))) + (this.crypt ? 1 : 0); cam.setZoom(z); const vw = cam.width / z, vh = cam.height / z, bw = Math.max(CV.W + 80, vw), bh = Math.max(CV.H + 40, vh); cam.setBounds(CV.W / 2 - bw / 2, CV.H / 2 - bh / 2, bw, bh); cam.startFollow(this.kee, true, .12, .12); cam.centerOn(this.kee.x, this.kee.y); }
   /* poschodia: 1–4 príšery (rastie počet aj mix), každé 5. = boss, na 3. truhla; potom hlbšie a ťažšie */
   spawnFloor(cx, cy) {
     const F = this.floor, cyc = Math.floor((F - 1) / 5), L = ((F - 1) % 5) + 1; this.cyc = cyc; this.scaleHp = Math.pow(1.45, cyc); this.bossHp = Math.pow(1.9, cyc); this.dmgAdd = cyc;
