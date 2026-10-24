@@ -990,3 +990,11 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Nová budova Banka (placeholder s písmenami BN, 3×3, vek 1): hlavný trezor na zlato bez limitu.
 - Kým banka nestojí, zlato je obmedzené skladom ako ostatné suroviny; po dostavaní sa limit zlata zruší (v lište je namiesto limitu ∞).
 - Karta budovy ukazuje, koľko zlata je v trezore. Nákupy vecí do hry a zlato na profile prídu neskôr.
+
+## Krok 108 – Rozšírenie mapy (regióny)
+- Svet je teraz jedna veľká mapa zložená z regiónov rovnakej veľkosti (80×80). Dedina je v strede, nové regióny sa pripájajú vpravo hore, vpravo dole a vľavo dole. Vľavo hore ostáva rozcestie a vstup.
+- Regióny sa kupujú v Banke za zlato (akcia Rozšíriť mapu): 100, 250 a 500 zlata. Každý región sa vygeneruje procedurálne a vždy rovnako, takže po načítaní hry vyzerá rovnako.
+- Každý región má vlastnú krajinu: kopce, rybník, lesné škvrny, vlastnú čistinu s surovinami (kameň, železo, zlato, kríky) a bobule.
+- Susedné regióny spája brod cez rieku (vpravo dole, vľavo dole) alebo lesná cesta (vpravo hore), takže sa dá chodiť tam aj späť.
+- Po kúpe sa nová osada založí sama: osadník ide hľadať miesto v novom regióne a osada vznikne zadarmo.
+- Pod kapotou: globálna mriežka s posunom, per-regiónové vrstvy zeme, ciest a opotrebenia, uloženie 'devworld-wear-v4' s migráciou zo starého.
