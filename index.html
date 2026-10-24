@@ -9279,6 +9279,7 @@ class Cave extends Phaser.Scene {
     list.forEach((k, i) => this.spawnMob(k, spots[i % spots.length][0], spots[i % spots.length][1]));
   }
   spawnMob(kind, x, y) {
+    { const ccx = CV.W / 2, ccy = CV.OY + CV.N * 8; for (let i = 0; i < 60 && !cvIn(x, y, 5); i++) { x += (ccx - x) * .1; y += (ccy - y) * .1; } }   // nikdy nezačať v stene
     const D = { slime: [4, 20, 1], beetle: [7, 14, 2], skel: [8, 24, 2], shaman: [6, 18, 1], boss: [70, 16, 2], imp: [3, 34, 1], guard: [16, 12, 2] }[kind], hp = Math.round(D[0] * (kind === 'boss' ? (this.bossHp || 1) : (this.scaleHp || 1)));
     const m = { kind, x, y, hp, max: hp, spd: D[1] * (1 + Math.min(.6, (this.cyc || 0) * .08)), dmg: D[2] + (this.dmgAdd || 0), hit: 0, cd: kind === 'shaman' ? 1.5 : 0, ph: Math.random() * 6, ai: kind === 'skel' || kind === 'shaman' || kind === 'boss', st: 'chase', t: 0, stun: 0 };
     const tex = m.ai ? (kind === 'skel' ? 'skel' : kind === 'shaman' ? 'shaman' : this.crypt ? 'golem' : 'boss') : kind === 'imp' ? 'imp' : kind === 'guard' ? 'skel' : kind;
@@ -9444,6 +9445,7 @@ class Cave extends Phaser.Scene {
     // príšery
     this.mobs.forEach(m => {
       if (m.hp <= 0) return; m.ph += dt;
+      if (!cvIn(m.x, m.y, 2)) { const ccx = CV.W / 2, ccy = CV.OY + CV.N * 8; m.x += (ccx - m.x) * Math.min(1, dt * 6); m.y += (ccy - m.y) * Math.min(1, dt * 6); }   // zaseknutý v stene → vytiahnuť dnu
       if (m.hit > 0) { m.hit -= dt; if (m.hit <= 0) { m.img.clearTint(); if (this.zone && m.kind !== 'boss' && this.zone.mob !== 0xffffff) m.img.setTint(this.zone.mob); if (m.kind === 'guard') m.img.setTint(0xff8a50); if (this.crypt && m.kind === 'shaman') m.img.setTint(0xff8a6a); } }
       const dx = P.x - m.x, dy = P.y - m.y, d = Math.hypot(dx, dy);
       if (m.ai) { if (P.hp > 0) this.ai(m, dt, dx, dy, d); return; }
