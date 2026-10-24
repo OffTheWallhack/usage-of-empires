@@ -957,7 +957,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Mená osád:** v okne hlavnej budovy je sekcia Osady – každú osadu premenuješ (meno sa ukáže v Skladisku aj v správach).
 - **Dláždené cesty:** keď ľudia prejdú po políčku 260-krát, vydláždia ho kameňom. Dlažba nezarastá a chodí sa po nej rýchlejšie – medzi dedinou a osadami tak časom vzniknú veľké cesty.
 
-## Krok 101 – cesty, most, výber poschodia
-- **Cesty:** najvyššie štádium už nie je pravidelná dlažba. Cesta zostáva ušliapaná hlina a len sem-tam v nej leží plochý kamienok, zriedka väčší kameň. Diery medzi dvoma vyšliapanými políčkami sa zahoja, takže cesta je súvislá.
-- **Most:** hrdina a osadníci už na moste nelevitujú. Most sedí presne na políčkach, po ktorých sa chodí, postava je vždy pred mostom a joystick ťa po moste vedie po jeho osi a drží v strede, takže sa nelepíš na zábradlie.
+## Krok 102 – cesty, most, výber poschodia, smrť a návod
+- **Cesty a most:** cesta je ušliapaná hlina so sem-tam kamienkom, bez dier. Hrdina a osadníci na moste už nelevitujú a joystick ťa po ňom vedie.
 - **Výber poschodia:** pri vstupe do jaskyne (aj do Krypty predkov) vyskočí okno s poschodiami 1, 10, 20, 30, 40, 50, 100, 500, 1000. Odomknuté sú tie, ku ktorým si sa už prebojoval bossmi (skratka), ostatné sú zamknuté. Poschodia 100+ sú zatiaľ „koniec". Na 50. poschodí (v krypte na 15.) nie sú schody dole, ale okno „Koniec – počkaj na update". Ďalších bossov budeme pridávať postupne.
+- **Smrť v jaskyni:** keď padneš, vyskočí okno „Padol si“ s tlačidlami Skúsiť znova (to isté poschodie) a Do dediny, plus tip. Nič nestratíš.
+- **Oprava zamrznutia:** po smrti sa jaskyňa pri ďalšom vstupe nehýbala (zostal príznak „odišiel“), preto hra vyzerala zamrznutá. Opravené. Čas medzi snímkami je navyše chránený proti pokazenej hodnote a chýbajúci obrázok už nikdy nenakreslí zelený štvorec.
+- **Návod k jaskyni:** písomný návod (ovládanie, ako prežiť, ako ísť čo najhlbšie). Ukáže sa pri prvom vstupe a potom cez tlačidlo „Ako prežiť v jaskyni“ v okne s poschodiami.
