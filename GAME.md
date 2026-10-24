@@ -963,3 +963,14 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Smrť v jaskyni:** keď padneš, vyskočí okno „Padol si“ s tlačidlami Skúsiť znova (to isté poschodie) a Do dediny, plus tip. Nič nestratíš.
 - **Oprava zamrznutia:** po smrti sa jaskyňa pri ďalšom vstupe nehýbala (zostal príznak „odišiel“), preto hra vyzerala zamrznutá. Opravené. Čas medzi snímkami je navyše chránený proti pokazenej hodnote a chýbajúci obrázok už nikdy nenakreslí zelený štvorec.
 - **Návod k jaskyni:** písomný návod (ovládanie, ako prežiť, ako ísť čo najhlbšie). Ukáže sa pri prvom vstupe a potom cez tlačidlo „Ako prežiť v jaskyni“ v okne s poschodiami.
+
+## Krok 103 – nosenie dreva, medzisklad a práca okolo chát
+- **Drevorubač nosí sám:** keď je pred chatou plno a nosič nestíha, drevorubač odnesie drevo do skladu sám. Sklad pred chatou je väčší: 30 a rastie s úrovňou skladu.
+- **Medzisklad:** nová budova, kam ľudia a nosiči odkladajú suroviny bližšie k lesu či lomu. Zásoby sú spoločné a každý medzisklad zväčší sklad o 60.
+- **Viac nosičov:** na každé štyri drevorubačské chaty a výrobné budovy pribudne ďalší nosič (najviac 4). Nosič ide k najbližšej a najplnšej budove.
+- **Práca okolo chát:** osadník zo zberačovej, baníkovej a kamenárovej chaty teraz robí okolo svojej chaty. Drevorubač ide aj ďalej do lesa, keď pri chate nie je strom.
+
+## Krok 104 – rozloženie obrazovky
+- **Hlásenia vpravo:** hlásenia o nových osadníkoch a splnených úlohách už neprekrývajú úlohy. Na výšku sú vpravo nad spodnou lištou, na šírku vpravo hore.
+- **Mesto a Hrdina v spodnej lište:** prepínač režimu je teraz piate tlačidlo medzi Úlohami a Menu, nie samostatné tlačidlo v rohu.
+- **Ďalej od rohov:** horný pruh a hlásenia sú ďalej od zaoblených rohov telefónu. Na šírku sa horný pruh zmestí na obrazovku, takže je vidieť drevo aj tlačidlo ducha.
