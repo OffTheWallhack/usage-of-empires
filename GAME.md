@@ -985,3 +985,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Druhé poschodie Ohnivých ruín predkov ostáva v ruinách (schody predtým posielali do obyčajnej jaskyne).
 - Odchod z jaskyne už nie je automatický: na zemi je svietiaca značka východu. Treba sa na ňu postaviť (po tom, čo si od nej odišiel) a potvrdiť „Odísť" / „Zostať".
 - Tlačidlo „Von z jaskyne" hore tiež pýta potvrdenie.
+
+## Krok 107 – Banka
+- Nová budova Banka (placeholder s písmenami BN, 3×3, vek 1): hlavný trezor na zlato bez limitu.
+- Kým banka nestojí, zlato je obmedzené skladom ako ostatné suroviny; po dostavaní sa limit zlata zruší (v lište je namiesto limitu ∞).
+- Karta budovy ukazuje, koľko zlata je v trezore. Nákupy vecí do hry a zlato na profile prídu neskôr.
