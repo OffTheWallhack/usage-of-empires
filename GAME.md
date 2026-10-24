@@ -998,3 +998,11 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Susedné regióny spája brod cez rieku (vpravo dole, vľavo dole) alebo lesná cesta (vpravo hore), takže sa dá chodiť tam aj späť.
 - Po kúpe sa nová osada založí sama: osadník ide hľadať miesto v novom regióne a osada vznikne zadarmo.
 - Pod kapotou: globálna mriežka s posunom, per-regiónové vrstvy zeme, ciest a opotrebenia, uloženie 'devworld-wear-v4' s migráciou zo starého.
+
+## Krok 109 – Pracovné zóny, upratané menu, opravy na telefóne
+- Menu Stavať je rozdelené do kategórií: Suroviny, Jedlo a farma, Remeslá, Osada, Obrana a pamätníky. Karty majú rovnakú výšku, cena je v ikonách. Na šírku sú karty kompaktné, takže sa vojde viac riadkov.
+- Pracovné zóny: drevorubač, zberač, kamenár, baník a lom majú okolo seba okruh (5 až 7 políčok). Ukáže sa pri kladení budovy a po ťuknutí na hotovú budovu.
+- V zóne drevorubača sa postupne sadia nové stromy (mladý strom najprv rastie, potom sa dá rúbať). Zberač tam sadí kvety a kríky s bobuľami. Kamenár a lom dopĺňajú kamenné ložiská, baník železnú rudu. Zasadené veci sa ukladajú do WORLD.planted.
+- Tutoriál: keď je otvorené okno, text návodu je v jeho hornej časti; pri kladení budovy sa návod presunie hore a nezakrýva tlačidlá Postaviť a Zrušiť.
+- Značka pri strome, ktorú vidíš keď hrdina stojí pri strome alebo ložisku, je teraz presne pod ním, nie o políčko vedľa.
+- Hlásenia (feed) sú na mobile vpravo hore, aj na výšku a aj v jaskyni.
