@@ -974,3 +974,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Hlásenia vpravo:** hlásenia o nových osadníkoch a splnených úlohách už neprekrývajú úlohy. Na výšku sú vpravo nad spodnou lištou, na šírku vpravo hore.
 - **Mesto a Hrdina v spodnej lište:** prepínač režimu je teraz piate tlačidlo medzi Úlohami a Menu, nie samostatné tlačidlo v rohu.
 - **Ďalej od rohov:** horný pruh a hlásenia sú ďalej od zaoblených rohov telefónu. Na šírku sa horný pruh zmestí na obrazovku, takže je vidieť drevo aj tlačidlo ducha.
+
+## Krok 105 – Ohnivé ruiny predkov
+- **Nový vzhľad:** Krypta pod Plameňom predkov je teraz ohnivé ruiny: pálený kameň, žeravé praskliny v podlahe a lávové mláky, ktorým sa treba vyhnúť.
+- **Bez ohnísk:** plameň a ohniská sú preč. Poschodie je čisté, keď porazíš všetkých nepriateľov, a otvoria sa schody.
+- **Noví nepriatelia:** ohniví škriatkovia, žeraví strážcovia a ohniví mágovia. Modrá palica škriatkom berie dvojnásobok.
+- **Večný ohnivý golem:** boss na každom 5. poschodí. Dupe a nechá po sebe lávu, rozosiela ohnivý kruh, v nápore sa rúti vpred a pri polovici života zavolá škriatkov. Obraz je v Kryptu bližšie.
