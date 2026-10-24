@@ -980,3 +980,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Bez ohnísk:** plameň a ohniská sú preč. Poschodie je čisté, keď porazíš všetkých nepriateľov, a otvoria sa schody.
 - **Noví nepriatelia:** ohniví škriatkovia, žeraví strážcovia a ohniví mágovia. Modrá palica škriatkom berie dvojnásobok.
 - **Večný ohnivý golem:** boss na každom 5. poschodí. Dupe a nechá po sebe lávu, rozosiela ohnivý kruh, v nápore sa rúti vpred a pri polovici života zavolá škriatkov. Obraz je v Kryptu bližšie.
+
+## Krok 106 – oprava ohnivých ruín a odchod z jaskyne
+- Druhé poschodie Ohnivých ruín predkov ostáva v ruinách (schody predtým posielali do obyčajnej jaskyne).
+- Odchod z jaskyne už nie je automatický: na zemi je svietiaca značka východu. Treba sa na ňu postaviť (po tom, čo si od nej odišiel) a potvrdiť „Odísť" / „Zostať".
+- Tlačidlo „Von z jaskyne" hore tiež pýta potvrdenie.
