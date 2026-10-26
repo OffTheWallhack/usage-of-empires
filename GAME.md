@@ -1006,3 +1006,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Tutoriál: keď je otvorené okno, text návodu je v jeho hornej časti; pri kladení budovy sa návod presunie hore a nezakrýva tlačidlá Postaviť a Zrušiť.
 - Značka pri strome, ktorú vidíš keď hrdina stojí pri strome alebo ložisku, je teraz presne pod ním, nie o políčko vedľa.
 - Hlásenia (feed) sú na mobile vpravo hore, aj na výšku a aj v jaskyni.
+
+## Krok 110 – Budovy namiesto krabíc
+- Baníkova chata, kamenár, zberač, rybár, pekáreň, píla, trh, kasárne, železná baňa, svätyňa, tkáčovňa, pivovar, banka, medzisklad, knižnica a hvezdáreň majú vlastnú pixelovú kresbu v tom istom štýle ako ostatné budovy kreslené kódom. Farebné krabice s dvoma písmenami sú preč.
+- Ozdoby, ktoré boli len farebné stĺpiky (fontána, socha, obelisk, záhon, lampión, stan, kryštál, brána a ďalšie), sú nakreslené.
+- Text v okne pekárne a tkáčovne hovorí, čo budova naozaj robí (pekáreň pridáva jedlo, tkáčovňa berie jedlo a vracia látku).
+- Sýpka ostáva mimo menu Stavať: jej úlohu drží mlyn. Staré sýpky v uložených svetoch fungujú ďalej a v karte je napísané, že držia +60 jedla.
