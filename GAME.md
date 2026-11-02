@@ -1006,3 +1006,12 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Tutoriál: keď je otvorené okno, text návodu je v jeho hornej časti; pri kladení budovy sa návod presunie hore a nezakrýva tlačidlá Postaviť a Zrušiť.
 - Značka pri strome, ktorú vidíš keď hrdina stojí pri strome alebo ložisku, je teraz presne pod ním, nie o políčko vedľa.
 - Hlásenia (feed) sú na mobile vpravo hore, aj na výšku a aj v jaskyni.
+
+## Krok 110 – Poistka proti čiernej jaskyni
+- Hlásenie z bety: po vstupe do jaskyne bolo vidno len ovládanie a zvyšok čierny. Keď sa jaskyňa nepostaví (napr. telefónu dôjde pamäť na obrázky), tlačidlá sa ukážu skôr než miestnosť, takže hráč ostal pred prázdnou obrazovkou.
+- Vstup do jaskyne je poistený: chyba pri stavbe scény sa zachytí, jaskyňa sa skúsi postaviť znova. Keď ani to nepomôže, hra sa uloží, načíta nanovo a vráti hráča na to isté poschodie. Keď ani to nie (do 3 min), hráč ostane v dedine so správou.
+- Strážca počas pobytu v jaskyni kontroluje miestnosť, hrdinu a kameru, prvých 6 s aj skutočné pixely okolo hrdinu (kontrola pixelov sa zapne, len keď sa pri štarte overí, že v tom zariadení funguje). Zaseknuté stmievanie na schodoch sa dotiahne samo.
+- Prázdny obrázok miestnosti (telefón kreslí prázdno a nič nehlási) sa teraz odhalí hneď a urobí sa znova. Obrázky do jaskyne sa dorábajú po jednom, takže opakovaný pokus doplní len tie, ktoré chýbajú.
+- Rovnaká poistka: skrýša, rozcestie a údolie.
+- Oprava: vstup bez údajov zopakoval údaje z minulého vstupu (po Krypte sa otvorila znova Krypta, po skratke zase hlboké poschodie).
+- Chyba sa zapíše do Nahlásiť chybu aj cez nanovo načítanie.
