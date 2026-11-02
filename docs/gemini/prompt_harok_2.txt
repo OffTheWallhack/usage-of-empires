@@ -1,0 +1,27 @@
+You get two images. Image 1 is a LAYOUT TEMPLATE (grid of numbered cells). Image 2 is a STYLE REFERENCE showing buildings that already exist in my game.
+
+TASK: Create ONE image with exactly the same size and same grid as the layout template. In every numbered cell draw ONE isometric medieval village building, as listed below. All buildings belong to the same small settlement and must look like they were made by the same artist, matching the style reference.
+
+LAYOUT RULES (very important):
+- Same camera as the template: classic 2:1 isometric view (like Age of Empires 2), seen from above-front. The left wall faces lower-left, the right wall faces lower-right.
+- The blue diamond in each cell is the building's footprint on the ground. The building's base must sit exactly on that diamond (same width, same 2:1 proportions), centred in its cell.
+- The dashed grey box is the maximum height. The roof must stay inside it. Small things like a chimney, flag or lantern may stick out a little.
+- The orange rectangle marks the door. Put the main door or the main opening on the lower-left wall, at that place.
+- Do NOT draw the blue diamond, dashed box, numbers, orange marks or any grid lines. Do not copy anything from the template into the final image.
+- Pure white background (#FFFFFF) behind every building. No ground, no grass, no cast shadow, no text, no labels, no people, no animals.
+- Every building fully inside its own cell, nothing touching the cell edge.
+
+STYLE:
+- Dark, muted, weathered medieval palette: dark brown timber, grey fieldstone, aged thatch and dark wooden shingles, lots of brown and grey, small muted accents only. Same mood as the style reference.
+- Detailed hand-painted game sprite with a clean readable silhouette and a thin dark outline. Strong texture on roofs, wood and stone.
+- Light comes from the upper left: left faces lit, right faces in shade.
+- Each building must be easy to recognise by its function at a small size.
+
+BUILDINGS:
+1. Brewery (3x3): tall timber building with a stone base and a dark shingle roof, a chimney with smoke, a big copper brewing kettle visible under a side lean-to, many barrels stacked outside, hop plants climbing poles.
+2. Barracks (4x3, long): long timber-and-stone drill hall with a low heavy roof, a muted red banner, a weapon rack with spears and swords, round shields on the wall, a wooden training dummy and a short palisade fence piece at the side.
+3. Iron mine (3x3): a rocky stone mound with a timber-framed mine shaft entrance, rails with an ore cart, a wooden winch headframe with a pulley and rope, piles of dark ore and a little forge smoke. The mound is part of the building.
+4. Shrine (2x2, tall and narrow): small stone shrine of the ancestors with a steep pointed slate roof, a carved niche with a stone figure, candles, a wreath of dried flowers, carved runes, a small bell on top, a muted violet cloth hanging by the door. Calm and quiet.
+5. Library (3x3, two storeys): stone-and-timber scriptorium with arched windows, bookshelves and scrolls visible, a small gable tower, a dark slate roof with a muted green banner, stacks of books and scrolls by the door.
+6. Observatory (3x3, very tall): round stone tower with a wooden half-open dome roof and a long brass telescope sticking out, a small balcony, star and moon symbols carved or painted on the wall, a dark navy cloth banner, a narrow door at the base.
+7. Bank (3x3): heavy stone vault-like building with a dark slate roof, a very strong iron-banded door, barred small windows, a golden coin emblem over the door, strongboxes and a small guard post beside it. Solid, fortified, rich but still weathered.
