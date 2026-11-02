@@ -1022,3 +1022,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Texty to hovoria jasne: správa po založení, karta osady s odpočtom „ďalšia stavba o X min", skaut aj depo.
 - Nová dekorácia Socha Emy Kozinovej (Pamätníky, 10 kameňa + 1 zlato): kamenná postava s kyticou a papierom, ladí k soche Filipa.
 - Anglické preklady nových textov doplnené.
+
+## Krok 112 – Druhá socha Emy (kop)
+- Socha Emy Kozinovej má druhú verziu podľa fotky: výkop s vysokou nohou, dlhé vlasy, tetovanie na ruke, čierny overal a ortéza na kolene (len postava, bez vodopádu).
+- Vybraná socha má v malom paneli tlačidlo so šípkami „Prepnúť sochu“. Prepne medzi verziami zadarmo a na tom istom mieste, uloží sa. Druhá verzia nie je v ponuke Stavať, je len prepnutím (`alt` v `DECOR_GROUPS`, `hide: 1`).
+- Dekorácie môžu mať vlastnú šírku obrázka (`W`, predvolene 44 px); kop má 60 px, lebo noha a vlasy by sa nezmestili.
+- Nový kód: `swapDecor(i)` v scéne, tlačidlo `#cAlt`, ikona `ICON.swap`.
