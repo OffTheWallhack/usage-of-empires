@@ -1015,3 +1015,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Rovnaká poistka: skrýša, rozcestie a údolie.
 - Oprava: vstup bez údajov zopakoval údaje z minulého vstupu (po Krypte sa otvorila znova Krypta, po skratke zase hlboké poschodie).
 - Chyba sa zapíše do Nahlásiť chybu aj cez nanovo načítanie.
+
+## Krok 111 – Osady rastú rýchlo, socha Emy
+- Hlásenie z bety: nová osada píše, že osadníci postavia budovy, ale nič sa nedeje. Dôvod: rast bol jedna stavba za 10 hodín a nebolo ho vidieť.
+- Prvá chalupa (a sklad) stojí hneď po založení osady. Potom pribudne jedna stavba každých 25 minút (`TOWN_STEP_MS`), aj keď hráč nehrá (dobehne sa pri načítaní hry). Plán osady má 8 stavieb, pri 25 minútach je osada hotová za asi 3,5 hodiny.
+- Texty to hovoria jasne: správa po založení, karta osady s odpočtom „ďalšia stavba o X min", skaut aj depo.
+- Nová dekorácia Socha Emy Kozinovej (Pamätníky, 10 kameňa + 1 zlato): kamenná postava s kyticou a papierom, ladí k soche Filipa.
+- Anglické preklady nových textov doplnené.
