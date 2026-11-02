@@ -1028,3 +1028,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Vybraná socha má v malom paneli tlačidlo so šípkami „Prepnúť sochu“. Prepne medzi verziami zadarmo a na tom istom mieste, uloží sa. Druhá verzia nie je v ponuke Stavať, je len prepnutím (`alt` v `DECOR_GROUPS`, `hide: 1`).
 - Dekorácie môžu mať vlastnú šírku obrázka (`W`, predvolene 44 px); kop má 60 px, lebo noha a vlasy by sa nezmestili.
 - Nový kód: `swapDecor(i)` v scéne, tlačidlo `#cAlt`, ikona `ICON.swap`.
+
+## Krok 113 – Nové budovy osád (1. séria z Gemini)
+- Z prvého hárku od Gemini (10 budov) sú v hre vlastné sprity namiesto farebných kociek: skladisko osady, baníkova, kamenárska a zberačova chata, rybárska chata, pílnica, medzisklad, pekáreň, tkáčovňa, trhovisko.
+- Postup: hárok rozrezaný podľa mriežky 4×3, biele pozadie vyhodené aj z dier medzi stĺpmi a pod strechami, dym z pekárne zmazaný (hra si dym kreslí sama), zmenšené na 68–108 px šírky, spoločná paleta (56 farieb z nových aj starých spritov), 1 px obrys. Zdrojový hárok je len u autora, skripty nie sú súčasť hry.
+- Zakotvenie: stred pôdorysu = stred obrázka, predný roh pôdorysu = spodok obrázka (rovnako ako ostatné budovy). Rekvizity vpredu preto trošku presahujú pôdorys.
+- Pekáreň má žiaru z pece, okno a komín s dymom (`BLD_SPR.bakery`). Ostatné budovy zatiaľ bez svetiel.
+- Farebné kocky (`ph`) ostali v kóde ako záloha, keby sa sprite nenačítal. Ešte ich majú: kasárne, železná baňa, svätyňa, knižnica, observatórium, pivovar, banka (2. hárok).
