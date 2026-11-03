@@ -1047,3 +1047,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Dôležité: mení sa IBA voda → piesok. Piesočný okraj a les ostali pôvodné, takže sa nezmenili stromy ani rudy (náhodné čísla sa spotrebúvajú podľa typu políčka) a žiadna postavená budova ani uložená hra sa nerozbila. `waterB/waterD(..., raw)` dáva pôvodný tvar, hrebeň piesku sa počíta z neho.
 - Zámerne nerobené: predĺženie rieky s mostami alebo plytčina – obe by menili trávu na vodu, čo by mohlo zničiť dediny a stavby hráčov.
 - Na prameni ostal suchý piesočnatý breh (nechcené, ale bezpečné). Ak sa to nebude páčiť, dá sa raz upraviť pri generovaní nového sveta.
+
+## Krok 116 – Rieka z jazierka (oprava Kroku 115)
+- Robert: rieku v domovskej doline vrátiť presne ako bola (zúženie z Kroku 115 zrušené, domovská dolina je znova 1:1 pôvodná, vrátane stromov a rúd). Okolie sa má doriešiť tak, aby to bolo reálne.
+- Riešenie: rieka pokračuje na sever do regiónu Sever (`RIVER_N`, `carveRiverN` v `unlockRegion`) a tečie z jazierka, ktoré tam už bolo (stred ≈ 52, −21). Rieka sa vykopáva až po vygenerovaní regiónu, takže osada, kopce, ložiská a jazierko ostávajú na tých istých miestach. Mení sa len terén na ceste rieky (143 políčok, `RIVN`).
+- Zúženie na zadných koncoch prielivov (`sea2`, východ a juh) z Kroku 115 ostalo (voda → piesok, nič sa nepostavilo).
+- Migrácia (`fixRiverN`): ak hráč postavil v severnom regióne niečo do koryta novej rieky, stavba alebo dekorácia sa zbúra, vrátia sa všetky suroviny a ukáže sa ospravedlnenie ("Muselo sa to takto spraviť"). Testované: zbúrala sa budova aj socha, bez chýb.
+- Nájdená a opravená chyba v kreslení: v ďalších regiónoch (Sever, Východ, Juh) sa jazierka kreslili ako piesok, lebo plynulý breh `wetV` poznal len domovskú rieku. `wetV` teraz pozná aj jazierka (`pondV`) a rieku z jazierka a v ďalších regiónoch sa farba vody riadi typom políčka.
