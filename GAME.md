@@ -1066,3 +1066,14 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 118 – Svetlo v železnej bani
 - Kontrola v noci: žiara železnej bane bola na skalách vpravo dole (bod 82, 74 v sprite 108 × 91), dym stúpal zo skál, lebo baňa nemá komín.
 - Oprava: žiara je vo vchode (50, 60), dym zrušený. Pekáreň (pec, okno, komín) a pivovar (komín) sedia správne.
+
+## Krok 119 – Zima a adventný kalendár
+- **Kedy:** podľa skutočného dátumu v telefóne. Sneh 1. 12. – 28. 2. Stromček a darčeky 1. 12. – 6. 1. (Traja králi). Darček je na každý deň 1.–24. 12.; zmeškané dni počkajú do 6. 1.
+- **Náhľad pre testerov:** `?zima` (zima + 1. deň adventu), `?advent=N` (konkrétny deň), `?zima=0` (vypnúť). Pamätá sa v sessionStorage. Náhľad má vlastné darčeky (`WORLD.advP`), skutočné decembrové (`WORLD.adv2026`) nezoberie.
+- **Sneh na zemi** (`winterPix` na konci `makeGround`): tráva, les a piesok prekryté snehom, pôvodná textúra jemne presvitá, tmavé steblá ostanú. Pri brehu ľad (hĺbka 1, čiastočne 2). Svahy a útesy ostanú hnedé. Funguje aj v hladkom režime a v ďalších regiónoch.
+- **Sneh na veciach** (`winterTex` obalí `addCanvas` / `addImage`): stromy, skaly, ozdoby a budovy dostanú biely horný okraj (`snowCap`), budovy navyše zasnežené strechy (horných 36 % každého stĺpca, `ROOFY`). Mení sa priamo plátno textúry, pamäť sa nezvýši (všetky regióny: 94 MB ako v Kroku 117). V jaskyni a pivnici sa nič nezasnežuje.
+- **Sneženie:** CSS vrstva nad hrou (dve vrstvy vločiek, posun cez `transform`, skoro bez výkonu). Sneží asi 42 % dvojhodinových úsekov a vždy prvú hodinu zimy, v noci slabšie. V jaskyni skryté.
+- **Stromček** (`makeXmas`): pri ohni, na voľnom políčku 2–4,6 od ohňa, ktoré nič neblokuje. Svetielka a hviezda v noci svietia (svetlá + jadrá), pod ním 1–6 darčekov podľa neotvorených dní. Ťuk na stromček alebo darček otvorí **Adventný kalendár** (24 okienok, 24. je dvojité).
+- **Darčeky:** suroviny a zlato, 6. 12. Mikulášova čižma, 24. 12. Štedrý deň. Šesť zimných ozdôb zadarmo (skupina „Zima“ v Stavať, objaví sa až po odomknutí): snehuliak (3.), zimný lampáš so svetlom (8.), perníková chalúpka (12.), ozdobený stromček (16.), sane s darčekmi (20.), vianočná hviezda (24.). Ozdoby ostanú aj po zime.
+- Hra otvorená cez polnoc: nový darček sa objaví bez reštartu (kontrola každé 3 s).
+- Testy: dátumy (november, 1. 12., 24. 12., 31. 12., 6. 1., 7. 1., 28. 2., 1. 3. + náhľady), jaskyňa a krypta v zime, hladký režim, všetky regióny, otvorenie všetkých 24 darčekov, postavenie všetkých ozdôb, leto bez zmeny.
