@@ -1054,3 +1054,11 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Zúženie na zadných koncoch prielivov (`sea2`, východ a juh) z Kroku 115 ostalo (voda → piesok, nič sa nepostavilo).
 - Migrácia (`fixRiverN`): ak hráč postavil v severnom regióne niečo do koryta novej rieky, stavba alebo dekorácia sa zbúra, vrátia sa všetky suroviny a ukáže sa ospravedlnenie ("Muselo sa to takto spraviť"). Testované: zbúrala sa budova aj socha, bez chýb.
 - Nájdená a opravená chyba v kreslení: v ďalších regiónoch (Sever, Východ, Juh) sa jazierka kreslili ako piesok, lebo plynulý breh `wetV` poznal len domovskú rieku. `wetV` teraz pozná aj jazierka (`pondV`) a rieku z jazierka a v ďalších regiónoch sa farba vody riadi typom políčka.
+
+## Krok 117 – Menej pamäte na mobile
+- Meranie (všetky 4 regióny): textúry dediny 210 MB, JS halda 307 MB. Z toho 114 MB boli trblietky vody: 3 obrázky 2560 × 936 na každý región, pritom v nich bolo len pár tisíc bodiek.
+- Jaskyňa sama pamäť neuniká (po 4 vstupoch +1 MB), problém bola veľkosť dediny, ktorá v pamäti ostáva aj počas jaskyne.
+- Riešenie: trblietky sa kreslia cez Phaser Blitter (jedna malá textúra 8 × 2 px so štyrmi tvarmi bodiek, `shineDotsTex`; `makeShine` vracia zoznam bodiek). Tri snímky = tri blittery, prepína sa viditeľnosť.
+- Výsledok: textúry 210 → 94 MB, JS halda 307 → 190 MB. Obraz je rovnaký (porovnané pixel po pixeli, rozdiel len v pohybujúcich sa postavách).
+- Ďalšia veľká vec je zem regiónov (13 MB na región). Tá ostala, lebo jej znovu vytvorenie po návrate z jaskyne by trvalo niekoľko sekúnd.
+- Overené aj: osada v regióne Sever (Krok 116) – založenie, 8 stavieb, všetky na tráve, žiadna v koryte; cesta k jazierku aj na východnú stranu rieky existuje.
