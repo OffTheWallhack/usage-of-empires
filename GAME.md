@@ -1040,3 +1040,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Z druhého hárku (7 budov) sú v hre vlastné sprity: pivovar, kasárne, železná baňa, svätyňa, knižnica, observatórium, banka. Tým sú všetky budovy osád už nakreslené, farebné kocky (`ph`) ostali len ako záloha v kóde.
 - Rovnaký postup ako v Kroku 113 (rez hárku, biele pozadie preč, zmenšenie na 54–124 px šírky, spoločná paleta, 1 px obrys). Dym z pivovaru a z železnej bane z originálu zmazaný, hra si kreslí vlastný (`BLD_SPR.brewery.smoke`, `ironmine.fire/smoke`).
 - Žiara a dym pri železnej bani sú umiestnené odhadom z náhľadu, treba ich pozrieť v noci v hre.
+
+## Krok 115 – Rieka sa pekne končí
+- Problém (od Emy): rieka v domovskej dolinke začínala náhle na okraji mapy a prielivy medzi regiónmi bežali až do prázdna.
+- Riešenie: domovská rieka sa smerom k prameňu (sever, y 5–20) plynule zužuje na nulu (`riverWT`, `tpr`), prielivy medzi regiónmi (`sea2`) sa zužujú na zadných koncoch (severný koniec pri východe, západný koniec pri juhu).
+- Dôležité: mení sa IBA voda → piesok. Piesočný okraj a les ostali pôvodné, takže sa nezmenili stromy ani rudy (náhodné čísla sa spotrebúvajú podľa typu políčka) a žiadna postavená budova ani uložená hra sa nerozbila. `waterB/waterD(..., raw)` dáva pôvodný tvar, hrebeň piesku sa počíta z neho.
+- Zámerne nerobené: predĺženie rieky s mostami alebo plytčina – obe by menili trávu na vodu, čo by mohlo zničiť dediny a stavby hráčov.
+- Na prameni ostal suchý piesočnatý breh (nechcené, ale bezpečné). Ak sa to nebude páčiť, dá sa raz upraviť pri generovaní nového sveta.
