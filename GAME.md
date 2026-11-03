@@ -1062,3 +1062,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Výsledok: textúry 210 → 94 MB, JS halda 307 → 190 MB. Obraz je rovnaký (porovnané pixel po pixeli, rozdiel len v pohybujúcich sa postavách).
 - Ďalšia veľká vec je zem regiónov (13 MB na región). Tá ostala, lebo jej znovu vytvorenie po návrate z jaskyne by trvalo niekoľko sekúnd.
 - Overené aj: osada v regióne Sever (Krok 116) – založenie, 8 stavieb, všetky na tráve, žiadna v koryte; cesta k jazierku aj na východnú stranu rieky existuje.
+
+## Krok 118 – Svetlo v železnej bani
+- Kontrola v noci: žiara železnej bane bola na skalách vpravo dole (bod 82, 74 v sprite 108 × 91), dym stúpal zo skál, lebo baňa nemá komín.
+- Oprava: žiara je vo vchode (50, 60), dym zrušený. Pekáreň (pec, okno, komín) a pivovar (komín) sedia správne.
