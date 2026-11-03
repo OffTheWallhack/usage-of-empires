@@ -1035,3 +1035,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Zakotvenie: stred pôdorysu = stred obrázka, predný roh pôdorysu = spodok obrázka (rovnako ako ostatné budovy). Rekvizity vpredu preto trošku presahujú pôdorys.
 - Pekáreň má žiaru z pece, okno a komín s dymom (`BLD_SPR.bakery`). Ostatné budovy zatiaľ bez svetiel.
 - Farebné kocky (`ph`) ostali v kóde ako záloha, keby sa sprite nenačítal. Ešte ich majú: kasárne, železná baňa, svätyňa, knižnica, observatórium, pivovar, banka (2. hárok).
+
+## Krok 114 – Nové budovy osád (2. séria z Gemini)
+- Z druhého hárku (7 budov) sú v hre vlastné sprity: pivovar, kasárne, železná baňa, svätyňa, knižnica, observatórium, banka. Tým sú všetky budovy osád už nakreslené, farebné kocky (`ph`) ostali len ako záloha v kóde.
+- Rovnaký postup ako v Kroku 113 (rez hárku, biele pozadie preč, zmenšenie na 54–124 px šírky, spoločná paleta, 1 px obrys). Dym z pivovaru a z železnej bane z originálu zmazaný, hra si kreslí vlastný (`BLD_SPR.brewery.smoke`, `ironmine.fire/smoke`).
+- Žiara a dym pri železnej bani sú umiestnené odhadom z náhľadu, treba ich pozrieť v noci v hre.
