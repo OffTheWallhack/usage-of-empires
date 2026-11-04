@@ -1077,3 +1077,20 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Darčeky:** suroviny a zlato, 6. 12. Mikulášova čižma, 24. 12. Štedrý deň. Šesť zimných ozdôb zadarmo (skupina „Zima“ v Stavať, objaví sa až po odomknutí): snehuliak (3.), zimný lampáš so svetlom (8.), perníková chalúpka (12.), ozdobený stromček (16.), sane s darčekmi (20.), vianočná hviezda (24.). Ozdoby ostanú aj po zime.
 - Hra otvorená cez polnoc: nový darček sa objaví bez reštartu (kontrola každé 3 s).
 - Testy: dátumy (november, 1. 12., 24. 12., 31. 12., 6. 1., 7. 1., 28. 2., 1. 3. + náhľady), jaskyňa a krypta v zime, hladký režim, všetky regióny, otvorenie všetkých 24 darčekov, postavenie všetkých ozdôb, leto bez zmeny.
+
+## Krok 120 – Kronika dediny
+- **Čo to je:** dedina si sama zapisuje svoj príbeh. Menu → **Kronika**. Hore čísla (dni, obyvatelia, budovy, odrazené nájazdy, objednávky, vystavené veci), pod nimi zápisy od najnovšieho: „Deň 12 – Prístav je hotový…“.
+- **Čo sa zapisuje** (`CHRON_AT`, `CHRON_T`): chata drevorubača, most, prístav, výprava do údolia, nové osady, kapitoly Hlavnej cesty, odrazené nájazdy (1, 5, 10, 25, 50, 100), bossovia, objednávky, Plameň predkov, krypta, golem, nová doba, počet obyvateľov (8, 10, 12, 15, 20…), nový región, prvá obchodná loď, Duch dediny, prvý sneh, posledný adventný darček, zlatý úspech, Zlatý jeleň.
+- **Ako:** všetko ide cez `gotAdd` (počítadlá `GOT` prekročia hranicu → zápis `chronGot`), ostatné majú vlastný háčik (`chron('age', …)`, `chron('region', …)` atď.). Zápis je `[deň, kľúč, číslo]` v `WORLD.chron` (najviac 160, vypadávajú najstaršie bežné, začiatky ostanú). Text sa skladá až pri zobrazení, preto sa prekladá do angličtiny.
+- **Staré svety:** pri prvom načítaní (`chronBackfill`) sa dopíše všetko, čo už platí, bez dňa → v zozname „Skôr“.
+- **Karta na zdieľanie** (1080 × 1350): skutočný záber dediny (`renderer.snapshot`), názov, deň a doba, šesť čísel, posledné tri zápisy. Kreslí sa do canvasu, nič sa nenahráva. Tlačidlá „Uložiť obrázok“ a (na telefóne) „Zdieľať“.
+- Testy: nový aj starý svet, dopĺňanie, karta v slovenčine aj v angličtine, jaskyňa/krypta bez zmeny.
+
+## Krok 121 – Zlatý jeleň
+- **Čo to je:** vzácny hosť lesa. Občas sa pri východe (5:30–8:30) alebo západe slnka (17:00–20:00) zjaví na lúke pri okraji lesa v dohľade dediny, žiari a trblieta sa, ide po lúke, občas sa pasie. Žije asi 110 sekúnd a potom zmizne v zlatom svetle.
+- **Pravidlá zjavenia** (`deerTick`): najskôr 3. deň; v každom okne sa hodí kockou; prvýkrát 50 %, potom 9 % + 3 % za každé okno bez jeleňa (najviac 40 %); medzi dvoma jeleňmi aspoň 8 minút. Priemer vychádza asi na jedno zjavenie za pol hodiny hrania.
+- **Nájdenie:** po zjavení svieti tlačidlo „✦ Zlatý jeleň“ dole, ktoré posunie kameru k nemu. Treba naňho ťuknúť (väčšia plocha ako obrázok).
+- **Odmena:** 1. stretnutie 25 zlata, potom 15, 18, 20, 25 a ďalej 25. Prvýkrát aj **Socha Zlatého jeleňa** (Stavať → Ozdoby → Vzácne, zadarmo, neobmedzene veľa). Úspech „Priateľ lesa“ (1, 5, 15), skrytý, kým hráč jeleňa nestretne. Zápis do Kroniky.
+- **Test pre testerov:** `?jelen` (jeleň sa zjaví o 5 sekúnd, bez odmeny).
+- Jeleň nemá vlastné veľké textúry (4 snímky 32 × 40 + žiara 96 × 96), pamäť sa nemení.
+- Teaser v „Čo je nové“ je zámerne nejasný („V lese sa občas mihne niečo zlaté“).
