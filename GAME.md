@@ -1102,3 +1102,12 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Bez bonusu:** okno je len prehľad, žiadna extra odmena (ekonomika sa nemení).
 - **Test pre testerov:** `?vitaj` (po 2,5 s ukáže ukážkové okno, nič nepridá).
 - Funkcie: `backShow`, `fmtAway`; HTML `#backScr`.
+
+## Krok 123 – Tajomný pútnik
+- **Čo to je:** cez deň (8:00–17:00) k dedine občas zavíta zahalený pútnik s batohom a lampášom. Príde po ceste od okraja dediny k ohňu (spawn 11–17 políčok od ohňa, cesta cez `findPath`, 4–40 krokov), postojí ~5 minút a odíde späť. Dole svieti tlačidlo „Pútnik v dedine“ (posunie kameru k nemu); keď čaká pri ohni, ťuknutím naňho (alebo cez tlačidlo) sa otvorí okno s ponukami.
+- **Pravidlá zjavenia** (`pilgTick`): najskôr 4. deň; raz za herný deň cez deň sa hodí kockou; prvýkrát 60 %, potom 20 % + 6 % za každý deň bez návštevy (najviac 50 %); medzi návštevami aspoň 10 minút reálneho času. Nezjaví sa v jaskyni, počas nájazdu/filmu/ducha ani keď je pri dedine jeleň. Nezjaví sa, ak hráč nemá na žiadnu ponuku (`pilgOffers`).
+- **Ponuky** (`PILG_POOL`, 13 výmen, napr. 40 dreva → 8 dosiek, 30 kameňa → 5 železa, 60 jedla → 8 zlata, 12 zlata → 5 látky, 8 zlata → 3 náradia, kryštálové výmeny len ak hráč kryštály už má): vždy dve rôzne, aspoň jedna dostupná; nič, čo by sa nezmestilo do skladu. Jedna výmena na návštevu; po nej pútnik do 25 s odíde. Výmena nepočíta do `GOT` surovín (nemení úlohy typu „nazbieraj“), počíta sa len `GOT.pilg`.
+- **Úspech** „Dobrý obchod“ (skrytý, 1/5/15 výmen), zápisy v Kronike pri 1., 5., 10. a 25. obchode (`CHRON_AT.pilg`).
+- **Test pre testerov:** `?putnik` (pútnik príde za 5 sekúnd, výmena sa len naoko, nič sa nezmení).
+- Pútnik má 4 snímky 32 × 40 (`pilgPix`), lampáš svieti cez `deerGlow` s teplým tónom, pamäť sa nemení.
+- Teaser v „Čo je nové“ je zámerne nejasný („Hosť pri ohni“).
