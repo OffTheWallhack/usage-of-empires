@@ -1129,3 +1129,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Nové veci:** ťuknutie na „NOVÉ“ vec ju vystaví (`showItem`) a otvorí; tlačidlo „Vystaviť nové veci“ vystaví všetky naraz. Odmena za plnú policu a ostatná logika (`FOUND`, `COLL_SETS`, `showItem`) sa nezmenila, uložené hry fungujú ďalej.
 - **Zamknutá vec:** ťuknutie ukáže nápovedu, kde ju nájsť (`COL_HINT`).
 - Vstupy do Skrýše (`enterCellar`) ostali rovnaké: ťuknutie na halu, menu haly, „Zísť do skrýše“. Zmizli scéna `Cellar`, okno `#stash`, `uiStash` a staré CSS; pamäť klesne o scénu, nové textúry nepribudli.
+
+### Dodatok ku Kroku 119
+- Zimný teaser v „Čo je nové“ a v zozname verzií sa skrýva mimo zimy (mesiace 12, 1, 2). Ukáže sa sám od 1. 12.; `?zima` ho ukáže na skúšku.
