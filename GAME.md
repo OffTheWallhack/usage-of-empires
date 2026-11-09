@@ -1111,3 +1111,13 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Test pre testerov:** `?putnik` (pútnik príde za 5 sekúnd, výmena sa len naoko, nič sa nezmení).
 - Pútnik má 4 snímky 32 × 40 (`pilgPix`), lampáš svieti cez `deerGlow` s teplým tónom, pamäť sa nemení.
 - Teaser v „Čo je nové“ je zámerne nejasný („Hosť pri ohni“).
+
+## Krok 124 – Biela líška a Nočná sova
+- **Čo to je:** dve nové vzácne zvieratá, všetky tri (aj Zlatý jeleň) sa striedajú tak, že naraz je pri dedine najviac jedno. Dole svieti tlačidlo s menom zvieraťa (`#rarePing`), ktoré posunie kameru k nemu; treba naňho ťuknúť. Jeden spoločný kód: `rareTick/rareSpawn/rareUpdate/rareMeet/rareLeave/rareGone/rareShow`, údaje v tabuľke `RARE`.
+- **Biela líška:** len v zime (`SEASON.winter`, 1. 12. – 28. 2.), cez deň 7:00–18:00, najskôr 3. deň. Kľuše po lúke pri okraji lesa, o 55 s uteká preč; po ťuknutí dá látku (4, potom 3) a rýchlo uteká preč. Prvýkrát aj **Socha bielej líšky**. Šanca: prvýkrát 55 %, potom 12 % + 5 % za každý deň bez nej (najviac 40 %).
+- **Nočná sova:** len v noci (21:00 – 4:00), najskôr 4. deň. Sedí na pníku na voľnej lúke (pred ňou nesmie stáť strom), žmurká, svieti mesačným svetlom, ostane 90 s; po ťuknutí dá kryštály (2, potom 1, 1, 2, 1) a odletí. Prvýkrát aj **Socha nočnej sovy**. Šanca: 50 %, potom 10 % + 4 % za deň (najviac 35 %).
+- **Spoločné pravidlá:** medzi dvoma návštevami zvierat aspoň 8 minút (`WORLD.rareLast`); nič sa nezjaví v jaskyni, počas nájazdu, filmu, ducha ani keď je pri dedine jeleň alebo pútnik.
+- **Úspechy** (skryté, v skupine Divočina): „Biela stopa“ (líška 1/3/8), „Múdre oko“ (sova 1/3/8), „Strážca divočiny“ (spolu všetky tri zvieratá 3/10/25, `GOT.rare`). Kronika zapíše 1. a 5. stretnutie s líškou a so sovou.
+- **Test pre testerov:** `?liska` a `?sova` (zviera sa zjaví za 5 sekúnd, bez odmeny; líška aj mimo zimy).
+- Nové textúry: líška 4 snímky 32 × 40, sova 4 snímky 32 × 40 (spolu s pníkom), žiara sa používa existujúca `deerGlow` v inej farbe. Sochy kreslia tie isté funkcie (`foxPix`, `owlPix`).
+- Teaser v „Čo je nové“ je zámerne nejasný („Ďalší vzácni hostia“).
