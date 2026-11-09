@@ -1121,3 +1121,11 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Test pre testerov:** `?liska` a `?sova` (zviera sa zjaví za 5 sekúnd, bez odmeny; líška aj mimo zimy).
 - Nové textúry: líška 4 snímky 32 × 40, sova 4 snímky 32 × 40 (spolu s pníkom), žiara sa používa existujúca `deerGlow` v inej farbe. Sochy kreslia tie isté funkcie (`foxPix`, `owlPix`).
 - Teaser v „Čo je nové“ je zámerne nejasný („Ďalší vzácni hostia“).
+
+## Krok 125 – Skrýša ako vitrína
+- **Čo sa zmenilo:** izometrická scéna Skrýše (Phaser `Cellar`, na mobile veľmi oddialená) je preč. Skrýša je celoobrazovkový HTML panel `#colP` s drevenými policami (4 police po 4 veci), funguje rovnako na mobile aj desktope. Telefón: 2 stĺpce vecí, desktop: 4. Hore „← Späť do dediny“, počet vystavených vecí a riadok Strážcu (texty ostali).
+- **Veci sú 3D:** každá z 16 vecí je voxelový model (`voxGen` → `voxPrep` → `voxDraw`, vlastný malý renderer na 2D canvase, bez WebGL). Nájdené veci stoja na polici, nenájdené sú tmavá silueta s „?“, nové (v batohu) žiaria a majú štítok NOVÉ.
+- **Prezeranie:** ťuknutie na vec otvorí okienko s veľkým modelom. Ťahaním prstom/myšou sa otáča (zotrvačnosť, po chvíli sa sám točí), koliesko alebo dva prsty približujú, dvojklik vráti pohľad. Šípky ‹ › listujú nájdenými vecami (aj ← → na klávesnici), Esc zatvára. Slučka kreslenia beží len keď je okienko otvorené, náhľady na policiach sa kreslia raz.
+- **Nové veci:** ťuknutie na „NOVÉ“ vec ju vystaví (`showItem`) a otvorí; tlačidlo „Vystaviť nové veci“ vystaví všetky naraz. Odmena za plnú policu a ostatná logika (`FOUND`, `COLL_SETS`, `showItem`) sa nezmenila, uložené hry fungujú ďalej.
+- **Zamknutá vec:** ťuknutie ukáže nápovedu, kde ju nájsť (`COL_HINT`).
+- Vstupy do Skrýše (`enterCellar`) ostali rovnaké: ťuknutie na halu, menu haly, „Zísť do skrýše“. Zmizli scéna `Cellar`, okno `#stash`, `uiStash` a staré CSS; pamäť klesne o scénu, nové textúry nepribudli.
