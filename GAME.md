@@ -1094,3 +1094,11 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - **Test pre testerov:** `?jelen` (jeleň sa zjaví o 5 sekúnd, bez odmeny).
 - Jeleň nemá vlastné veľké textúry (4 snímky 32 × 40 + žiara 96 × 96), pamäť sa nemení.
 - Teaser v „Čo je nové“ je zámerne nejasný („V lese sa občas mihne niečo zlaté“).
+
+## Krok 122 – Vitaj späť
+- **Čo to je:** keď sa vrátiš po dlhšej dobe (od 30 minút, `BACK_MIN`), ukáže sa okno „Vitaj späť!“: ako dlho si bol preč, čo dedina medzitým vyrobila (suroviny s ikonami), upozornenie, ak je sklad plný (a viac už nepribudne), upozornenie, že dedina pracuje najviac 8 hodín, a ak čakajú adventné darčeky, tlačidlo „Otvoriť adventný kalendár“.
+- **Ako:** výrobu počíta ako doteraz `World.catchUp()` (strop 8 h, `BLD_T0` = čas posledného uloženia stavieb). Nové: ukáže sa len to, čo sa naozaj zmestilo do skladu (rozdiel `STOCK` pred a po `addStock`). Pri 20 s – 30 min preč zostáva malý oznam (toast) ako predtým.
+- **Kedy sa spustí:** pri novom načítaní hry aj pri návrate do karty/appky (`gameBack` → `gameResume` → `catchUp`). Pri návrate po 30 min a viac sa preskočí medzikrok „Hra je pozastavená“, okno Vitaj späť je rovno ono.
+- **Bez bonusu:** okno je len prehľad, žiadna extra odmena (ekonomika sa nemení).
+- **Test pre testerov:** `?vitaj` (po 2,5 s ukáže ukážkové okno, nič nepridá).
+- Funkcie: `backShow`, `fmtAway`; HTML `#backScr`.
