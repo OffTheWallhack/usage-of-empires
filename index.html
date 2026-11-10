@@ -6593,8 +6593,8 @@ class World extends Phaser.Scene {
       hideHint();
       if (this.joy && p.id !== this.joy.id) { this.joy = null; joyHide(); }   // druhý prst = zoom, nie chôdza
       if (['pplPanel', 'qPanel', 'sPanel', 'agePanel', 'cfgPanel'].some(id => !$(id).hidden)) { closeSheets(); this.down = null; this.sheetTap = true; return; }
-      { const dc = over && over.find(o => o.objKey && String(o.objKey).startsWith('decor:')); this.dragDc = dc && (!this.ctrlNpc() || isCity()) && this.unl === dc.objKey ? +dc.objKey.slice(6) : -1; this.dragD = -1; }
-      { const tr = over && over.find(o => o.objKey && String(o.objKey).startsWith('torch:')); this.dragCand = tr && (!this.ctrlNpc() || isCity()) && this.unl === tr.objKey ? +tr.objKey.slice(6) : -1; this.dragT = -1; }
+      { const dc = over && over.find(o => o.objKey && String(o.objKey).startsWith('decor:')); if (!(this.dragD >= 0)) { this.dragD = -1; } if (this.dragD < 0) this.dragDc = dc && (!this.ctrlNpc() || isCity()) && this.unl === dc.objKey ? +dc.objKey.slice(6) : -1; }
+      { const tr = over && over.find(o => o.objKey && String(o.objKey).startsWith('torch:')); if (!(this.dragT >= 0)) { this.dragT = -1; } if (this.dragT < 0) this.dragCand = tr && (!this.ctrlNpc() || isCity()) && this.unl === tr.objKey ? +tr.objKey.slice(6) : -1; }
       if (this.cine) { this.setCine(false); this.down = null; this.cineExit = true; return; }
       if (!p.wasTouch) ctxHide();
       if (p.rightButtonDown()) { if (this.decorPick) this.decorCancel(); else if (this.buildTool) this.setTool(null); else if (DESK && !p.wasTouch) this.rtsRight(p, over); else this.moveTo(p.x, p.y); this.down = null; return; }
@@ -6998,6 +6998,7 @@ class World extends Phaser.Scene {
     const T = TRADES.find(t => t.id === id); if (!T || !this.shipHere()) return; WORLD.tradeN = WORLD.tradeN || {};
     if ((WORLD.tradeN[id] || 0) >= 3) { toast('Tento obchod už loď dnes neurobí'); return; }
     if (!canPay(T.give)) { toast(missText(T.give)); return; }
+    if (Object.keys(T.get).some(k => capOf(k) - STOCK[k] < T.get[k])) { toast('Sklad je plný, obchod by prepadol'); return; }
     Object.keys(T.give).forEach(k => STOCK[k] -= T.give[k]); Object.keys(T.get).forEach(k => addStock(k, T.get[k]));
     WORLD.tradeN[id] = (WORLD.tradeN[id] || 0) + 1; gotAdd('trades', 1); uiRes(); saveGame(); SFX('pick'); play('clink', .8); refreshActions();
   }
@@ -7056,7 +7057,8 @@ class World extends Phaser.Scene {
     b.img.setInteractive({ pixelPerfect: true }); b.img.objKey = 'build:' + this.builds.length;
     this.builds.push(b);
     this.styleBuild(b);
-    if (b.state === 'ready') b.state = 'plan', this.checkSite(b);
+    if (b.state === 'ready') b.state = 'plan';
+    if (b.state === 'plan') this.checkSite(b);   /* načítané plány s dosť dreva sa dokončia znova */
     if (b.state === 'done') this.spawnCutter(b);
     return b;
   }
@@ -7316,6 +7318,7 @@ class World extends Phaser.Scene {
     const g = this.ghostAt, k = this.bldKind; if (!g || !k) return;
     if (k === 'wonder' && !wonderOk()) { toast('Plameň predkov sa odomkne po porážke Strážcu hlbín na 10. poschodí.'); return; }
     const D = BLD_DEF[k];
+    g.ok = this.bldOk(k, g.x0, g.y0);
     if (!g.ok) { toast('Tu sa stavať nedá: treba rovnú voľnú trávu ' + D.w + ' × ' + D.d + ' a voľné miesto pri vchode'); return; }
     if (!canPay(D.cost)) { toast(missText(D.cost)); return; }
     Object.keys(D.cost).forEach(q => { STOCK[q] -= D.cost[q]; uiRes(q); });
@@ -7413,7 +7416,7 @@ class World extends Phaser.Scene {
     if (r.k === 'wonder' && !WORLD.won) { WORLD.won = this.clock.day; gotAdd('wonder', 1); saveGame(); toast('Plameň predkov horí nad dedinou. Tvoja osada sa zapísala do legiend – a pod plameňom sa otvorili schody. Ťukni na Div sveta.'); SFX('age'); }
   }
   removeBld(bi) {
-    const D = bi.def, r = bi.r; if (!r) return;
+    const D = bi.def, r = bi.r; if (!r || this.bl.indexOf(bi) < 0) return;
     if (bi.job) { this.dropJob(bi.job); bi.job.node.job = null; bi.job = null; }
     const back = []; Object.keys(D.cost).forEach(q => { STOCK[q] += D.cost[q]; uiRes(q); back.push(D.cost[q] + ' ' + RESDEF[q][1]); });
     if (r.buf && D.prod) { STOCK[D.prod.res] += r.buf; uiRes(D.prod.res); }
@@ -7508,6 +7511,7 @@ class World extends Phaser.Scene {
   placeHut() {
     if (this.buildTool === 'bld') { this.placeBld(); return; }
     const g = this.ghostAt; if (!g) return;
+    g.ok = this.hutOk(g.x0, g.y0);
     if (!g.ok) { toast('Tu sa stavať nedá: treba rovnú trávu 2 × 2 a voľné miesto pred dverami'); return; }
     const b = this.addBuild(g.x0, g.y0); this.saveWorld(); this.setTool(null); buzz(25);
     toast(STOCK.wood >= WCH_NEED ? 'Plán položený. Nosič prinesie drevo a osadník ho postaví.' : 'Plán položený. Na stavbu treba ' + WCH_NEED + ' dreva v sklade.');
