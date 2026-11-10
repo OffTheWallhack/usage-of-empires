@@ -1143,3 +1143,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Opravy z kontroly: záloha sa nenahrádza starými budovami (`NOSAVE` aj v `saveBld`, `saveDecor`, fakle), validácia a vrátenie zálohy, dve okná sa neprepisujú (`storage` + skrytá karta), časy z budúcnosti sa orezávajú, plán stavby sa po načítaní dokončí, obchod a objednávky nebrať pri plnom sklade, jednorazové odmeny (`addStock(..., force)`) sa nestratia, dedina pod Skrýšou naozaj stojí (`update` skončí pri `incol`), `harvestNode` nezbiera dvakrát, znovu postavená budova preberie pôvodného osadníka (nie ďalší zadarmo), nájazdy najviac raz za 8 minút reálneho času a HP s limitom.
 - Jaskyňa: schody sa zapnú, až keď hráč od nich odíde; prepínanie brnenia už nelieči; resize listener v Cross/Valley sa pridáva raz; zvuk jaskyne v `try`.
 - Rozhranie: hlavička Skrýše sa zmestí na 360 px, hlášky nad panelmi, Esc zatvára panely, preklad `N z M` → `N of M` pre všetky texty, obrázok Kroniky bez PNG okľuky.
+
+## Krok 128 – Drobné opravy pre malé telefóny
+- Z testu „nový hráč na telefóne“ (360 × 640): tlačidlo Stavať v detaile budovy ostávalo pod okrajom okna (sticky tu nefunguje so zoomom), teraz sa po otvorení detailu posunie do dohľadu (`scrollIntoView`).
+- Návod 5 a lišta nástroja hovoria, že na telefóne treba stavbu potvrdiť tlačidlom Postaviť. „Nahlásiť chybu“ má vlastný nadpis. Karta vzácneho nálezu sa skryje, keď je otvorený celoobrazovkový panel.
