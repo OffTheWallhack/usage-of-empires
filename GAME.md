@@ -1132,3 +1132,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ### Dodatok ku Kroku 119
 - Zimný teaser v „Čo je nové“ a v zozname verzií sa skrýva mimo zimy (mesiace 12, 1, 2). Ukáže sa sám od 1. 12.; `?zima` ho ukáže na skúšku.
+
+## Krok 126 – Vzácny nález
+- Keď hráč nájde vzácnu vec (zber surovín cez `rollFind`, truhla v jaskyni cez `openChest`), hore sa ukáže karta `#findC` s točiacim sa 3D modelom (`findCard(id)`, fronta `FINDQ`, po ~6,5 s zmizne sama).
+- Ťuknutie na kartu otvorí vec priamo v Skrýši (`openCol` → `showItem` → `openItem`). V jaskyni/pivnici len informuje („Vystav ho v skrýši pod halou“).
+- Kým je Skrýša otvorená (`body.incol`), svet v pozadí sa nekreslí (`COL_HID`) a nespawnujú sa vzácni hostia (jeleň, líška/sova, pútnik).
