@@ -1132,3 +1132,14 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ### Dodatok ku Kroku 119
 - Zimný teaser v „Čo je nové“ a v zozname verzií sa skrýva mimo zimy (mesiace 12, 1, 2). Ukáže sa sám od 1. 12.; `?zima` ho ukáže na skúšku.
+
+## Krok 126 – Vzácny nález
+- Keď hráč nájde vzácnu vec (zber surovín cez `rollFind`, truhla v jaskyni cez `openChest`), hore sa ukáže karta `#findC` s točiacim sa 3D modelom (`findCard(id)`, fronta `FINDQ`, po ~6,5 s zmizne sama).
+- Ťuknutie na kartu otvorí vec priamo v Skrýši (`openCol` → `showItem` → `openItem`). V jaskyni/pivnici len informuje („Vystav ho v skrýši pod halou“).
+- Kým je Skrýša otvorená (`body.incol`), svet v pozadí sa nekreslí (`COL_HID`) a nespawnujú sa vzácni hostia (jeleň, líška/sova, pútnik).
+
+## Krok 127 – Dve nové police v Skrýši + opravy
+- Nové police: **Polica hlbín** (zub príšery, banícky lampáš, modrý kryštál, starý kľúč; odmena 10 železa; padajú z truhlíc v jaskyni, `openChest` dáva najprv veci z tejto police) a **Polica vody** (mušľa s perlou, zlatá rybka, fľaša s odkazom, kotva; odmena 20 jedla; občas ich vytiahne rybárska chata, `waterFind` v `produceTick`). Spolu 24 vecí, 6 políc; úspechy `Skrýša` [1, 8, 24], `Plné police` [1, 3, 6].
+- Opravy z kontroly: záloha sa nenahrádza starými budovami (`NOSAVE` aj v `saveBld`, `saveDecor`, fakle), validácia a vrátenie zálohy, dve okná sa neprepisujú (`storage` + skrytá karta), časy z budúcnosti sa orezávajú, plán stavby sa po načítaní dokončí, obchod a objednávky nebrať pri plnom sklade, jednorazové odmeny (`addStock(..., force)`) sa nestratia, dedina pod Skrýšou naozaj stojí (`update` skončí pri `incol`), `harvestNode` nezbiera dvakrát, znovu postavená budova preberie pôvodného osadníka (nie ďalší zadarmo), nájazdy najviac raz za 8 minút reálneho času a HP s limitom.
+- Jaskyňa: schody sa zapnú, až keď hráč od nich odíde; prepínanie brnenia už nelieči; resize listener v Cross/Valley sa pridáva raz; zvuk jaskyne v `try`.
+- Rozhranie: hlavička Skrýše sa zmestí na 360 px, hlášky nad panelmi, Esc zatvára panely, preklad `N z M` → `N of M` pre všetky texty, obrázok Kroniky bez PNG okľuky.
