@@ -1154,3 +1154,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Klávesy: 0 základný zoom, H kamera späť na postavu, M minimapa. Minimapa (len počítač, vpravo dole) sa prekresľuje pri odomknutí regiónu; klik/ťahanie presunie kameru.
 - Spodný panel v štýle AoE2 (len počítač, `html.desk`): vľavo hlavné tlačidlá, vpravo zoom/mriežka/menovky a minimapa. Stred panela je zatiaľ prázdny (nápad: tam dať kartu vybranej veci).
 - Predvolená mierka UI na počítači: 100 % (od 1800 px šírky 120 %, od 2400 px 150 %); uložené nastavenie hráča ostáva.
+
+## Krok 130 – Hero tlačidlá do spodného panela (počítač)
+- Hero tlačidlá (Úhyb, Oheň, Akcia, Úder) už neplávajú nad mapou, sú v strede spodného panela. V režime mesta je tam krátky tip na ovládanie.
+- Panel je nižší (108 px): hlavné tlačidlá v jednom rade, minimapa menšia. V okne užšom ako 1300 px sa vráti dvojradový panel (128 px). Rozloženie riadia premenné `--barh`, `--zl`, `--zr`, `--cols` v `html.desk`.
+
