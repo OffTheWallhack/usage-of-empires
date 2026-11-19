@@ -1147,3 +1147,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 128 – Drobné opravy pre malé telefóny
 - Z testu „nový hráč na telefóne“ (360 × 640): tlačidlo Stavať v detaile budovy ostávalo pod okrajom okna (sticky tu nefunguje so zoomom), teraz sa po otvorení detailu posunie do dohľadu (`scrollIntoView`).
 - Návod 5 a lišta nástroja hovoria, že na telefóne treba stavbu potvrdiť tlačidlom Postaviť. „Nahlásiť chybu“ má vlastný nadpis. Karta vzácneho nálezu sa skryje, keď je otvorený celoobrazovkový panel.
+
+## Krok 129 – Ovládanie na MacBooku a spodný panel
+- Príčina problému: každá udalosť `wheel` (aj dvojprstový posun na touchpade) bola jeden krok zoomu. Teraz: dva prsty = posun mapy, štipnutie (Ctrl+koliesko v Chrome/Firefoxe, `gesture*` v Safari) = plynulý zoom, ktorý po 140 ms dosadne na celý krok; ⌘/Ctrl + koliesko tiež zoomuje; koliesko myši = jeden krok (rozpoznáva sa podľa deltaMode / násobkov 100–120).
+- Vedľajšie scény (rázcestie, dedina) majú len obmedzený krok zoomu, aby nešaleli.
+- Klávesy: 0 základný zoom, H kamera späť na postavu, M minimapa. Minimapa (len počítač, vpravo dole) sa prekresľuje pri odomknutí regiónu; klik/ťahanie presunie kameru.
+- Spodný panel v štýle AoE2 (len počítač, `html.desk`): vľavo hlavné tlačidlá, vpravo zoom/mriežka/menovky a minimapa. Stred panela je zatiaľ prázdny (nápad: tam dať kartu vybranej veci).
+- Predvolená mierka UI na počítači: 100 % (od 1800 px šírky 120 %, od 2400 px 150 %); uložené nastavenie hráča ostáva.
