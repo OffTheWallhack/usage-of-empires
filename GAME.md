@@ -1159,3 +1159,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Hero tlačidlá (Úhyb, Oheň, Akcia, Úder) už neplávajú nad mapou, sú v strede spodného panela. V režime mesta je tam krátky tip na ovládanie.
 - Panel je nižší (108 px): hlavné tlačidlá v jednom rade, minimapa menšia. V okne užšom ako 1300 px sa vráti dvojradový panel (128 px). Rozloženie riadia premenné `--barh`, `--zl`, `--zr`, `--cols` v `html.desk`.
 
+
+## Krok 131 – Jeden režim: Keeper stavia
+- Prepínač Hrdina/Mesto je zrušený (`MODE` je vždy `hero`, tlačidlo skryté). Keeper stále behá a stavať sa dá cez Stavať aj za pochodu, aj na telefóne na výšku.
+- Nové: Keeper vie stavať. Pri vchode do staveniska (do 3 políčok) sa tlačidlo Akcia zmení na Stavať; trvá ~75 % času osadníka a stavbu dokončí (osadník, čo na nej pracoval, sa uvoľní). Funguje pre všetky stavby aj most (`scanTarget`, `selfDone`).
+- Ďalšie kroky (dohodnuté poradie): rozkazy osadníkom z pohľadu Keepera, rast hrdinu (XP), prepojenie dungeonu s dedinou.
