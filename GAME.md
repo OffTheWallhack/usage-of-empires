@@ -1227,3 +1227,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 144 – Nové úvodné menu
 - Pozadie `#tBg` = zmenšený záber dediny (webp v CSS). Jeden stĺpec: logo, Nová hra/Pokračovať (pod ním „Deň N“), Dev World, riadok Nastavenia / Pomoc / Novinky. Jazyk `#tLang` vpravo hore. Staré rámy, sviečky, karta a podnadpisy skryté.
+
+## Krok 145 – Domov 2× väčší, hudba len v menu
+- Domov = regióny home + e + s + nový `se` (1,1), odomknuté hneď pri štarte (`BIGH`). Okraje medzi nimi otvorené (`REG_EDGES`), bez brodov (`regSeam` vracia {}). More len na prednej strane, les vzadu.
+- `RIVER_PTS` predĺžené do juhu, `carveRiverS` vyreže rieku v regióne s. V domovských regiónoch menej lesa (prah .68).
+- Obchod s mapou ponúka už len Sever; `regsOwned` nepočíta domovské kúsky.
+- Hudba: všetky mp3 zmazané, `music/menu.mp3` hrá v hlavnom menu v slučke (po prvom ťuknutí). `MUS_SET` prázdny → v hre ticho, kým nepríde nová hudba.
