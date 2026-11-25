@@ -1194,3 +1194,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Pri novej hĺbke príde hláška o odomknutých plánoch.
 - Hotové budovy dávajú bonus v jaskyni (`VILLAGE_BUFF`): kováčňa a kasárne +1 škoda, krčma a svätyňa +2 život, knižnica −15 % cooldown kúziel. Bonusy sa sčítajú podľa počtu typov budov a vidno ich v popise budovy.
 - Ďalej: nájazdy podľa hĺbky, kúzla z lootu bossov, ďalšie 💡 nápady.
+
+## Krok 137 – Mini udalosti a krčma
+- Mini udalosti (`MEV`): každé 4–7 minút karta s voľbou (obchodník, pocestný, truhlica, vlky, oslava). Karta zmizne po 60 s. Odmeny: zlato, drevo, náradie, kryštál, XP.
+- Vrany: keď je drevo/kameň/jedlo 60 s plné, prídu (raz za 5 minút), vezmú 20 % a nechajú zlato alebo kryštál. Zatiaľ len hláška, bez animácie vrán.
+- Krčma (hotová): pri nej tlačidlo **Hrať**. Kocky (stávka 1/2/5 zlata, dvojica 2×), Hrnčeky (uhádni guľku), Páčenie rúk (ťukaj 8 s, XP raz za herný deň, ťažšie s levelom).
+- Ďalej: animácia vrán, tajomstvo krčmára, ďalšie udalosti, „Kým si bol preč" denník.
