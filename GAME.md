@@ -1205,3 +1205,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Vrany sú nakreslené kódom: 5 vrán priletí k ohnisku, chvíľu pobehuje a odletí. Strata suroviny a cetka sa pripíšu, keď sú pri ohni.
 - „Kým si bol preč“: od 30 minút neprítomnosti ukáže okno Vitaj späť aj denník (`awayLog`): 1 záznam na hodinu, najviac 4. Niektoré dávajú malé odmeny (zlato, jedlo, kameň), krčmové záznamy sa objavia, len ak je krčma postavená.
 - Ďalej: tajomstvo krčmára, ďalšie udalosti, smrť s batohom, mini hry navyše.
+
+## Krok 139 – Výber jazyka a preklady
+- Pri prvom spustení (kým nie je uložený `uoe-lang`) sa ukáže obrazovka s výberom Slovenčina / English. Predvolené podľa jazyka prehliadača. Test bez výberu: pridaj `?nolang` do adresy.
+- Jazyk sa mení aj neskôr: Nastavenia (tlačidlo jazyka) a úvodná obrazovka.
+- Doplnené preklady do `enDict`: tvorca postavy, level hlášky, kúzla, bonusy budov, zámky podľa hĺbky, mini udalosti, vrany, minihry v krčme, denník, zápisy v changelogu 133–139.
+- Pri novom texte treba pridať kľúč do `enDict` (alebo použiť `LANG === 'en'`). Kontrola neprekladaných textov: `window.__I18NDBG = new Set()` pred štartom a po hraní prečítať `[...window.__I18NDBG]`.
