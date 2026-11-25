@@ -1242,3 +1242,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `SMOOTH = false` natrvalo (AoE štýl zrušený). `UIS.dev` predvolene false (v3).
 - Kino: `body.cine > *:not(#game)…` skryté, bez krúžku výberu a plávajúcich textov. `floatText` ignoruje texty začínajúce „+“.
 - Karta nálezu `#findC`: bez časovača, X (`#findX`), pozícia pod úlohami (`findPos`).
+
+## Krok 148 – Keeper zapaľuje fakle
+- `takeControl` a `uselSet` len pre `keeper`; zmizlo „Prevziať kontrolu“ a tlačidlo `cCtl` pri osadníkoch.
+- `keeperTorch(s)`: v noci (night ≥ .6), raz za noc (`WORLD.kTorchDay`), po 15 s bez ovládania Keeper ide na vyšliapanú cestičku (`WSTAGE ≥ 2`) ďaleko od svetiel (8 políčok) a postaví skrytú ozdobu `fakla` (DECOR). Max 40. Zásah hráča errand zruší.
