@@ -1174,3 +1174,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Rýchly štart z pôvodných štyroch. Nastavenie v `localStorage` kľúč `uoe-char` (starý `uoe-hero` sa prevezme).
 - Zámky: v kóde sú levely pri každej možnosti, kým nie je level hrdinu (`charLevel()`), je všetko odomknuté.
 - Ďalej: krok 134 – XP/levely + odomykanie + drop z bossov; krok 135 – skutočné kúzla.
+
+## Krok 134 – Level a odomykanie
+- XP (`WORLD.xp`) za príšery v jaskyni (3–8), v nájazdoch a za bossa (60, krypta +30). Level z XP: L2=30, L5=480, L10=2430 (`30·(L−1)²`).
+- Level odomyká: lovec 5, barbar 10, luk 4, sekera 8, vlk 6, medveď 12, farby oblečenia 2–9, farby mountov.
+- Vzácna korisť z bossa (len drop): biely vlk, ľadový medveď, hnedý kôň. Uložené v `WORLD.chDrops`.
+- Tvorca postavy ukazuje level a XP a zamknuté veci označí 🔒.
+- Ďalej: krok 135 – skutočné kúzla.
