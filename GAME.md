@@ -1251,3 +1251,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Logo z Gemini (webp, čierne pozadie odstránené flood-fillom) v úvodnom menu.
 - html.desk: lišty v štýle loga (kameň/hrdza/zlato), suroviny vľavo, dock len Osadníci+Stavať, +/− pri minimape (`--mw`), `#sPanel` široká mriežka.
 - Zrušené: vrany (`crowsTick` sa nevolá), ukážkový plot `fence_demo`, slamené panáky. Chodníčky: `PATH_CFG.steps` [3, 9, 24, 60, 180], zarastanie .08/h.
+
+## Krok 150 – Hudba hneď od výberu jazyka
+- Prvé spustenie: stránka ostáva SK, výber jazyka volá `window.__applyLang` (preklad bez reloadu). Hudba v menu sa spustí tým istým ťuknutím (aj `pointerup`/`touchend`/`click` kvôli iOS).
