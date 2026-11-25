@@ -1236,3 +1236,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 146 – Vzácne nálezy
 - `findOk`/`findDone`: `WORLD.findAt` = skutočný čas ďalšieho možného nálezu. Prvý +2 h, potom +6–14 h. Šanca pri ťažbe 3 % (bolo 14 %), rybárska chata 3 % × k.
+
+## Krok 147 – Upratané menu v hre
+- `#cfg` presunutý do hornej lišty (.tbr). Menu: Postava (=výbava + `#gLook` → výber vzhľadu), Kino, Návod, Kronika, Čo je nové, Nahlásiť chybu. Nastavenia: Zvuk/Hudba/Jazyk, hlasitosť, veľkosť, úsporný režim. Hlavné menu dole. `cfgFs`, `heroBtn` skryté.
+- `SMOOTH = false` natrvalo (AoE štýl zrušený). `UIS.dev` predvolene false (v3).
+- Kino: `body.cine > *:not(#game)…` skryté, bez krúžku výberu a plávajúcich textov. `floatText` ignoruje texty začínajúce „+“.
+- Karta nálezu `#findC`: bez časovača, X (`#findX`), pozícia pod úlohami (`findPos`).
