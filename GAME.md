@@ -1168,3 +1168,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 132 – Rozkazy osadníkom z pohľadu Keepera (oprava na telefóne)
 - Rozkazy (označiť strom/rudu/krík na ťažbu) už fungujú v jednom režime: ťukneš na vec a ukáže sa tlačidlo. Na počítači to fungovalo, na telefóne nie.
 - Chyba: karta mala triedu `mini` a CSS `.mini{display:none}` pre minimapu ju skryl. Opravené na `.mini:not(.card)`.
+
+## Krok 133 – Jedna postava, ktorú si upravíš
+- Koniec štyroch hrdinov. Jedna postava: pohlavie, pleť, vlasy (plešatý/krátke/dlhé), brada, oblečenie (rúcho/brnenie/plášť/kožušiny) s farbou, zbraň (palica/meč/luk/sekera), mount (kôň/vlk/medveď) s farbou.
+- Rýchly štart z pôvodných štyroch. Nastavenie v `localStorage` kľúč `uoe-char` (starý `uoe-hero` sa prevezme).
+- Zámky: v kóde sú levely pri každej možnosti, kým nie je level hrdinu (`charLevel()`), je všetko odomknuté.
+- Ďalej: krok 134 – XP/levely + odomykanie + drop z bossov; krok 135 – skutočné kúzla.
