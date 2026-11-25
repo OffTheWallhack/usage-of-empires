@@ -1218,3 +1218,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 141 – Bez úvodného ducha
 - Zrušený automatický štart scénky s duchom (prvá noc). Kód `duchStart` ostáva, ale nikto ho nevolá; tlačidlo `#tDuch` je skryté.
+
+## Krok 142 – Bez ikony ducha
+- `#duchBtn` skrytý cez CSS (logika Ducha ostáva). Dev World zostáva.
