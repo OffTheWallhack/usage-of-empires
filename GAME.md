@@ -1233,3 +1233,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `RIVER_PTS` predĺžené do juhu, `carveRiverS` vyreže rieku v regióne s. V domovských regiónoch menej lesa (prah .68).
 - Obchod s mapou ponúka už len Sever; `regsOwned` nepočíta domovské kúsky.
 - Hudba: všetky mp3 zmazané, `music/menu.mp3` hrá v hlavnom menu v slučke (po prvom ťuknutí). `MUS_SET` prázdny → v hre ticho, kým nepríde nová hudba.
+
+## Krok 146 – Vzácne nálezy
+- `findOk`/`findDone`: `WORLD.findAt` = skutočný čas ďalšieho možného nálezu. Prvý +2 h, potom +6–14 h. Šanca pri ťažbe 3 % (bolo 14 %), rybárska chata 3 % × k.
