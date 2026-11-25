@@ -1246,3 +1246,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 148 – Keeper zapaľuje fakle
 - `takeControl` a `uselSet` len pre `keeper`; zmizlo „Prevziať kontrolu“ a tlačidlo `cCtl` pri osadníkoch.
 - `keeperTorch(s)`: v noci (night ≥ .6), raz za noc (`WORLD.kTorchDay`), po 15 s bez ovládania Keeper ide na vyšliapanú cestičku (`WSTAGE ≥ 2`) ďaleko od svetiel (8 políčok) a postaví skrytú ozdobu `fakla` (DECOR). Max 40. Zásah hráča errand zruší.
+
+## Krok 149 – Nové logo a lišty na počítači
+- Logo z Gemini (webp, čierne pozadie odstránené flood-fillom) v úvodnom menu.
+- html.desk: lišty v štýle loga (kameň/hrdza/zlato), suroviny vľavo, dock len Osadníci+Stavať, +/− pri minimape (`--mw`), `#sPanel` široká mriežka.
+- Zrušené: vrany (`crowsTick` sa nevolá), ukážkový plot `fence_demo`, slamené panáky. Chodníčky: `PATH_CFG.steps` [3, 9, 24, 60, 180], zarastanie .08/h.
