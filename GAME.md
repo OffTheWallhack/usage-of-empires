@@ -1215,3 +1215,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 140 – Nové jednoduché logo
 - Logo je inline SVG (plameň z pixelov + nápis písmom Bold Pixels), nie obrázok. Farby: oranžová, zlatá, krémová.
 - Nadpis na úvodke: „Postav osadu“. Zrušené „Osada pod Prastarým stromom“; rozcestie = „Rozcestie“, strom = „Starý strom“.
+
+## Krok 141 – Bez úvodného ducha
+- Zrušený automatický štart scénky s duchom (prvá noc). Kód `duchStart` ostáva, ale nikto ho nevolá; tlačidlo `#tDuch` je skryté.
