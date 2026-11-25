@@ -1264,3 +1264,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 153 – Bez blikania UI pri štarte
 - Na začiatku `<head>` skript pridá `html.boot-title`, ak nejde o svet. CSS skryje všetko okrem `#title` (a výberu jazyka, počítadla) a menu ukáže hneď.
+
+## Krok 154 – Pozadie menu v reálnom čase
+- `media/title.mp4` nahraté cez CDP screencast v skutočnom čase (predtým `game.step` po snímkach, časť animácií bežala podľa reálnych hodín → zrýchlené). Kamera: elipsa 70 × 35 px za 30 s. Slučka 30 s s 1 s prelínačkou.
+- Oprava: `boot-title` sa odstráni po zobrazení menu (inak bol skrytý výber postavy pri Novej hre).
