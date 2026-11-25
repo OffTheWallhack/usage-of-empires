@@ -1254,3 +1254,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 150 – Hudba hneď od výberu jazyka
 - Prvé spustenie: stránka ostáva SK, výber jazyka volá `window.__applyLang` (preklad bez reloadu). Hudba v menu sa spustí tým istým ťuknutím (aj `pointerup`/`touchend`/`click` kvôli iOS).
+
+## Krok 151 – Hudba z menu dohrá v hre
+- `goWorld` uloží pozíciu pesničky do sessionStorage `uoe-mus`; v hre sa pustí od tej pozície (+ čas načítania), bez slučky. Bez povolenia prehliadača štartuje pri prvom ťuknutí/klávese.
