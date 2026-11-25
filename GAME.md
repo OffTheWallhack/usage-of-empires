@@ -1268,3 +1268,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 ## Krok 154 – Pozadie menu v reálnom čase
 - `media/title.mp4` nahraté cez CDP screencast v skutočnom čase (predtým `game.step` po snímkach, časť animácií bežala podľa reálnych hodín → zrýchlené). Kamera: elipsa 70 × 35 px za 30 s. Slučka 30 s s 1 s prelínačkou.
 - Oprava: `boot-title` sa odstráni po zobrazení menu (inak bol skrytý výber postavy pri Novej hre).
+
+## Krok 155 – Na telefóne chodíš ťuknutím
+- Dotyk v dedine: joystick a Úder/Oheň/Úhyb skryté; ťuk na voľnú zem → `moveTo`. `#aMain` len keď nie je idle.
+- `fightOn()` = živý nájazdník; `body.fight` zapne joystick a bojové tlačidlá. Jaskyňa bez zmeny.
+- Telefón: veľkosť ovládania 85 % (na šírku 80 %), raz prepísané (UIS v4).
