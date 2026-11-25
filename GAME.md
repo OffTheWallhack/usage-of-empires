@@ -1257,3 +1257,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 151 – Hudba z menu dohrá v hre
 - `goWorld` uloží pozíciu pesničky do sessionStorage `uoe-mus`; v hre sa pustí od tej pozície (+ čas načítania), bez slučky. Bez povolenia prehliadača štartuje pri prvom ťuknutí/klávese.
+
+## Krok 152 – Živé pozadie menu, hover, zvuk tlačidiel
+- `media/title.mp4` (29 s, 1280×720, slučka cez xfade): kamera krúži nad Dev World, snímky po jednom cez `game.step`. V menu `#tVid` (muted autoplay), v úspornom režime nie.
+- Hover: zlatý okraj a zjasnenie pre všetky tlačidlá (len zariadenia s myšou). Klik: vlastný krátky zvuk (WebAudio), `SFX('ui')` sa tesne po ňom nezopakuje.
