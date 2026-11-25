@@ -1221,3 +1221,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 142 – Bez ikony ducha
 - `#duchBtn` skrytý cez CSS (logika Ducha ostáva). Dev World zostáva.
+
+## Krok 143 – Počítadlo len v menu
+- `#rd-stats` (z stats.js) je viditeľný len keď `body.ontitle` (úvodné menu).
