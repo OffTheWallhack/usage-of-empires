@@ -1188,3 +1188,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Prepnutie: malé ⟳ v rohu tlačidla (telefón), alebo riadok Kúzlo v tvorcovi postavy. Ľad level 3, blesk level 7.
 - Držanie tlačidla stále robí Ohnivý dopad (skok).
 - Ďalej: kúzla z lootu bossov, ďalšie kúzla, prepojenie dungeonu s dedinou.
+
+## Krok 136 – Jaskyňa a dedina
+- Hĺbka odomyká budovy (`DEPTH_NEED`): kasárne 3., observatórium 6., svätyňa 8., knižnica 11. poschodie. Zámok sa ukáže v menu Stavať aj pri pokuse stavať.
+- Pri novej hĺbke príde hláška o odomknutých plánoch.
+- Hotové budovy dávajú bonus v jaskyni (`VILLAGE_BUFF`): kováčňa a kasárne +1 škoda, krčma a svätyňa +2 život, knižnica −15 % cooldown kúziel. Bonusy sa sčítajú podľa počtu typov budov a vidno ich v popise budovy.
+- Ďalej: nájazdy podľa hĺbky, kúzla z lootu bossov, ďalšie 💡 nápady.
