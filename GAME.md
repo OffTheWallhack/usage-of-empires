@@ -1211,3 +1211,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Jazyk sa mení aj neskôr: Nastavenia (tlačidlo jazyka) a úvodná obrazovka.
 - Doplnené preklady do `enDict`: tvorca postavy, level hlášky, kúzla, bonusy budov, zámky podľa hĺbky, mini udalosti, vrany, minihry v krčme, denník, zápisy v changelogu 133–139.
 - Pri novom texte treba pridať kľúč do `enDict` (alebo použiť `LANG === 'en'`). Kontrola neprekladaných textov: `window.__I18NDBG = new Set()` pred štartom a po hraní prečítať `[...window.__I18NDBG]`.
+
+## Krok 140 – Nové jednoduché logo
+- Logo je inline SVG (plameň z pixelov + nápis písmom Bold Pixels), nie obrázok. Farby: oranžová, zlatá, krémová.
+- Nadpis na úvodke: „Postav osadu“. Zrušené „Osada pod Prastarým stromom“; rozcestie = „Rozcestie“, strom = „Starý strom“.
