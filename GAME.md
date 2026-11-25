@@ -1200,3 +1200,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Vrany: keď je drevo/kameň/jedlo 60 s plné, prídu (raz za 5 minút), vezmú 20 % a nechajú zlato alebo kryštál. Zatiaľ len hláška, bez animácie vrán.
 - Krčma (hotová): pri nej tlačidlo **Hrať**. Kocky (stávka 1/2/5 zlata, dvojica 2×), Hrnčeky (uhádni guľku), Páčenie rúk (ťukaj 8 s, XP raz za herný deň, ťažšie s levelom).
 - Ďalej: animácia vrán, tajomstvo krčmára, ďalšie udalosti, „Kým si bol preč" denník.
+
+## Krok 138 – Vrany a denník
+- Vrany sú nakreslené kódom: 5 vrán priletí k ohnisku, chvíľu pobehuje a odletí. Strata suroviny a cetka sa pripíšu, keď sú pri ohni.
+- „Kým si bol preč“: od 30 minút neprítomnosti ukáže okno Vitaj späť aj denník (`awayLog`): 1 záznam na hodinu, najviac 4. Niektoré dávajú malé odmeny (zlato, jedlo, kameň), krčmové záznamy sa objavia, len ak je krčma postavená.
+- Ďalej: tajomstvo krčmára, ďalšie udalosti, smrť s batohom, mini hry navyše.
