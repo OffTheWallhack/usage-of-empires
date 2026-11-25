@@ -1164,3 +1164,7 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Prepínač Hrdina/Mesto je zrušený (`MODE` je vždy `hero`, tlačidlo skryté). Keeper stále behá a stavať sa dá cez Stavať aj za pochodu, aj na telefóne na výšku.
 - Nové: Keeper vie stavať. Pri vchode do staveniska (do 3 políčok) sa tlačidlo Akcia zmení na Stavať; trvá ~75 % času osadníka a stavbu dokončí (osadník, čo na nej pracoval, sa uvoľní). Funguje pre všetky stavby aj most (`scanTarget`, `selfDone`).
 - Ďalšie kroky (dohodnuté poradie): rozkazy osadníkom z pohľadu Keepera, rast hrdinu (XP), prepojenie dungeonu s dedinou.
+
+## Krok 132 – Rozkazy osadníkom z pohľadu Keepera (oprava na telefóne)
+- Rozkazy (označiť strom/rudu/krík na ťažbu) už fungujú v jednom režime: ťukneš na vec a ukáže sa tlačidlo. Na počítači to fungovalo, na telefóne nie.
+- Chyba: karta mala triedu `mini` a CSS `.mini{display:none}` pre minimapu ju skryl. Opravené na `.mini:not(.card)`.
