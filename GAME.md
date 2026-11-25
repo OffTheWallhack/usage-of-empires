@@ -1181,3 +1181,10 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Vzácna korisť z bossa (len drop): biely vlk, ľadový medveď, hnedý kôň. Uložené v `WORLD.chDrops`.
 - Tvorca postavy ukazuje level a XP a zamknuté veci označí 🔒.
 - Ďalej: krok 135 – skutočné kúzla.
+
+## Krok 135 – Skutočné kúzla
+- Tri kúzla na tlačidle Oheň (`CHAR.spell`): Oheň (guľa + výbuch, cd 3 s), Ľad (guľa, menej škody, zmrazí príšeru 2,4–3 s; bossa nezmrazí, cd 3,5 s), Blesk (okamžitý, až 3 ciele v reťazi, cd 4,5 s).
+- Funguje v dedine (nájazdy, terče) aj v jaskyni.
+- Prepnutie: malé ⟳ v rohu tlačidla (telefón), alebo riadok Kúzlo v tvorcovi postavy. Ľad level 3, blesk level 7.
+- Držanie tlačidla stále robí Ohnivý dopad (skok).
+- Ďalej: kúzla z lootu bossov, ďalšie kúzla, prepojenie dungeonu s dedinou.
