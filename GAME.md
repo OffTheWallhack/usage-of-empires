@@ -1224,3 +1224,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 143 – Počítadlo len v menu
 - `#rd-stats` (z stats.js) je viditeľný len keď `body.ontitle` (úvodné menu).
+
+## Krok 144 – Nové úvodné menu
+- Pozadie `#tBg` = zmenšený záber dediny (webp v CSS). Jeden stĺpec: logo, Nová hra/Pokračovať (pod ním „Deň N“), Dev World, riadok Nastavenia / Pomoc / Novinky. Jazyk `#tLang` vpravo hore. Staré rámy, sviečky, karta a podnadpisy skryté.
