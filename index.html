@@ -12916,7 +12916,7 @@ if (WID) {   // Krok 151: pesnička z hlavného menu pokračuje v hre od miesta,
 }
 $('menuBtn').onclick = () => { try { saveGame(); } catch (e) { /* nič */ } location.hash = ''; location.reload(); };
 if (!WID) {
-  $('title').hidden = false; document.body.classList.add('ontitle');
+  $('title').hidden = false; document.body.classList.add('ontitle'); document.documentElement.classList.remove('boot-title');   // Krok 154: menu je už viditeľné, okná (výber postavy…) môžu ísť navrch
   if (!LOWFX) { const v = $('tVid'); v.addEventListener('playing', () => v.classList.add('on'), { once: true }); v.src = 'media/title.mp4'; const p = v.play(); if (p && p.catch) p.catch(() => { /* ostane obrázok */ }); }
   {   // Krok 145: hudba v hlavnom menu (prehliadač ju pustí až po prvom ťuknutí)
     let mOn = true; try { mOn = localStorage.getItem('dw-mus') !== '0'; } catch (e) { /* nič */ }
