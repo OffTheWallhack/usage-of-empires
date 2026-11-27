@@ -1324,3 +1324,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 
 ## Krok 165 – Ostré suroviny
 - `pulse(#resBar)` už nemení `scale` ani `position` (Safari na iPhone nechal vrstvu rozmazanú). Namiesto toho bliknú dlaždice `.r` (opacity 300 ms).
+
+## Krok 166 – Úlohy nad spodnou lištou
+- Telefón: `#achv` dostane `bottom` = výška nad spodnou lištou (prepočet cez `--ui`), `dkQ` prepína otvorenie/zatvorenie a `aria-pressed`. `closeSheets` zavrie aj Úlohy.
