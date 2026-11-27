@@ -1284,3 +1284,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Dotyk (`html:not(.desk)`): každé tlačidlo má neviditeľný `::after` hitbox aspoň 44 × 44 px (`inset:min(0, (100% − 44px)/2)`). Spodná lišta siaha po okraj (vľavo Osadníci, vpravo Úlohy, dole až po spodok), Menu po pravý horný roh.
 - Nastavenia: riadky a posuvníky aspoň 44 px. `Zbúrať` (`.cdel`) vpravo s medzerou 18 px od ostatných.
 - Počítač: hitboxy bez zmeny, skratky bez zmeny.
+
+## Krok 158 – Hickov zákon
+- Stavať: karty `SBCAT` (5 kategórií budov + Ozdoby, „Ostatné“ pridané k Osade), v karte budovy zoradené podľa doby s nadpisom doby, zamknuté v `<details class=dlock>` (stav `SBLK`).
+- Karta budovy: hlavné akcie + vylepšenia viditeľné; `lock` (pozastaviť), `pop` (uvoľniť) a Zbúrať v `<details class=cmore>` „Viac“ (stav `CMORE`).
+- Menu: Postava, Kino, Návod, Kronika; pod „Viac“ Čo je nové, Nahlásiť chybu, Noc, Záloha sveta.
+- Spodná lišta ostáva 3 tlačidlá (telefón), na PC 2 + Úlohy cez zoznam úloh.
