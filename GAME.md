@@ -1295,3 +1295,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `pulse(el)`: `scale` 1 → 1.08 → 1 (200 ms) + `.fxglow` (zlatý tieň, animuje sa len opacity, 300 ms). `shake(el)`: `translate` do strán 260 ms. Bez `el` cieľ = posledné stlačené tlačidlo (do 1,5 s a viditeľné), inak `#resBar`.
 - Volania `okFx()`: placeBld, placeHut, trade, research, storeUp, addWorker, toggleJob (označenie), rozkaz cez pravý klik, Uložiť zálohu. `failFx()`: v `missText` (každé „Chýba ešte…“).
 - prefers-reduced-motion: bez pohybu, len krátka zmena opacity.
+
+## Krok 160 – swapIcon
+- `swapIcon(host, html, key)`: ak sa `key` líši od `host.dataset.ik`, stará a nová ikona sú cez seba (grid). Stará: opacity 1→0, blur 0→4 px, scale 1→0,8; nová naopak; 200 ms. Prvé nastavenie bez animácie. Reduced motion: len opacity 120 ms.
+- Použité: Zvuk (`snd`/`mute`), Hudba (`mus`/`musoff`), `setBtn` (zámok `lock`/`unlock` a hlavné tlačidlo karty).
+- Pozn.: rozmazanie je `filter`, výnimka z pravidla „len transform a opacity“ na výslovnú žiadosť.
