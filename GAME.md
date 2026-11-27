@@ -1311,3 +1311,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `dimBg(on)`: `#dlgBg` (tmavá vrstva + `backdrop-filter: blur(3px)`, animuje sa len opacity 220 ms), počíta otvorené okná. `stagger(box)`: deti nabiehajú (opacity + translateY 8 px, 200 ms, oneskorenie 50 ms × poradie). `showDlg({kick,title,text,acts})`: jedna `main` akcia zlatá (`warn` = červená), ostatné `.dlgsub`; fronta okien; Esc zavrie; v jaskyni pauza scény.
 - Použité: level up (namiesto toastu), korisť z bossa, potvrdenie zbúrania z kontextového menu, Zvitok doby (`#ageSc` priesvitné pozadie + dimBg + stagger, hlavné tlačidlo zvýraznené).
 - Reduced motion: bez posunu a oneskorení, len opacity 120 ms.
+
+## Krok 163 – FLIP v okne Stavať
+- Klik na `.ditem`: uloží sa rect dlaždice (`flipNext`) a scroll (`SBSCROLL`); po `sbRender` `flipOpen` animuje `#sDetail` z rectu dlaždice (translate+scale, 260 ms), obsah sa zjaví od 35 %.
+- `sbBack` → `flipClose`: kópia detailu (`.flipghost`, fixed) sa zbalí na dlaždicu (240 ms, opacity → 0), zoznam sa vráti na pôvodný scroll, dlaždica sa zjaví.
+- Reduced motion: len prelínanie 120 ms. Iné panely zatiaľ bez FLIP.
