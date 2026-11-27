@@ -1290,3 +1290,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Karta budovy: hlavné akcie + vylepšenia viditeľné; `lock` (pozastaviť), `pop` (uvoľniť) a Zbúrať v `<details class=cmore>` „Viac“ (stav `CMORE`).
 - Menu: Postava, Kino, Návod, Kronika; pod „Viac“ Čo je nové, Nahlásiť chybu, Noc, Záloha sveta.
 - Spodná lišta ostáva 3 tlačidlá (telefón), na PC 2 + Úlohy cez zoznam úloh.
+
+## Krok 159 – pulse / shake
+- `pulse(el)`: `scale` 1 → 1.08 → 1 (200 ms) + `.fxglow` (zlatý tieň, animuje sa len opacity, 300 ms). `shake(el)`: `translate` do strán 260 ms. Bez `el` cieľ = posledné stlačené tlačidlo (do 1,5 s a viditeľné), inak `#resBar`.
+- Volania `okFx()`: placeBld, placeHut, trade, research, storeUp, addWorker, toggleJob (označenie), rozkaz cez pravý klik, Uložiť zálohu. `failFx()`: v `missText` (každé „Chýba ešte…“).
+- prefers-reduced-motion: bez pohybu, len krátka zmena opacity.
