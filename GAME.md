@@ -1273,3 +1273,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Dotyk v dedine: joystick a Úder/Oheň/Úhyb skryté; ťuk na voľnú zem → `moveTo`. `#aMain` len keď nie je idle.
 - `fightOn()` = živý nájazdník; `body.fight` zapne joystick a bojové tlačidlá. Jaskyňa bez zmeny.
 - Telefón: veľkosť ovládania 85 % (na šírku 80 %), raz prepísané (UIS v4).
+
+## Krok 156 – Pravidlo odozvy
+- Pravidlo: každé ťuknutie/klik vizuálne zareaguje do 100 ms; dlhšie veci ukážu progress, nikdy zamrznutú obrazovku.
+- `.press` (pointerdown v capture, pasívne) → `scale:.95; opacity:.86`, prechod 80 ms. `touch-action:manipulation` na tlačidlách. Pri `prefers-reduced-motion` bez prechodu.
+- Loading: lesk na pruhu (`transform`, beží na kompozítore) sa hýbe aj počas blokujúceho vytvárania sveta (~1 dlhá úloha pri štarte).
+- Merania (headless, telefón 390×844): uloženie hry ~0 ms, vstup do jaskyne bez dlhej úlohy > 150 ms, údolie 159 ms, počas hry max 109 ms na snímku.
