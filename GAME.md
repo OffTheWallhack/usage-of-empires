@@ -1316,3 +1316,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Klik na `.ditem`: uloží sa rect dlaždice (`flipNext`) a scroll (`SBSCROLL`); po `sbRender` `flipOpen` animuje `#sDetail` z rectu dlaždice (translate+scale, 260 ms), obsah sa zjaví od 35 %.
 - `sbBack` → `flipClose`: kópia detailu (`.flipghost`, fixed) sa zbalí na dlaždicu (240 ms, opacity → 0), zoznam sa vráti na pôvodný scroll, dlaždica sa zjaví.
 - Reduced motion: len prelínanie 120 ms. Iné panely zatiaľ bez FLIP.
+
+## Krok 164 – reveal()
+- `reveal(el, {x, y, dur})`: `clip-path: circle()` z bodu (v px obrazovky) až po najvzdialenejší roh; `reveal(el, {down:true})`: `inset(0 0 100% 0)` → `inset(0)`. Reduced motion: len opacity 120 ms.
+- Nová doba (`#ageSc`): kruh zo stredu 400 ms. `showDlg` (level up, odomknuté veci, korisť): kruh z posledného ťuknutia (`clickPt`, do 4 s), inak zo stredu, 360 ms. `.sheet`, `#cfgPanel`, `.full`: MutationObserver na `hidden` → zhora nadol 320 ms.
+- Pozn.: `clip-path` je výnimka z pravidla „len transform a opacity“ na výslovnú žiadosť.
