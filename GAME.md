@@ -1300,3 +1300,9 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `swapIcon(host, html, key)`: ak sa `key` líši od `host.dataset.ik`, stará a nová ikona sú cez seba (grid). Stará: opacity 1→0, blur 0→4 px, scale 1→0,8; nová naopak; 200 ms. Prvé nastavenie bez animácie. Reduced motion: len opacity 120 ms.
 - Použité: Zvuk (`snd`/`mute`), Hudba (`mus`/`musoff`), `setBtn` (zámok `lock`/`unlock` a hlavné tlačidlo karty).
 - Pozn.: rozmazanie je `filter`, výnimka z pravidla „len transform a opacity“ na výslovnú žiadosť.
+
+## Krok 161 – Gumový okraj
+- Mapa: `rubPan(dx,dy)` drží surovú polohu `rubR`, zobrazí `rubAxis` (presah × 0,3, max 60 px obrazovky). Po pustení prsta/myši alebo 120 ms po poslednom touchpad posune `rubBack()` (Back.easeOut 260 ms). Ostatné presuny kamery ostávajú tvrdo orezané (`clampCam`).
+- Zoom: `zoomAt(…, soft)` za hranicou s odporom (max ±15 %), `zoomBack` po štipnutí, `zoomSoft` (touchpad) dosadne s pružinou.
+- Zoznamy: wheel/touchmove na konci zoznamu posúva deti cez `--rb` (translate), po skončení `rbback` 260 ms. `overscroll-behavior: contain`.
+- Reduced motion: návrat 120 ms bez preskočenia.
