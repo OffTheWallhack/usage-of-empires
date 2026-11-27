@@ -1279,3 +1279,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `.press` (pointerdown v capture, pasívne) → `scale:.95; opacity:.86`, prechod 80 ms. `touch-action:manipulation` na tlačidlách. Pri `prefers-reduced-motion` bez prechodu.
 - Loading: lesk na pruhu (`transform`, beží na kompozítore) sa hýbe aj počas blokujúceho vytvárania sveta (~1 dlhá úloha pri štarte).
 - Merania (headless, telefón 390×844): uloženie hry ~0 ms, vstup do jaskyne bez dlhej úlohy > 150 ms, údolie 159 ms, počas hry max 109 ms na snímku.
+
+## Krok 157 – Fittsov zákon
+- Dotyk (`html:not(.desk)`): každé tlačidlo má neviditeľný `::after` hitbox aspoň 44 × 44 px (`inset:min(0, (100% − 44px)/2)`). Spodná lišta siaha po okraj (vľavo Osadníci, vpravo Úlohy, dole až po spodok), Menu po pravý horný roh.
+- Nastavenia: riadky a posuvníky aspoň 44 px. `Zbúrať` (`.cdel`) vpravo s medzerou 18 px od ostatných.
+- Počítač: hitboxy bez zmeny, skratky bez zmeny.
