@@ -1306,3 +1306,8 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - Zoom: `zoomAt(…, soft)` za hranicou s odporom (max ±15 %), `zoomBack` po štipnutí, `zoomSoft` (touchpad) dosadne s pružinou.
 - Zoznamy: wheel/touchmove na konci zoznamu posúva deti cez `--rb` (translate), po skončení `rbback` 260 ms. `overscroll-behavior: contain`.
 - Reduced motion: návrat 120 ms bez preskočenia.
+
+## Krok 162 – Dôležité okná
+- `dimBg(on)`: `#dlgBg` (tmavá vrstva + `backdrop-filter: blur(3px)`, animuje sa len opacity 220 ms), počíta otvorené okná. `stagger(box)`: deti nabiehajú (opacity + translateY 8 px, 200 ms, oneskorenie 50 ms × poradie). `showDlg({kick,title,text,acts})`: jedna `main` akcia zlatá (`warn` = červená), ostatné `.dlgsub`; fronta okien; Esc zavrie; v jaskyni pauza scény.
+- Použité: level up (namiesto toastu), korisť z bossa, potvrdenie zbúrania z kontextového menu, Zvitok doby (`#ageSc` priesvitné pozadie + dimBg + stagger, hlavné tlačidlo zvýraznené).
+- Reduced motion: bez posunu a oneskorení, len opacity 120 ms.
