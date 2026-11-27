@@ -1321,3 +1321,6 @@ Mierka (1. kolo, osadník ≈ 18 px ≈ 1,75 m):
 - `reveal(el, {x, y, dur})`: `clip-path: circle()` z bodu (v px obrazovky) až po najvzdialenejší roh; `reveal(el, {down:true})`: `inset(0 0 100% 0)` → `inset(0)`. Reduced motion: len opacity 120 ms.
 - Nová doba (`#ageSc`): kruh zo stredu 400 ms. `showDlg` (level up, odomknuté veci, korisť): kruh z posledného ťuknutia (`clickPt`, do 4 s), inak zo stredu, 360 ms. `.sheet`, `#cfgPanel`, `.full`: MutationObserver na `hidden` → zhora nadol 320 ms.
 - Pozn.: `clip-path` je výnimka z pravidla „len transform a opacity“ na výslovnú žiadosť.
+
+## Krok 165 – Ostré suroviny
+- `pulse(#resBar)` už nemení `scale` ani `position` (Safari na iPhone nechal vrstvu rozmazanú). Namiesto toho bliknú dlaždice `.r` (opacity 300 ms).
